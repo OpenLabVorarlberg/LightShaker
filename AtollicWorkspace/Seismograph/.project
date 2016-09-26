@@ -25,9 +25,14 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>src/shared</name>
+			<name>Libraries</name>
 			<type>2</type>
-			<locationURI>WORKSPACE_LOC/shared</locationURI>
+			<locationURI>WORKSPACE_LOC/shared/Libraries</locationURI>
+		</link>
+		<link>
+			<name>src/src</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/shared/src</locationURI>
 		</link>
 	</linkedResources>
 </projectDescription>

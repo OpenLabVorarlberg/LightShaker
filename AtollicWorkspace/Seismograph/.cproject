@@ -16,15 +16,32 @@
 					<folderInfo id="com.atollic.truestudio.exe.debug.922410474." name="/" resourcePath="">
 						<toolChain id="com.atollic.truestudio.exe.debug.toolchain.1013496590" name="Atollic ARM Tools" superClass="com.atollic.truestudio.exe.debug.toolchain">
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.atollic.truestudio.exe.debug.toolchain.platform.1199079133" isAbstract="false" name="Debug platform" superClass="com.atollic.truestudio.exe.debug.toolchain.platform"/>
-							<builder buildPath="${workspace_loc:/POV_USBDemo}/Debug" customBuilderProperties="toolChainpathType=1|toolChainpathString=C:/Program Files (x86)/Atollic/TrueSTUDIO for ARM 5.4.2/ARMTools/bin|" id="com.atollic.truestudio.mbs.builder1.1708175169" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="com.atollic.truestudio.mbs.builder1"/>
+							<builder buildPath="${workspace_loc:/POV_USBDemo}/Debug" customBuilderProperties="toolChainpathType=1|toolChainpathString=C:/Program Files (x86)/Atollic/TrueSTUDIO for ARM 5.4.2/ARMTools/bin|" id="com.atollic.truestudio.mbs.builder1.1708175169" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="com.atollic.truestudio.mbs.builder1">
+								<outputEntries>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Debug"/>
+									<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="outputPath" name="Release"/>
+								</outputEntries>
+							</builder>
 							<tool id="com.atollic.truestudio.exe.debug.toolchain.as.53692775" name="Assembler" superClass="com.atollic.truestudio.exe.debug.toolchain.as">
 								<option id="com.atollic.truestudio.common_options.target.endianess.708128659" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.1790531522" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" value="STM32F042F6" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.common_options.target.instr_set.2069994604" name="Instruction set" superClass="com.atollic.truestudio.common_options.target.instr_set" value="com.atollic.truestudio.common_options.target.instr_set.thumb2" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.common_options.target.fpucore.661349680" name="FPU" superClass="com.atollic.truestudio.common_options.target.fpucore" value="None" valueType="enumerated"/>
 								<option id="com.atollic.truestudio.common_options.target.fpu.2105024683" name="Floating point" superClass="com.atollic.truestudio.common_options.target.fpu"/>
-								<option id="com.atollic.truestudio.as.symbols.defined.1510192801" name="Defined symbols" superClass="com.atollic.truestudio.as.symbols.defined"/>
-								<option id="com.atollic.truestudio.as.general.incpath.2106835615" name="Include path" superClass="com.atollic.truestudio.as.general.incpath"/>
+								<option id="com.atollic.truestudio.as.symbols.defined.1510192801" name="Defined symbols" superClass="com.atollic.truestudio.as.symbols.defined" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="STM32F042"/>
+									<listOptionValue builtIn="false" value="USE_STDPERIPH_DRIVER"/>
+								</option>
+								<option id="com.atollic.truestudio.as.general.incpath.2106835615" name="Include path" superClass="com.atollic.truestudio.as.general.incpath" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/STM32F0xx_StdPeriph_Driver/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/CMSIS/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/CMSIS/Device/ST/STM32F0xx/Include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/STM32_USB_Device_Driver/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/STM32_USB_Device_Library/Class/cdc/inc}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/Libraries/STM32_USB_Device_Library/Core/inc}&quot;"/>
+								</option>
 								<inputType id="com.atollic.truestudio.as.input.540567495" name="Input" superClass="com.atollic.truestudio.as.input"/>
 							</tool>
 							<tool id="com.atollic.truestudio.exe.debug.toolchain.gcc.1880140822" name="C Compiler" superClass="com.atollic.truestudio.exe.debug.toolchain.gcc">
@@ -33,14 +50,14 @@
 									<listOptionValue builtIn="false" value="USE_STDPERIPH_DRIVER"/>
 								</option>
 								<option id="com.atollic.truestudio.gcc.directories.select.1947250426" name="Include path" superClass="com.atollic.truestudio.gcc.directories.select" valueType="includePath">
-									<listOptionValue builtIn="false" value="../src"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/shared}&quot;"/>
-									<listOptionValue builtIn="false" value="..\Libraries\CMSIS\Include"/>
-									<listOptionValue builtIn="false" value="..\Libraries\CMSIS\Device\ST\STM32F0xx\Include"/>
-									<listOptionValue builtIn="false" value="..\Libraries\STM32F0xx_StdPeriph_Driver\inc"/>
-									<listOptionValue builtIn="false" value="&quot;..\Libraries\STM32_USB_Device_Driver\inc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;..\Libraries\STM32_USB_Device_Library\Class\cdc\inc&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;..\Libraries\STM32_USB_Device_Library\Core\inc&quot;"/>
+									<listOptionValue builtIn="false" value="D:/git/LightShaker/AtollicWorkspace/Seismograph/src"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Seismograph/shared}&quot;"/>
+									<listOptionValue builtIn="false" value="D:/git/LightShaker/AtollicWorkspace/Seismograph/Libraries/CMSIS/Include"/>
+									<listOptionValue builtIn="false" value="D:/git/LightShaker/AtollicWorkspace/Seismograph/Libraries/CMSIS/Device/ST/STM32F0xx/Include"/>
+									<listOptionValue builtIn="false" value="D:/git/LightShaker/AtollicWorkspace/Seismograph/Libraries/STM32F0xx_StdPeriph_Driver/inc"/>
+									<listOptionValue builtIn="false" value="D:/git/LightShaker/AtollicWorkspace/Seismograph/Libraries/STM32_USB_Device_Driver/inc"/>
+									<listOptionValue builtIn="false" value="D:/git/LightShaker/AtollicWorkspace/Seismograph/Libraries/STM32_USB_Device_Library/Class/cdc/inc"/>
+									<listOptionValue builtIn="false" value="D:/git/LightShaker/AtollicWorkspace/Seismograph/Libraries/STM32_USB_Device_Library/Core/inc"/>
 								</option>
 								<option id="com.atollic.truestudio.common_options.target.endianess.2108883376" name="Endianess" superClass="com.atollic.truestudio.common_options.target.endianess"/>
 								<option id="com.atollic.truestudio.common_options.target.mcpu.1442803966" name="Microcontroller" superClass="com.atollic.truestudio.common_options.target.mcpu" value="STM32F042F6" valueType="enumerated"/>
@@ -105,7 +122,7 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Libraries"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="Libraries"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -209,7 +226,6 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Libraries"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
@@ -220,9 +236,19 @@
 	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 		<project id="POV_USBDemo.com.atollic.truestudio.exe.530106294" name="Executable" projectType="com.atollic.truestudio.exe"/>
 	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/Seismograph"/>
+		</configuration>
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/Seismograph"/>
+		</configuration>
+	</storageModule>
 	<storageModule moduleId="scannerConfiguration">
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="com.atollic.truestudio.exe.debug.922410474;com.atollic.truestudio.exe.debug.922410474.;com.atollic.truestudio.exe.debug.toolchain.gcc.1880140822;com.atollic.truestudio.gcc.input.1822192721">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="com.atollic.truestudio.mbs.ARMToolsPerProjectProfileC"/>
+		</scannerConfigBuildInfo>
 	</storageModule>
-	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
-	<storageModule moduleId="refreshScope"/>
 </cproject>

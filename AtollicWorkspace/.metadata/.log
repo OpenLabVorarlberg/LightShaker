@@ -8317,3 +8317,6 @@ Binding(CTRL+G,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.cdt.ui.cViewScope,,,system)
+
+!ENTRY com.atollic.truestudio.productmanager 1 0 2016-09-26 15:18:14.778
+!MESSAGE Unloading product manager

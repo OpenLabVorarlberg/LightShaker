@@ -1,5 +1,5 @@
 #
-#Mon Sep 26 10:04:57 CEST 2016
+#Mon Sep 26 10:17:46 CEST 2016
 Debug/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_rtc.o=1
 Debug/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_tim.o=1
 Libraries/STM32F0xx_StdPeriph_Driver/inc/stm32f0xx_crs.h=1
@@ -11,7 +11,6 @@ Libraries/STM32_USB_Device_Driver/src/usb_dcd_int.c=1
 Debug/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_exti.o=1
 src/drvMMA8653.c=1
 Libraries/CMSIS/Include/core_cmInstr.h=1
-Debug/src/utilFifo.o=1
 Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_crs.c=1
 Libraries/STM32_USB_Device_Driver/inc/usb_bsp.h=1
 Debug/src/drvDisplay.o=1
@@ -27,11 +26,9 @@ Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_cec.c=1
 Libraries/STM32F0xx_StdPeriph_Driver/inc/stm32f0xx_dma.h=1
 Libraries/STM32F0xx_StdPeriph_Driver/inc/stm32f0xx_spi.h=1
 Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_dbgmcu.c=1
-src/utilFifo.h=1
 Libraries/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h=1
 Libraries/STM32F0xx_StdPeriph_Driver/inc/stm32f0xx_rcc.h=1
 Debug/Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_misc.o=1
-src/utilFifo.c=1
 Libraries/STM32_USB_Device_Driver/inc/usb_regs.h=1
 Debug/Libraries/STM32_USB_Device_Driver/src/usb_core.o=1
 Libraries/STM32F0xx_StdPeriph_Driver/src/stm32f0xx_comp.c=1
