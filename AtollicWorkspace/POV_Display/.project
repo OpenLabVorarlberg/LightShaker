@@ -23,4 +23,16 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>Libraries</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/shared/Libraries</locationURI>
+		</link>
+		<link>
+			<name>src/src</name>
+			<type>2</type>
+			<locationURI>WORKSPACE_LOC/shared/src</locationURI>
+		</link>
+	</linkedResources>
 </projectDescription>

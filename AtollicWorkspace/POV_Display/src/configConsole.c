@@ -5,12 +5,12 @@
  *      Author: Christian
  */
 
-#include "drvUSB.h"
 #include "string.h"
-#include "eeprom.h"
 #include "stdio.h"
 #include "drvApa102.h"
 #include "drvDisplay.h"
+#include "eeprom.h"
+#include "drvUSB.h"
 #define CFLAG_NEWSTATE	(1<<0)
 #define LENGTH_UNKNOWN	0xFF
 
