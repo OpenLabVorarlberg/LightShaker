@@ -38,3 +38,23 @@ GUI is waiting for subprocess to be done...
 Execution done. EXIT CODE = 0
   Logging finished.  ## CURRENT TIME  : [9/26, 2016   9:37  8.725]
 ------------------------------------
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [9/26, 2016   16:40  52.994]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : D:\git\LightShaker\AtollicWorkspace\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [9/26, 2016   16:40  55.583]
+------------------------------------
+
+------------------------------------
+  Logging start.  ## CURRENT TIME  : [10/3, 2016   10:13  59.259]  ## COMMAND LINE  : 
+cmd /C "gen_csini.exe"
+------------------------------------
+[STD-IN] : D:\git\LightShaker\AtollicWorkspace\.metadata\.plugins\sst.csgp\bin\env_vars.txt
+GUI is waiting for subprocess to be done...
+Execution done. EXIT CODE = 0
+  Logging finished.  ## CURRENT TIME  : [10/3, 2016   10:14  1.757]
+------------------------------------

@@ -74,7 +74,6 @@ void delay(uint32_t ticks)
 	while(delayTimer > 0);
 }
 
-//TODO: this project should use the drivers from "POV_Display" project, as those in here are old and not maintained any more!
 int main(void)
 {
 	uint8_t led_pos;
@@ -93,6 +92,9 @@ int main(void)
 	mma8653_setDataWidth(MMA8653_DATAWIDTH_8);
 	mma8653_setDataRate(RATE_12Hz5);
 
+	globalColor.red=0xFF;
+	globalColor.green=0xFF;
+	globalColor.blue=0xFF;
 
 	//LED-Test
 	for(uint8_t i = 0; i<16; i++)
