@@ -1,0 +1,33 @@
+Stückliste POVDisplay-2
+
+Qty Value          Device          Package            Parts                                                                    Description                              
+1                  CHECKER_1206    SM_RCW_1206        TP5                                                                      Checker 1p 1206 SMD                      
+1                  PUSH-BUTTON_SMD PUSH-BUTTON_SMD    S1                                                                       Push Button Switch                       
+2   100k           R1206           SM_1206            R14, R19                                                                 Resistor                                 
+10  100n           C1206           SM_1206            C1, C2, C3, C4, C5, C7, C18, C21, C23, C25                               Capacitor                                
+1   100u           CPOLSIZE-D      SM_SIZE-D          C20                                                                      Capacitor                                
+3   10k            R1206           SM_1206            R1, R4, R9                                                               Resistor                                 
+1   11k            R1206           SM_1206            R10                                                                      Resistor                                 
+2   1k             R1206           SM_1206            R12, R13                                                                 Resistor                                 
+3   1u             C1206           SM_1206            C6, C19, C22                                                             Capacitor                                
+1   2468           2468            2468               X3                                                                                                        
+2   27R            R1206           SM_1206            R17, R18                                                                 Resistor                                 
+2   2k2            R1206           SM_1206            R5, R6                                                                   Resistor                                 
+1   30k            R1206           SM_1206            R8                                                                       Resistor                                 
+1   3R3            R1206           SM_1206            R7                                                                       Resistor                                 
+1   3u3            L_MOS6020       SM_L_MOS6020       L1                                                                       Inductor                                 
+3   4k7            R1206           SM_1206            R2, R3, R15                                                              Resistor                                 
+1   6k8            R1206           SM_1206            R11                                                                      Resistor                                 
+16  APA102         APA102          SM_LED_PLCC6       IC2, IC3, IC4, IC5, IC6, IC7, IC8, IC9, IC10, IC11, IC12,
+													  IC13, IC14, IC15, IC16, IC17                                          
+2   BSS138         BSS138          SM_SOT23           T1, T2                                                                   BSS138 NMOSFET 50V 0.2A 3E5 SOT23        
+1   FDC6306P       FDC6306P        TSOP6              T3                                                                                                            
+1   LED_GRN_M67K   LED_GRN_M67K    SM_LED_M67K        D1                                                                       LED                                      
+1   MAX1765        MAX1765         SM_QSOP16          IC18                                                                                                                            
+1   MMA8653FC      MMA8653FC       SM_DFN10           IC20                                                                                                                            
+1   MODU_1X3_180°  MODU_1X3_180°   MODU_3X1_180°      X1                                                                       Header Male 1x3p RM2,54 180° locking PCB 
+1   NUP2201        NUP2201         TSOP6              IC19                                                                     ESD Protection Diodes with Low           
+3   RB160M-90      RB160M-90       SM_SOD123_POL      D2, D3, D4                                                               Diode RB160M-90                          
+1   SMAJ5.0A       SMAJ5.0A        SM_DO214AC_POL     D5                                                                       SMAJ TVS unidir DO214AC                  
+1   STM32F042F6P6  STM32F042F6P6   SM_TSSOP20         IC1                           
+1   USB_PCB        USB_PCB         USB_PCB            X2                                                                                                                              
