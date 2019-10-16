@@ -2,6 +2,10 @@
 <?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="cdt.managedbuild.config.gnu.mingw.so.debug.292466010;cdt.managedbuild.config.gnu.mingw.so.debug.292466010.;cdt.managedbuild.tool.gnu.c.compiler.mingw.so.debug.1825777775;cdt.managedbuild.tool.gnu.c.compiler.input.458268933">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
+<includePath path="c:\program files (x86)\atollic\truestudio for stm32 9.2.0\pctools\bin\../lib/gcc/mingw32/5.3.0/include"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for stm32 9.2.0\pctools\bin\../lib/gcc/mingw32/5.3.0/../../../../include"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for stm32 9.2.0\pctools\bin\../lib/gcc/mingw32/5.3.0/include-fixed"/>
+<includePath path="c:\program files (x86)\atollic\truestudio for stm32 9.2.0\pctools\bin\../lib/gcc/mingw32/5.3.0/../../../../mingw32/include"/>
 <includePath path="c:\program files (x86)\atollic\truestudio for arm 5.4.2\pctools\bin\../lib/gcc/mingw32/4.8.1/include"/>
 <includePath path="c:\program files (x86)\atollic\truestudio for arm 5.4.2\pctools\bin\../lib/gcc/mingw32/4.8.1/../../../../include"/>
 <includePath path="c:\program files (x86)\atollic\truestudio for arm 5.4.2\pctools\bin\../lib/gcc/mingw32/4.8.1/include-fixed"/>
@@ -9,9 +13,13 @@
 <definedSymbol symbol="__STDC__=1"/>
 <definedSymbol symbol="__STDC_HOSTED__=1"/>
 <definedSymbol symbol="__GNUC__=4"/>
+<definedSymbol symbol="__GNUC__=5"/>
 <definedSymbol symbol="__GNUC_MINOR__=8"/>
+<definedSymbol symbol="__GNUC_MINOR__=3"/>
 <definedSymbol symbol="__GNUC_PATCHLEVEL__=1"/>
+<definedSymbol symbol="__GNUC_PATCHLEVEL__=0"/>
 <definedSymbol symbol="__VERSION__=&quot;4.8.1&quot;"/>
+<definedSymbol symbol="__VERSION__=&quot;5.3.0&quot;"/>
 <definedSymbol symbol="__ATOMIC_RELAXED=0"/>
 <definedSymbol symbol="__ATOMIC_SEQ_CST=5"/>
 <definedSymbol symbol="__ATOMIC_ACQUIRE=2"/>
@@ -71,57 +79,96 @@
 <definedSymbol symbol="__INTPTR_TYPE__=int"/>
 <definedSymbol symbol="__UINTPTR_TYPE__=unsigned int"/>
 <definedSymbol symbol="__GXX_ABI_VERSION=1002"/>
+<definedSymbol symbol="__GXX_ABI_VERSION=1009"/>
 <definedSymbol symbol="__SCHAR_MAX__=127"/>
+<definedSymbol symbol="__SCHAR_MAX__=0x7f"/>
 <definedSymbol symbol="__SHRT_MAX__=32767"/>
+<definedSymbol symbol="__SHRT_MAX__=0x7fff"/>
 <definedSymbol symbol="__INT_MAX__=2147483647"/>
+<definedSymbol symbol="__INT_MAX__=0x7fffffff"/>
 <definedSymbol symbol="__LONG_MAX__=2147483647L"/>
+<definedSymbol symbol="__LONG_MAX__=0x7fffffffL"/>
 <definedSymbol symbol="__LONG_LONG_MAX__=9223372036854775807LL"/>
+<definedSymbol symbol="__LONG_LONG_MAX__=0x7fffffffffffffffLL"/>
 <definedSymbol symbol="__WCHAR_MAX__=65535"/>
+<definedSymbol symbol="__WCHAR_MAX__=0xffff"/>
 <definedSymbol symbol="__WCHAR_MIN__=0"/>
 <definedSymbol symbol="__WINT_MAX__=65535"/>
+<definedSymbol symbol="__WINT_MAX__=0xffff"/>
 <definedSymbol symbol="__WINT_MIN__=0"/>
 <definedSymbol symbol="__PTRDIFF_MAX__=2147483647"/>
+<definedSymbol symbol="__PTRDIFF_MAX__=0x7fffffff"/>
 <definedSymbol symbol="__SIZE_MAX__=4294967295U"/>
+<definedSymbol symbol="__SIZE_MAX__=0xffffffffU"/>
 <definedSymbol symbol="__INTMAX_MAX__=9223372036854775807LL"/>
+<definedSymbol symbol="__INTMAX_MAX__=0x7fffffffffffffffLL"/>
 <definedSymbol symbol="__INTMAX_C(c)=c ## LL"/>
 <definedSymbol symbol="__UINTMAX_MAX__=18446744073709551615ULL"/>
+<definedSymbol symbol="__UINTMAX_MAX__=0xffffffffffffffffULL"/>
 <definedSymbol symbol="__UINTMAX_C(c)=c ## ULL"/>
 <definedSymbol symbol="__SIG_ATOMIC_MAX__=2147483647"/>
+<definedSymbol symbol="__SIG_ATOMIC_MAX__=0x7fffffff"/>
 <definedSymbol symbol="__SIG_ATOMIC_MIN__=(-__SIG_ATOMIC_MAX__ - 1)"/>
 <definedSymbol symbol="__INT8_MAX__=127"/>
+<definedSymbol symbol="__INT8_MAX__=0x7f"/>
 <definedSymbol symbol="__INT16_MAX__=32767"/>
+<definedSymbol symbol="__INT16_MAX__=0x7fff"/>
 <definedSymbol symbol="__INT32_MAX__=2147483647"/>
+<definedSymbol symbol="__INT32_MAX__=0x7fffffff"/>
 <definedSymbol symbol="__INT64_MAX__=9223372036854775807LL"/>
+<definedSymbol symbol="__INT64_MAX__=0x7fffffffffffffffLL"/>
 <definedSymbol symbol="__UINT8_MAX__=255"/>
+<definedSymbol symbol="__UINT8_MAX__=0xff"/>
 <definedSymbol symbol="__UINT16_MAX__=65535"/>
+<definedSymbol symbol="__UINT16_MAX__=0xffff"/>
 <definedSymbol symbol="__UINT32_MAX__=4294967295U"/>
+<definedSymbol symbol="__UINT32_MAX__=0xffffffffU"/>
 <definedSymbol symbol="__UINT64_MAX__=18446744073709551615ULL"/>
+<definedSymbol symbol="__UINT64_MAX__=0xffffffffffffffffULL"/>
 <definedSymbol symbol="__INT_LEAST8_MAX__=127"/>
+<definedSymbol symbol="__INT_LEAST8_MAX__=0x7f"/>
 <definedSymbol symbol="__INT8_C(c)=c"/>
 <definedSymbol symbol="__INT_LEAST16_MAX__=32767"/>
+<definedSymbol symbol="__INT_LEAST16_MAX__=0x7fff"/>
 <definedSymbol symbol="__INT16_C(c)=c"/>
 <definedSymbol symbol="__INT_LEAST32_MAX__=2147483647"/>
+<definedSymbol symbol="__INT_LEAST32_MAX__=0x7fffffff"/>
 <definedSymbol symbol="__INT32_C(c)=c"/>
 <definedSymbol symbol="__INT_LEAST64_MAX__=9223372036854775807LL"/>
+<definedSymbol symbol="__INT_LEAST64_MAX__=0x7fffffffffffffffLL"/>
 <definedSymbol symbol="__INT64_C(c)=c ## LL"/>
 <definedSymbol symbol="__UINT_LEAST8_MAX__=255"/>
+<definedSymbol symbol="__UINT_LEAST8_MAX__=0xff"/>
 <definedSymbol symbol="__UINT8_C(c)=c"/>
 <definedSymbol symbol="__UINT_LEAST16_MAX__=65535"/>
+<definedSymbol symbol="__UINT_LEAST16_MAX__=0xffff"/>
 <definedSymbol symbol="__UINT16_C(c)=c"/>
 <definedSymbol symbol="__UINT_LEAST32_MAX__=4294967295U"/>
+<definedSymbol symbol="__UINT_LEAST32_MAX__=0xffffffffU"/>
 <definedSymbol symbol="__UINT32_C(c)=c ## U"/>
 <definedSymbol symbol="__UINT_LEAST64_MAX__=18446744073709551615ULL"/>
+<definedSymbol symbol="__UINT_LEAST64_MAX__=0xffffffffffffffffULL"/>
 <definedSymbol symbol="__UINT64_C(c)=c ## ULL"/>
 <definedSymbol symbol="__INT_FAST8_MAX__=127"/>
+<definedSymbol symbol="__INT_FAST8_MAX__=0x7f"/>
 <definedSymbol symbol="__INT_FAST16_MAX__=32767"/>
+<definedSymbol symbol="__INT_FAST16_MAX__=0x7fff"/>
 <definedSymbol symbol="__INT_FAST32_MAX__=2147483647"/>
+<definedSymbol symbol="__INT_FAST32_MAX__=0x7fffffff"/>
 <definedSymbol symbol="__INT_FAST64_MAX__=9223372036854775807LL"/>
+<definedSymbol symbol="__INT_FAST64_MAX__=0x7fffffffffffffffLL"/>
 <definedSymbol symbol="__UINT_FAST8_MAX__=255"/>
+<definedSymbol symbol="__UINT_FAST8_MAX__=0xff"/>
 <definedSymbol symbol="__UINT_FAST16_MAX__=65535"/>
+<definedSymbol symbol="__UINT_FAST16_MAX__=0xffff"/>
 <definedSymbol symbol="__UINT_FAST32_MAX__=4294967295U"/>
+<definedSymbol symbol="__UINT_FAST32_MAX__=0xffffffffU"/>
 <definedSymbol symbol="__UINT_FAST64_MAX__=18446744073709551615ULL"/>
+<definedSymbol symbol="__UINT_FAST64_MAX__=0xffffffffffffffffULL"/>
 <definedSymbol symbol="__INTPTR_MAX__=2147483647"/>
+<definedSymbol symbol="__INTPTR_MAX__=0x7fffffff"/>
 <definedSymbol symbol="__UINTPTR_MAX__=4294967295U"/>
+<definedSymbol symbol="__UINTPTR_MAX__=0xffffffffU"/>
 <definedSymbol symbol="__FLT_EVAL_METHOD__=2"/>
 <definedSymbol symbol="__DEC_EVAL_METHOD__=2"/>
 <definedSymbol symbol="__FLT_RADIX__=2"/>
@@ -245,6 +292,21 @@
 <definedSymbol symbol="_INTEGRAL_MAX_BITS=64"/>
 <definedSymbol symbol="__declspec(x)=__attribute__((x))"/>
 <definedSymbol symbol="__DECIMAL_BID_FORMAT__=1"/>
+<definedSymbol symbol="__STDC_VERSION__=201112L"/>
+<definedSymbol symbol="__STDC_UTF_16__=1"/>
+<definedSymbol symbol="__STDC_UTF_32__=1"/>
+<definedSymbol symbol="__has_include(STR)=__has_include__(STR)"/>
+<definedSymbol symbol="__has_include_next(STR)=__has_include_next__(STR)"/>
+<definedSymbol symbol="__GCC_IEC_559=2"/>
+<definedSymbol symbol="__GCC_IEC_559_COMPLEX=2"/>
+<definedSymbol symbol="__GNUC_STDC_INLINE__=1"/>
+<definedSymbol symbol="__SIZEOF_FLOAT80__=12"/>
+<definedSymbol symbol="__SIZEOF_FLOAT128__=16"/>
+<definedSymbol symbol="__i586=1"/>
+<definedSymbol symbol="__i586__=1"/>
+<definedSymbol symbol="__pentium=1"/>
+<definedSymbol symbol="__pentium__=1"/>
+<definedSymbol symbol="_REENTRANT=1"/>
 </collector>
 </instance>
 <instance id="cdt.managedbuild.config.gnu.mingw.so.release.1374374724;cdt.managedbuild.config.gnu.mingw.so.release.1374374724.;cdt.managedbuild.tool.gnu.c.compiler.mingw.so.release.21275608;cdt.managedbuild.tool.gnu.c.compiler.input.1034588929">

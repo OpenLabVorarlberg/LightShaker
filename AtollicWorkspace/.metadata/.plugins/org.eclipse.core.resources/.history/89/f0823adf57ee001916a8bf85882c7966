@@ -1,0 +1,12 @@
+/*
+ * drvPower.c
+ *
+ *  Created on: 14.10.2019
+ *      Author: ChrLin00
+ */
+
+
+void power_init()
+{
+
+}

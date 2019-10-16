@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="mil" style="lines" multiple="1" display="yes" altdistance="10" altunitdist="mil" altunit="mil"/>
+<grid distance="50" unitdist="mil" unit="mil" style="lines" multiple="1" display="yes" altdistance="10" altunitdist="mil" altunit="mil"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -46,7 +46,7 @@
 <layer number="36" name="bGlue" color="7" fill="5" visible="yes" active="yes"/>
 <layer number="37" name="tTest" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="38" name="bTest" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="39" name="tKeepout" color="15" fill="0" visible="yes" active="yes"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
@@ -75,68 +75,11 @@
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
 <layer number="99" name="SpiceOrder" color="7" fill="1" visible="no" active="no"/>
 <layer number="100" name="ISO" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="101" name="Design_Layout" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="102" name="Design_layer" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="103" name="Layout" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="104" name="S_DOKU" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="105" name="IO_BOX_internal" color="13" fill="1" visible="yes" active="yes"/>
-<layer number="106" name="BGA-Top" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="107" name="BD-Top" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="108" name="centerline" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="109" name="fp9" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="110" name="fp0" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="111" name="Notes" color="13" fill="1" visible="yes" active="yes"/>
-<layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="113" name="ReferenceLS" color="7" fill="1" visible="no" active="no"/>
-<layer number="114" name="FRNTMAAT1" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="115" name="FRNTMAAT2" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="116" name="Patch_BOT" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="117" name="BACKMAAT1" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="118" name="Rect_Pads" color="7" fill="1" visible="no" active="no"/>
-<layer number="119" name="KAP_TEKEN" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="120" name="KAP_MAAT1" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="123" name="tTestmark" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="124" name="bTestmark" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="125" name="_tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="130" name="SMDSTROOK" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="131" name="prix" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="132" name="test" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="133" name="BGA_CORE_SUP" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="134" name="BGA_GND" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="135" name="BGA_NC" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="136" name="BGA_DED" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="144" name="DrillLegend" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="145" name="DrillLegend_01-16" color="2" fill="9" visible="yes" active="yes"/>
-<layer number="146" name="DrillLegend_01-20" color="3" fill="9" visible="yes" active="yes"/>
-<layer number="150" name="Notes" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="151" name="HeatSink" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="152" name="_bDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="153" name="FabDoc1" color="6" fill="1" visible="no" active="no"/>
 <layer number="154" name="FabDoc2" color="2" fill="1" visible="no" active="no"/>
 <layer number="155" name="FabDoc3" color="7" fill="15" visible="no" active="no"/>
-<layer number="199" name="Contour" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="200" name="200bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="201" name="201bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="202" name="202bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="203" name="203bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="204" name="204bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="205" name="205bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="206" name="206bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="207" name="207bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="208" name="208bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="209" name="209bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="210" name="210bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="211" name="211bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="212" name="212bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="213" name="213bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="214" name="214bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="215" name="215bmp" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="216" name="216bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="217" name="217bmp" color="18" fill="1" visible="no" active="no"/>
 <layer number="218" name="218bmp" color="19" fill="1" visible="no" active="no"/>
 <layer number="219" name="219bmp" color="20" fill="1" visible="no" active="no"/>
@@ -148,12 +91,6 @@
 <layer number="231" name="Eagle3D_PG1" color="7" fill="1" visible="no" active="no"/>
 <layer number="232" name="Eagle3D_PG2" color="7" fill="1" visible="no" active="no"/>
 <layer number="233" name="Eagle3D_PG3" color="7" fill="1" visible="no" active="no"/>
-<layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="250" name="Descript" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="251" name="SMDround" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="254" name="cooling" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="255" name="Accent" color="7" fill="1" visible="yes" active="yes"/>
 </layers>
 <board>
 <plain>
@@ -403,6 +340,12 @@ Mass</text>
     &lt;th&gt;Description&lt;/th&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
+    &lt;td&gt;1.1&lt;/td&gt;
+    &lt;td&gt;2017-06-08&lt;/td&gt;
+    &lt;td&gt;MarStr00&lt;/td&gt;
+    &lt;td&gt;Changed Keepout to area&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
     &lt;td&gt;1.0&lt;/td&gt;
     &lt;td&gt;2015-07-15&lt;/td&gt;
     &lt;td&gt;ChrRaj00&lt;/td&gt;
@@ -415,14 +358,11 @@ Mass</text>
 <wire x1="1.6" y1="0.8" x2="1.6" y2="-0.8" width="0.1524" layer="51"/>
 <wire x1="1.6" y1="-0.8" x2="-1.6" y2="-0.8" width="0.1524" layer="51"/>
 <wire x1="-1.6" y1="-0.8" x2="-1.6" y2="0.8" width="0.1524" layer="51"/>
-<wire x1="-2.413" y1="1.143" x2="2.413" y2="1.143" width="0.127" layer="39"/>
-<wire x1="2.413" y1="1.143" x2="2.413" y2="-1.143" width="0.127" layer="39"/>
-<wire x1="2.413" y1="-1.143" x2="-2.413" y2="-1.143" width="0.127" layer="39"/>
-<wire x1="-2.413" y1="-1.143" x2="-2.413" y2="1.143" width="0.127" layer="39"/>
 <text x="0" y="1.27" size="1.27" layer="25" font="vector" ratio="12" align="bottom-center">&gt;NAME</text>
 <text x="0" y="-1.27" size="1.27" layer="27" font="vector" ratio="12" align="top-center">&gt;VALUE</text>
-<wire x1="-0.55" y1="0.8" x2="0.55" y2="0.8" width="0.1524" layer="21"/>
-<wire x1="-0.55" y1="-0.8" x2="0.55" y2="-0.8" width="0.1524" layer="21"/>
+<wire x1="-0.52" y1="0.8" x2="0.52" y2="0.8" width="0.1524" layer="21"/>
+<wire x1="-0.52" y1="-0.8" x2="0.52" y2="-0.8" width="0.1524" layer="21"/>
+<rectangle x1="-2.413" y1="-1.1684" x2="2.413" y2="1.1684" layer="39"/>
 </package>
 <package name="SM_L_MOS6020">
 <description>&lt;b&gt;SM_L_MOS6020&lt;/b&gt;
@@ -471,16 +411,18 @@ Mass</text>
     &lt;th&gt;Description&lt;/th&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
+    &lt;td&gt;1.1&lt;/td&gt;
+    &lt;td&gt;2017-06-08&lt;/td&gt;
+    &lt;td&gt;MarStr00&lt;/td&gt;
+    &lt;td&gt;Changed keepout to area&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
     &lt;td&gt;1.0&lt;/td&gt;
     &lt;td&gt;2015-08-28&lt;/td&gt;
     &lt;td&gt;ChrRaj00&lt;/td&gt;
     &lt;td&gt;Initial Version&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;</description>
-<wire x1="-4.953" y1="2.54" x2="4.953" y2="2.54" width="0.127" layer="39"/>
-<wire x1="4.953" y1="2.54" x2="4.953" y2="-2.54" width="0.127" layer="39"/>
-<wire x1="4.953" y1="-2.54" x2="-4.953" y2="-2.54" width="0.127" layer="39"/>
-<wire x1="-4.953" y1="-2.54" x2="-4.953" y2="2.54" width="0.127" layer="39"/>
 <text x="0" y="2.54" size="1.27" layer="25" font="vector" ratio="12" align="bottom-center">&gt;NAME</text>
 <text x="0" y="-2.54" size="1.27" layer="27" font="vector" ratio="12" align="top-center">&gt;VALUE</text>
 <smd name="POS" x="-3.683" y="0" dx="2.2" dy="2.9" layer="1"/>
@@ -495,6 +437,7 @@ Mass</text>
 <wire x1="-3.6" y1="-2.3" x2="3.6" y2="-2.3" width="0.1524" layer="51"/>
 <wire x1="-3.6" y1="2.3" x2="-3.6" y2="-2.3" width="0.1524" layer="51"/>
 <wire x1="3.6" y1="2.3" x2="3.6" y2="-2.3" width="0.1524" layer="51"/>
+<rectangle x1="-5.08" y1="-2.667" x2="5.08" y2="2.667" layer="39"/>
 </package>
 </packages>
 </library>
@@ -552,7 +495,7 @@ Mass</text>
 </package>
 <package name="SM_RCW_1206">
 <description>&lt;h3&gt;History&lt;/h3&gt;
-&lt;table border="1"&gt;
+&lt;table border="1" cellpadding="3"&gt;
   &lt;tr&gt;
     &lt;th&gt;Version&lt;/th&gt;
     &lt;th&gt;Date&lt;/th&gt;
@@ -560,15 +503,23 @@ Mass</text>
     &lt;th&gt;Description&lt;/th&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
+    &lt;td&gt;1.1&lt;/td&gt;
+    &lt;td&gt;2017.06.13&lt;/td&gt;
+    &lt;td&gt;MarStr00&lt;/td&gt;
+    &lt;td&gt;added keepout&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
     &lt;td&gt;1.0&lt;/td&gt;
     &lt;td&gt;2014.12.02&lt;/td&gt;
     &lt;td&gt;ChrJoc00&lt;/td&gt;
     &lt;td&gt;changed origin and added tDocu&lt;/td&gt;
-  &lt;/tr&gt;</description>
+  &lt;/tr&gt;
+&lt;/table&gt;</description>
 <smd name="1" x="0" y="0" dx="1.8" dy="3.9" layer="1"/>
 <text x="1.27" y="0.889" size="1.27" layer="25" ratio="12" align="center-left">&gt;NAME</text>
 <text x="1.27" y="-0.889" size="1.27" layer="25" ratio="12" align="center-left">&gt;VALUE</text>
 <rectangle x1="-0.8" y1="-1.7" x2="0.8" y2="1.7" layer="51"/>
+<rectangle x1="-1.7018" y1="-2.794" x2="1.7018" y2="2.794" layer="39"/>
 </package>
 </packages>
 </library>
@@ -635,6 +586,7 @@ Mass</text>
 <wire x1="4.572" y1="-2.286" x2="3.302" y2="-2.286" width="0.6096" layer="51"/>
 <wire x1="-3.302" y1="-2.286" x2="-4.572" y2="-2.286" width="0.6096" layer="51"/>
 <wire x1="-3.302" y1="2.286" x2="-4.572" y2="2.286" width="0.6096" layer="51"/>
+<rectangle x1="-6.223" y1="-3.81" x2="6.223" y2="3.81" layer="39"/>
 </package>
 </packages>
 </library>
@@ -665,12 +617,12 @@ Mass</text>
     &lt;td&gt;labeled pin 1&lt;/td&gt;
   &lt;/tr&gt;
 &lt;/table&gt;</description>
-<wire x1="-1" y1="1.5" x2="1" y2="1.5" width="0.127" layer="21"/>
-<wire x1="1" y1="1.5" x2="1" y2="-1.5" width="0.127" layer="51"/>
-<wire x1="1" y1="-1.5" x2="-1" y2="-1.5" width="0.127" layer="21"/>
-<wire x1="-1" y1="-1.5" x2="-1" y2="1.5" width="0.127" layer="51"/>
-<circle x="-1.524" y="1.778" radius="0.1" width="0.127" layer="51"/>
-<circle x="-1.524" y="1.778" radius="0.1414" width="0.127" layer="21"/>
+<wire x1="-1" y1="1.52" x2="1" y2="1.52" width="0.127" layer="21"/>
+<wire x1="1" y1="1.52" x2="1" y2="-1.52" width="0.127" layer="51"/>
+<wire x1="1" y1="-1.52" x2="-1" y2="-1.52" width="0.127" layer="21"/>
+<wire x1="-1" y1="-1.52" x2="-1" y2="1.52" width="0.127" layer="51"/>
+<circle x="-1.524" y="1.778" radius="0.2032" width="0" layer="51"/>
+<circle x="-1.524" y="1.778" radius="0.254" width="0" layer="21"/>
 <smd name="3" x="-1.2" y="-0.95" dx="1" dy="0.7" layer="1"/>
 <smd name="2" x="-1.2" y="0" dx="1" dy="0.7" layer="1"/>
 <smd name="1" x="-1.2" y="0.95" dx="1" dy="0.7" layer="1"/>
@@ -679,6 +631,7 @@ Mass</text>
 <smd name="6" x="1.2" y="0.95" dx="1" dy="0.7" layer="1"/>
 <text x="0" y="2.286" size="1.27" layer="25" ratio="12" align="bottom-center">&gt;NAME</text>
 <text x="0" y="-2.286" size="1.27" layer="27" ratio="12" align="top-center">&gt;VALUE</text>
+<rectangle x1="-2.032" y1="-1.8542" x2="2.032" y2="1.8542" layer="39"/>
 </package>
 </packages>
 </library>
@@ -735,10 +688,99 @@ with solder mask</description>
 <circle x="0" y="0" radius="1.9" width="0.2032" layer="21"/>
 <hole x="0" y="0" drill="3.2"/>
 </package>
+<package name="DOCFIELD">
+<description>DOC Field for Backpanels&lt;br&gt;
+-MarAig00&lt;br&gt;&lt;br&gt;
+
+created 05.04.2018</description>
+<wire x1="104.005" y1="0" x2="159.005" y2="0" width="0.1016" layer="48"/>
+<wire x1="159.005" y1="0" x2="179.705" y2="0" width="0.1016" layer="48"/>
+<wire x1="179.705" y1="0" x2="179.705" y2="16" width="0.1016" layer="48"/>
+<wire x1="179.705" y1="16" x2="179.705" y2="20" width="0.1016" layer="48"/>
+<wire x1="179.705" y1="20" x2="179.705" y2="24" width="0.1016" layer="48"/>
+<wire x1="179.705" y1="24" x2="179.705" y2="28" width="0.1016" layer="48"/>
+<wire x1="179.705" y1="28" x2="179.705" y2="32" width="0.1016" layer="48"/>
+<wire x1="104.005" y1="0" x2="104.005" y2="32" width="0.1016" layer="48"/>
+<wire x1="-0.245" y1="32" x2="17.005" y2="32" width="0.1016" layer="48"/>
+<wire x1="17.005" y1="32" x2="35.005" y2="32" width="0.1016" layer="48"/>
+<wire x1="35.005" y1="32" x2="49.005" y2="32" width="0.1016" layer="48"/>
+<wire x1="49.005" y1="32" x2="104.005" y2="32" width="0.1016" layer="48"/>
+<wire x1="104.005" y1="32" x2="159.005" y2="32" width="0.1016" layer="48"/>
+<wire x1="159.005" y1="32" x2="179.705" y2="32" width="0.1016" layer="48"/>
+<wire x1="179.705" y1="20" x2="159.005" y2="20" width="0.1016" layer="48"/>
+<wire x1="159.005" y1="20" x2="159.005" y2="16" width="0.1016" layer="48"/>
+<wire x1="159.005" y1="16" x2="159.005" y2="0" width="0.1016" layer="48"/>
+<wire x1="159.005" y1="20" x2="159.005" y2="24" width="0.1016" layer="48"/>
+<wire x1="159.005" y1="24" x2="179.705" y2="24" width="0.1016" layer="48"/>
+<wire x1="159.005" y1="24" x2="159.005" y2="28" width="0.1016" layer="48"/>
+<wire x1="159.005" y1="28" x2="179.705" y2="28" width="0.1016" layer="48"/>
+<text x="170.561" y="17" size="1.778" layer="48" font="vector">1</text>
+<text x="160.401" y="17" size="1.778" layer="48">Sheet:</text>
+<text x="50.927" y="29.21" size="1.778" layer="48">PCB-Name :</text>
+<text x="50.927" y="13.21" size="1.778" layer="48">Project :</text>
+<text x="106.045" y="29.21" size="1.778" layer="48">PCB-No.:</text>
+<text x="53.975" y="21.336" size="2.54" layer="48">&gt;DRAWING_NAME</text>
+<text x="53.975" y="5.08" size="2.54" layer="48">&gt;PROJECT_TITLE</text>
+<text x="106.045" y="13.21" size="1.778" layer="48">Schematic-No.:</text>
+<text x="109.855" y="21.336" size="2.54" layer="48">&gt;PCB_NO</text>
+<text x="109.855" y="5.08" size="2.54" layer="48">&gt;SCH_NO</text>
+<text x="36.195" y="25" size="1.778" layer="48">&gt;ENGINEER</text>
+<wire x1="179.705" y1="16" x2="159.005" y2="16" width="0.1016" layer="48"/>
+<wire x1="-0.245" y1="16" x2="17.005" y2="16" width="0.1016" layer="48"/>
+<wire x1="17.005" y1="16" x2="35.005" y2="16" width="0.1016" layer="48"/>
+<wire x1="35.005" y1="16" x2="159.005" y2="16" width="0.1016" layer="48"/>
+<wire x1="159.005" y1="28" x2="159.005" y2="32" width="0.1016" layer="48"/>
+<wire x1="49.005" y1="0" x2="49.005" y2="20" width="0.1016" layer="48"/>
+<wire x1="49.005" y1="20" x2="49.005" y2="24" width="0.1016" layer="48"/>
+<wire x1="49.005" y1="24" x2="49.005" y2="28" width="0.1016" layer="48"/>
+<wire x1="49.005" y1="28" x2="49.005" y2="32" width="0.1016" layer="48"/>
+<wire x1="-0.245" y1="0" x2="-0.245" y2="20" width="0.1016" layer="48"/>
+<wire x1="-0.245" y1="20" x2="-0.245" y2="24" width="0.1016" layer="48"/>
+<wire x1="-0.245" y1="24" x2="-0.245" y2="28" width="0.1016" layer="48"/>
+<wire x1="-0.245" y1="28" x2="-0.245" y2="32" width="0.1016" layer="48"/>
+<wire x1="49.005" y1="20" x2="-0.245" y2="20" width="0.1016" layer="48"/>
+<wire x1="-0.245" y1="24" x2="49.005" y2="24" width="0.1016" layer="48"/>
+<wire x1="35.005" y1="16" x2="35.005" y2="32" width="0.1016" layer="48"/>
+<wire x1="-0.245" y1="28" x2="49.005" y2="28" width="0.1016" layer="48"/>
+<wire x1="17.005" y1="16" x2="17.005" y2="32" width="0.1016" layer="48"/>
+<text x="18.415" y="29" size="1.778" layer="48">Date:   </text>
+<text x="36.195" y="29" size="1.778" layer="48">Name:</text>
+<text x="0.635" y="25" size="1.778" layer="48">Created:   </text>
+<text x="0.635" y="21" size="1.778" layer="48">Modified:   </text>
+<text x="0.635" y="17" size="1.778" layer="48">Approved:   </text>
+<text x="160.401" y="21" size="1.778" layer="48">Size:</text>
+<text x="170.561" y="21" size="1.778" layer="48">A3</text>
+<text x="160.401" y="25" size="1.778" layer="48">Unit:</text>
+<text x="170.561" y="25" size="1.778" layer="48">mm</text>
+<text x="160.401" y="29" size="1.778" layer="48">Scale:</text>
+<text x="170.561" y="28.81" size="1.778" layer="48">1 : 1</text>
+<text x="18.415" y="25" size="1.778" layer="48">&gt;DATE</text>
+<circle x="173.355" y="7.62" radius="2" width="0.127" layer="48"/>
+<circle x="173.355" y="7.62" radius="4" width="0.127" layer="48"/>
+<wire x1="173.355" y1="12.7" x2="173.355" y2="7.62" width="0.127" layer="48"/>
+<wire x1="173.355" y1="7.62" x2="173.355" y2="2.54" width="0.127" layer="48"/>
+<wire x1="173.355" y1="7.62" x2="168.605" y2="7.62" width="0.127" layer="48"/>
+<wire x1="168.605" y1="7.62" x2="161.355" y2="7.62" width="0.127" layer="48"/>
+<wire x1="161.355" y1="7.62" x2="160.355" y2="7.62" width="0.127" layer="48"/>
+<wire x1="173.355" y1="7.62" x2="178.435" y2="7.62" width="0.127" layer="48"/>
+<wire x1="168.605" y1="7.62" x2="168.605" y2="11.62" width="0.127" layer="48"/>
+<wire x1="168.605" y1="7.62" x2="168.605" y2="3.62" width="0.127" layer="48"/>
+<wire x1="161.355" y1="7.62" x2="161.355" y2="9.62" width="0.127" layer="48"/>
+<wire x1="161.355" y1="7.62" x2="161.355" y2="5.62" width="0.127" layer="48"/>
+<wire x1="161.355" y1="9.62" x2="168.605" y2="11.62" width="0.127" layer="48"/>
+<wire x1="161.355" y1="5.62" x2="168.605" y2="3.62" width="0.127" layer="48"/>
+<wire x1="-0.245" y1="0" x2="104.005" y2="0" width="0.1016" layer="48"/>
+</package>
 </packages>
 </library>
 </libraries>
 <attributes>
+<attribute name="DATE" value="18.07.2019"/>
+<attribute name="ENGINEER" value="ChrLin00"/>
+<attribute name="PAGE_TITLE" value="Overview"/>
+<attribute name="PCB_NO" value="E1962100"/>
+<attribute name="PROJECT_TITLE" value="LightShaker"/>
+<attribute name="SCH_NO" value="B1962200"/>
 </attributes>
 <variantdefs>
 </variantdefs>
@@ -925,74 +967,121 @@ design rules under a new name.</description>
 <elements>
 <element name="IC1" library="POVLibrary" package="SM_TSSOP20" value="STM32F042F6P6" x="44.45" y="-8.382" smashed="yes" rot="R180">
 <attribute name="NAME" x="39.37" y="-5.842" size="0.8128" layer="25" ratio="12" rot="R270" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480012" x="44.45" y="-8.382" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="IC2" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="96.52" y="-12.192" smashed="yes" rot="R90">
 <attribute name="NAME" x="96.52" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="96.52" y="-12.192" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="IC3" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="104.14" y="-12.192" smashed="yes" rot="R270">
 <attribute name="NAME" x="104.14" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="104.14" y="-12.192" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC4" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="111.76" y="-12.192" smashed="yes" rot="R90">
 <attribute name="NAME" x="111.76" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="111.76" y="-12.192" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="IC5" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="119.38" y="-12.192" smashed="yes" rot="R270">
 <attribute name="NAME" x="119.38" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="119.38" y="-12.192" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC6" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="127" y="-12.192" smashed="yes" rot="R90">
 <attribute name="NAME" x="127" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="127" y="-12.192" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="IC7" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="134.62" y="-12.192" smashed="yes" rot="R270">
 <attribute name="NAME" x="134.62" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="134.62" y="-12.192" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC8" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="142.24" y="-12.192" smashed="yes" rot="R90">
 <attribute name="NAME" x="142.24" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="142.24" y="-12.192" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="IC9" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="149.86" y="-12.192" smashed="yes" rot="R270">
 <attribute name="NAME" x="149.86" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="149.86" y="-12.192" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC10" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="157.48" y="-12.192" smashed="yes" rot="R90">
 <attribute name="NAME" x="157.48" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="157.48" y="-12.192" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="IC11" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="165.1" y="-12.192" smashed="yes" rot="R270">
 <attribute name="NAME" x="165.1" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="165.1" y="-12.192" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC12" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="172.72" y="-12.192" smashed="yes" rot="R90">
 <attribute name="NAME" x="172.72" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="172.72" y="-12.192" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="IC13" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="180.34" y="-12.192" smashed="yes" rot="R270">
 <attribute name="NAME" x="180.34" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="180.34" y="-12.192" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC14" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="187.96" y="-12.192" smashed="yes" rot="R90">
 <attribute name="NAME" x="187.96" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="187.96" y="-12.192" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="IC15" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="195.58" y="-12.192" smashed="yes" rot="R270">
 <attribute name="NAME" x="195.58" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="195.58" y="-12.192" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC16" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="203.2" y="-12.192" smashed="yes" rot="R90">
 <attribute name="NAME" x="203.2" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="203.2" y="-12.192" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="IC17" library="POVLibrary" package="SM_LED_PLCC6" value="APA102" x="210.82" y="-12.192" smashed="yes" rot="R270">
 <attribute name="NAME" x="210.82" y="-7.874" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="P1480014" x="210.82" y="-12.192" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C1" library="DTP_RCL" package="SM_1206" value="100n" x="45.72" y="-16.002" smashed="yes" rot="R90">
 <attribute name="PARTNR" value="E0001400" x="110.49" y="18.288" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="45.72" y="-19.304" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="45.72" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="45.72" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value=" " x="45.72" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value=" " x="45.72" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="45.72" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="45.72" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="C2" library="DTP_RCL" package="SM_1206" value="100n" x="101.092" y="-17.272" smashed="yes">
 <attribute name="PARTNR" value="E0001400" x="141.732" y="-82.042" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="101.092" y="-19.812" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="101.092" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="101.092" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value=" " x="101.092" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value=" " x="101.092" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="101.092" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="101.092" y="-17.272" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C3" library="DTP_RCL" package="SM_1206" value="100n" x="131.572" y="-17.272" smashed="yes">
 <attribute name="PARTNR" value="E0001400" x="178.562" y="-82.042" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="131.572" y="-19.812" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="131.572" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="131.572" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value=" " x="131.572" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value=" " x="131.572" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="131.572" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="131.572" y="-17.272" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C4" library="DTP_RCL" package="SM_1206" value="100n" x="162.052" y="-17.272" smashed="yes">
 <attribute name="PARTNR" value="E0001400" x="215.392" y="-82.042" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="162.052" y="-19.812" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="162.052" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="162.052" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value=" " x="162.052" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value=" " x="162.052" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="162.052" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="162.052" y="-17.272" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C5" library="DTP_RCL" package="SM_1206" value="100n" x="192.532" y="-17.272" smashed="yes">
 <attribute name="PARTNR" value="E0001400" x="252.222" y="-82.042" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="192.532" y="-19.812" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="192.532" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="192.532" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value=" " x="192.532" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value=" " x="192.532" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="192.532" y="-17.272" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="192.532" y="-17.272" size="1.778" layer="27" display="off"/>
 </element>
 <element name="T1" library="FET" package="SM_SOT23" value="BSS138" x="67.31" y="-16.002" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0277100" x="-16.51" y="-64.262" size="1.778" layer="27" rot="R270" display="off"/>
@@ -1005,22 +1094,52 @@ design rules under a new name.</description>
 <element name="R1" library="DTP_RCL" package="SM_1206" value="33k" x="53.34" y="-16.002" smashed="yes" rot="R90">
 <attribute name="PARTNR" value="E0149800" x="130.81" y="29.718" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="53.34" y="-19.304" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="53.34" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="53.34" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value=" " x="53.34" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value=" " x="53.34" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="53.34" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="53.34" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R2" library="DTP_RCL" package="SM_1206" value="1k" x="60.96" y="-16.002" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0002500" x="-16.51" y="-66.802" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="60.96" y="-19.304" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="60.96" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="60.96" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="60.96" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="60.96" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="60.96" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="60.96" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R3" library="DTP_RCL" package="SM_1206" value="1k" x="71.12" y="-16.002" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0002500" x="-6.35" y="-71.882" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="71.12" y="-19.304" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="71.12" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="71.12" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="71.12" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="71.12" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="71.12" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="71.12" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R4" library="DTP_RCL" package="SM_1206" value="33k" x="63.5" y="-16.002" smashed="yes" rot="R90">
 <attribute name="PARTNR" value="E0149800" x="140.97" y="44.958" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="63.5" y="-19.304" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="63.5" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="63.5" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value=" " x="63.5" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value=" " x="63.5" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="63.5" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="63.5" y="-16.002" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="C18" library="DTP_RCL" package="SM_1206" value="100n" x="45.72" y="-0.762" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0001400" x="-25.4" y="-74.422" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="45.974" y="2.667" size="0.8128" layer="25" font="vector" ratio="12" rot="R90" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="45.72" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="45.72" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="45.72" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="45.72" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="45.72" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="45.72" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="TP1" library="DTP_Connectors" package="TP12R" value="TPTP12R" x="49.53" y="-3.302" smashed="yes" rot="R180">
 <attribute name="TP_SIGNAL_NAME" value="" x="49.53" y="-0.762" size="1" layer="37" rot="R180"/>
@@ -1043,6 +1162,7 @@ design rules under a new name.</description>
 <element name="IC18" library="POVLibrary" package="SM_QSOP16" value="MAX1765" x="22.86" y="-7.874" smashed="yes" rot="R180">
 <attribute name="NAME" x="21.971" y="-4.191" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
 <attribute name="BESTNR" value="MAX1765EEE+" x="22.86" y="-7.874" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PARTNR" value="P1480011" x="22.86" y="-7.874" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="L1" library="DTP_RCL" package="SM_L_MOS6020" value="3u3" x="15.24" y="-16.002" smashed="yes" rot="R180">
 <attribute name="NAME" x="12.065" y="-18.923" size="0.8128" layer="25" font="vector" ratio="12" rot="R180" align="bottom-center"/>
@@ -1055,54 +1175,132 @@ design rules under a new name.</description>
 <element name="R7" library="DTP_RCL" package="SM_1206" value="4R7" x="27.94" y="-7.874" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0821300" x="-49.53" y="-84.074" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="27.559" y="-5.334" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="27.94" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="27.94" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="27.94" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="27.94" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="27.94" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="27.94" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C19" library="DTP_RCL" package="SM_1206" value="1u" x="20.32" y="-0.762" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0487200" x="-57.15" y="-36.322" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="20.32" y="1.778" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="20.32" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="20.32" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="20.32" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="20.32" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="20.32" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="20.32" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R8" library="DTP_RCL" package="SM_1206" value="100k" x="22.86" y="-0.762" smashed="yes" rot="R90">
 <attribute name="PARTNR" value="E0002800" x="105.41" y="19.558" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="22.86" y="1.778" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="22.86" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="22.86" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value=" " x="22.86" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value=" " x="22.86" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="22.86" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="22.86" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R9" library="DTP_RCL" package="SM_1206" value="33k" x="25.4" y="-0.762" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0149800" x="-57.15" y="-26.162" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="25.4" y="1.778" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="25.4" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="25.4" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="25.4" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="25.4" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="25.4" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="25.4" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C20" library="DTP_RCL" package="SM_SIZE-D" value="100u" x="25.4" y="-14.732" smashed="yes">
 <attribute name="PARTNR" value="E0242200" x="60.96" y="-70.612" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="21.209" y="-18.034" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="25.4" y="-14.732" size="1.778" layer="27" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="25.4" y="-14.732" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value=" " x="25.4" y="-14.732" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value=" " x="25.4" y="-14.732" size="1.778" layer="27" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="25.4" y="-14.732" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="25.4" y="-14.732" size="1.778" layer="27" display="off"/>
 </element>
 <element name="C22" library="DTP_RCL" package="SM_1206" value="1u" x="33.02" y="-7.874" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0487200" x="-44.45" y="-48.514" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="33.02" y="-10.16" size="0.8128" layer="25" font="vector" ratio="12" rot="R180" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="33.02" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="33.02" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="33.02" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="33.02" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="33.02" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="33.02" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R10" library="DTP_RCL" package="SM_1206" value="56k" x="30.48" y="-7.874" smashed="yes" rot="R270">
-<attribute name="PARTNR" value="_" x="-52.07" y="-38.354" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PARTNR" value="" x="-52.07" y="-38.354" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="30.226" y="-5.334" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="30.48" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="30.48" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="30.48" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="30.48" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="30.48" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="30.48" y="-7.874" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R11" library="DTP_RCL" package="SM_1206" value="33k" x="30.48" y="-0.762" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0149800" x="-52.07" y="-36.322" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="30.48" y="1.778" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="30.48" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="30.48" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="30.48" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="30.48" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="30.48" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="30.48" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C23" library="DTP_RCL" package="SM_1206" value="100n" x="27.94" y="-0.762" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0001400" x="-49.53" y="-17.272" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="27.94" y="1.778" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="27.94" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="27.94" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="27.94" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="27.94" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="27.94" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="27.94" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C21" library="DTP_RCL" package="SM_1206" value="100n" x="199.39" y="-2.032" smashed="yes" rot="R90">
 <attribute name="PARTNR" value="E0001400" x="270.51" y="77.978" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="199.39" y="0.508" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="199.39" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="199.39" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value=" " x="199.39" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value=" " x="199.39" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="199.39" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="199.39" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R12" library="DTP_RCL" package="SM_1206" value="1k" x="194.31" y="-2.032" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0002500" x="116.84" y="-83.312" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="194.818" y="0.508" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="194.31" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="194.31" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="194.31" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="194.31" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="194.31" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="194.31" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R13" library="DTP_RCL" package="SM_1206" value="1k" x="191.77" y="-2.032" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0002500" x="107.95" y="-17.272" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="191.77" y="0.508" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="191.77" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="191.77" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="191.77" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="191.77" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="191.77" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="191.77" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C25" library="DTP_RCL" package="SM_1206" value="100n" x="207.01" y="-2.032" smashed="yes" rot="R90">
 <attribute name="PARTNR" value="E0001400" x="284.48" y="27.178" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="207.01" y="0.508" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="207.01" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="207.01" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value=" " x="207.01" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value=" " x="207.01" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="207.01" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="207.01" y="-2.032" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="S1" library="DTP_Switch" package="PUSH-BUTTON_SMD" value="" x="71.12" y="-0.762" smashed="yes" rot="R180">
 <attribute name="PARTNR" value="E0869600" x="71.12" y="-0.762" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1112,6 +1310,12 @@ design rules under a new name.</description>
 <element name="R15" library="DTP_RCL" package="SM_1206" value="33k" x="38.1" y="-0.762" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0149800" x="38.1" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="36.83" y="-0.508" size="0.8128" layer="25" font="vector" ratio="12" rot="R90" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="38.1" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="38.1" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="38.1" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="38.1" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="38.1" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="38.1" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="TP4" library="DTP_Connectors" package="TP12R" value="TPTP12R" x="49.022" y="-14.732" smashed="yes">
 <attribute name="TP_SIGNAL_NAME" value="" x="49.022" y="-17.272" size="1" layer="37"/>
@@ -1128,10 +1332,17 @@ design rules under a new name.</description>
 </element>
 <element name="IC20" library="POVLibrary" package="SM_DFN10" value="MMA8653FC" x="203.2" y="-2.032" smashed="yes" rot="R270">
 <attribute name="NAME" x="201.93" y="0.254" size="0.8128" layer="25" ratio="12"/>
+<attribute name="PARTNR" value="P1480013" x="203.2" y="-2.032" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C6" library="DTP_RCL" package="SM_1206" value="1u" x="73.66" y="-16.002" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0487200" x="73.66" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="73.66" y="-18.542" size="0.8128" layer="25" font="vector" ratio="12" rot="R180" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="73.66" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="73.66" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="73.66" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="73.66" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="73.66" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="73.66" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="IC19" library="DTP_IC" package="TSOP6" value="NUP2201" x="5.08" y="-8.382" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0439000" x="5.08" y="-8.382" size="1.778" layer="27" rot="R270" display="off"/>
@@ -1140,31 +1351,58 @@ design rules under a new name.</description>
 <element name="R17" library="DTP_RCL" package="SM_1206" value="10k" x="11.43" y="-8.382" smashed="yes" rot="R90">
 <attribute name="PARTNR" value="E0002700" x="11.43" y="-8.382" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="11.684" y="-5.842" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="11.43" y="-8.382" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="11.43" y="-8.382" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value=" " x="11.43" y="-8.382" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value=" " x="11.43" y="-8.382" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="11.43" y="-8.382" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="11.43" y="-8.382" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="T3" library="DTP_Semicond" package="TSOP6" value="FDC6306P" x="8.89" y="-15.24" smashed="yes">
 <attribute name="PARTNR" value="E0662100" x="8.89" y="-15.24" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="8.255" y="-18.415" size="0.8128" layer="25"/>
 </element>
-<element name="R19" library="DTP_RCL" package="SM_1206" value="100k" x="5.08" y="-16.002" smashed="yes" rot="R270">
+<element name="R19" library="DTP_RCL" package="SM_1206" value="10k" x="5.08" y="-16.002" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0002800" x="5.08" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="5.08" y="-19.304" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="5.08" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="5.08" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="5.08" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="5.08" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="5.08" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="5.08" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C7" library="DTP_RCL" package="SM_1206" value="100n" x="40.64" y="-0.762" smashed="yes" rot="R90">
 <attribute name="PARTNR" value="E0001400" x="40.64" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="41.148" y="2.286" size="0.8128" layer="25" font="vector" ratio="12" rot="R90" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="40.64" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="40.64" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value=" " x="40.64" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value=" " x="40.64" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="40.64" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="40.64" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="FIDU1" library="DTP_Misc" package="FIDUCIAL_LOETSTOPP" value="FIDU_ROUND_NEW" x="0" y="0" smashed="yes" rot="R90">
 <attribute name="NAME" x="0" y="-3.556" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="E0FIDU00" x="0" y="0" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="FIDU2" library="DTP_Misc" package="FIDUCIAL_LOETSTOPP" value="FIDU_ROUND_NEW" x="207.01" y="-17.272" smashed="yes" rot="R90">
 <attribute name="NAME" x="212.09" y="-17.526" size="0.8128" layer="25" ratio="12" align="bottom-center"/>
+<attribute name="PARTNR" value="E0FIDU00" x="207.01" y="-17.272" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="FIDU3" library="DTP_Misc" package="FIDUCIAL_LOETSTOPP" value="FIDU_ROUND_NEW" x="212.09" y="-0.762" smashed="yes" rot="R180">
 <attribute name="NAME" x="212.09" y="-3.048" size="0.8128" layer="25" ratio="12" rot="R180" align="bottom-center"/>
+<attribute name="PARTNR" value="E0FIDU00" x="212.09" y="-0.762" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R14" library="DTP_RCL" package="SM_1206" value="10k" x="15.24" y="-8.382" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0002700" x="15.24" y="-8.382" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="14.986" y="-5.842" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="15.24" y="-8.382" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="15.24" y="-8.382" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="15.24" y="-8.382" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="15.24" y="-8.382" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="15.24" y="-8.382" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="15.24" y="-8.382" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="T4" library="FET" package="SM_SOT23" value="BSS138" x="36.83" y="-16.002" smashed="yes" rot="R180">
 <attribute name="PARTNR" value="E0277100" x="36.83" y="-16.002" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1173,32 +1411,63 @@ design rules under a new name.</description>
 <element name="R16" library="DTP_RCL" package="SM_1206" value="10k" x="17.78" y="-0.762" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0002700" x="17.78" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="17.78" y="1.778" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="17.78" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="17.78" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="17.78" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="17.78" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="17.78" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="17.78" y="-0.762" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="S2" library="DTP_Switch" package="PUSH-BUTTON_SMD" value="" x="10.16" y="-0.762" smashed="yes" rot="R180">
 <attribute name="PARTNR" value="E0869600" x="10.16" y="-0.762" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="5.842" y="-0.508" size="0.8128" layer="25" ratio="12" rot="R180" align="bottom-center"/>
 <attribute name="VALUE" x="10.16" y="3.048" size="1.27" layer="27" ratio="12" align="bottom-center"/>
 </element>
-<element name="R5" library="DTP_RCL" package="SM_1206" value="56k" x="43.18" y="-0.762" smashed="yes" rot="R90">
-<attribute name="PARTNR" value="E0002800_" x="43.18" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<element name="R5" library="DTP_RCL" package="SM_1206" value="100k" x="43.18" y="-0.762" smashed="yes" rot="R90">
+<attribute name="PARTNR" value="" x="43.18" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="NAME" x="43.688" y="2.286" size="0.8128" layer="25" font="vector" ratio="12" rot="R90" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="43.18" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="43.18" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value=" " x="43.18" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MF" value=" " x="43.18" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="43.18" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="43.18" y="-0.762" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R18" library="DTP_RCL" package="SM_1206" value="33k" x="40.64" y="-16.002" smashed="yes" rot="R270">
 <attribute name="PARTNR" value="E0149800" x="40.64" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="40.64" y="-19.304" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="40.64" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="40.64" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value=" " x="40.64" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MF" value=" " x="40.64" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="40.64" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="40.64" y="-16.002" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="H1" library="DTP_Misc" package="3.2" value="MOUNT-HOLE3.2" x="63.5" y="-8.382">
 <attribute name="REMARK" value="Mounting hole" x="63.5" y="-8.382" size="1.778" layer="27" display="off"/>
 <attribute name="PLACEHOLDER" value="TRUE" x="63.5" y="-8.382" size="1.778" layer="27" display="off"/>
 </element>
 <element name="R6" library="DTP_RCL" package="SM_1206" value="4R7" x="0" y="-9.652" smashed="yes" rot="R180">
-<attribute name="PARTNR" value="E0821300_" x="0" y="-9.652" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PARTNR" value="" x="0" y="-9.652" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="0" y="-12.192" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="0" y="-9.652" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="0" y="-9.652" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MPN" value=" " x="0" y="-9.652" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MF" value=" " x="0" y="-9.652" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="0" y="-9.652" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="0" y="-9.652" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="R20" library="DTP_RCL" package="SM_1206" value="4R7" x="0" y="-7.112" smashed="yes">
-<attribute name="PARTNR" value="E0821300_" x="0" y="-7.112" size="1.778" layer="27" display="off"/>
+<attribute name="PARTNR" value="" x="0" y="-7.112" size="1.778" layer="27" display="off"/>
 <attribute name="NAME" x="0" y="-5.842" size="0.8128" layer="25" font="vector" ratio="12" align="bottom-center"/>
+<attribute name="REMARK" value=" " x="0" y="-7.112" size="1.778" layer="27" display="off"/>
+<attribute name="MECHPART" value="FALSE" x="0" y="-7.112" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value=" " x="0" y="-7.112" size="1.778" layer="27" display="off"/>
+<attribute name="MF" value=" " x="0" y="-7.112" size="1.778" layer="27" display="off"/>
+<attribute name="PLACEHOLDER" value="FALSE" x="0" y="-7.112" size="1.778" layer="27" display="off"/>
+<attribute name="OC_FARNELL" value=" " x="0" y="-7.112" size="1.778" layer="27" display="off"/>
 </element>
+<element name="U$2" library="DTP_Misc" package="DOCFIELD" value="" x="35.56" y="-85.09"/>
 </elements>
 <signals>
 <signal name="N$1">

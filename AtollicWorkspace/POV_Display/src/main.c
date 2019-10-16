@@ -24,6 +24,7 @@
 /* Includes */
 #include "main.h"
 #include "stm32f0xx.h"
+#include "drvPower.h"
 #include "drvUSB.h"
 #include "drvMMA8653.h"
 #include "drvApa102.h"
@@ -46,12 +47,13 @@
 
 /* Global variables */
 volatile uint32_t timer=0;
-volatile uint8_t  timerFlag=0;
 volatile uint32_t delayTimer;
+
 uint8_t errorcode = 0;
 
 uint8_t tempstring[32];
 
+//systick triggers this every ms
 void SysTick_Handler(void)
 {
 	if(delayTimer)
@@ -62,7 +64,7 @@ void SysTick_Handler(void)
 
 	if  (timer>=100)
 	{
-		timerFlag = 1;
+		systemFlags |= SYS_FLAG_100MS;
 		timer = 0;
 	}
 }
@@ -105,42 +107,39 @@ int main(void)
 	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
 
 	//init the drivers
-	//the Debug-LED is not used, because it shares a pin with the SWD-Connection
-	//dbgLED_init();
-//	for(uint8_t i = 0; i< 5; i++)
-//	{
-//		dbgLED_toggle();
-//		delay(100);
-//	}
-//	dbgLED_off();
-	USB_Init();
-	consoleInit();
-	mma8653_init();
+	power_init();
+
 	apa102_init();
+
 	//LED-Test
 	for(uint8_t i = 0; i<16; i++)
 	{
 		apa102_setSingle(i,10);
-		delay(30);
+		delay(20);
 	}
+	if(power_UsbPresent())
+	{
+		//we are attached to a USB-Port!
+		USB_Init();
+		consoleInit();
+	}
+
+	mma8653_init();
 	apa102_allOff();
 	//TODO: battery-check is still missing
 
 	displayInit();
 
 
-
 	while(1)
 	{
-		if(timerFlag)
+		if(systemFlags & SYS_FLAG_100MS)
 		{
-			timerFlag = 0;
-
-
+			systemFlags &= ~SYS_FLAG_100MS;
 			if(USB_Flags & USB_FLAG_FIRST_CONTACT)
 			{
 				USB_Flags &= ~USB_FLAG_FIRST_CONTACT;
-				USB_VCP_DataTx((uint8_t*)"----LightShaker - POV_Display - Version1.1----\n",0);
+				USB_VCP_DataTx((uint8_t*)"----LightShaker - POV_Display - Version1.2----\n",0);
 			}
 			if(USB_Flags & USB_FLAG_CDC_OPEN)
 			{
@@ -151,6 +150,9 @@ int main(void)
 				}
 				consoleExecute();
 			}
+
+			power_exec();
+
 		}
 	}
 

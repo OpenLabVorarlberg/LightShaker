@@ -2,12 +2,15 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="(c)Copyright" key="selection"/>
+		<item value="SysTick_Handler" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="MEMORY_B1"/>
+			<item value="_Min_Heap_Size"/>
+			<item value="SysTick_Handler"/>
 			<item value="(c)Copyright"/>
 		</list>
 		<list key="replacehistory">

@@ -354,7 +354,7 @@ acc8_t mma8653_read8()
 acc16_t mma8653_read10()
 {
 
-	int8_t rxBuf[6];
+	uint8_t rxBuf[6];
 	acc16_t acc_result;
 
 	I2C_RdReg(REG_OUT_X_MSB,rxBuf,6);

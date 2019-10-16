@@ -29,6 +29,7 @@
 #include "drvApa102.h"
 #include "stdio.h"
 #include "math.h"
+#include "drvPower.h"
 
 /* Private typedef */
 
@@ -69,6 +70,7 @@ void SysTick_Handler(void)
 	{
 		timerFlag = 1;
 		timer = 0;
+		power_exec();
 	}
 }
 
@@ -96,13 +98,12 @@ int main(void)
 	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
 
 	//init the drivers
-	//TODO: the dbgLed kills the USB!!
-	dbgLED_init();
-	dbgLED_on();
-	delay(500);
-	dbgLED_off();
-	delay(500);
-	USB_Init();
+	power_init();
+	power_hold(50);
+	if(power_UsbPresent())
+	{
+		USB_Init();
+	}
 	mma8653_init();
 	apa102_init();
 
@@ -150,7 +151,7 @@ int main(void)
 					USB_VCP_DataTx((uint8_t*)tempstring,19);
 				}
 
-				sprintf((char*)tempstring,"sum:#1M%i<\n",sum);
+				sprintf((char*)tempstring,"sum:#1M%i<\n",(int)sum);
 				USB_VCP_DataTx((uint8_t*)tempstring,0);
 
 //				sprintf((char*)tempstring,"x:#1M%i<\t",accData.x);

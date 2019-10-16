@@ -12,6 +12,7 @@
 #include "stm32f0xx_rcc.h"
 #include "drvApa102.h"
 #include "drvMMA8653.h"
+#include "drvPower.h"
 
 
 //this sets the period (time between two runs) of the application loop in milli-seconds
@@ -33,13 +34,14 @@ volatile uint32_t delayTimer;
 void setup(void)
 {
 	//init the drivers
+	power_init();
 	apa102_init();
 	mma8653_init();
 	mma8653_setDataWidth(MMA8653_DATAWIDTH_8);
 	mma8653_setDataRate(RATE_400Hz);
-	globalColor.red=0xFF;
+	globalColor.red=0x00;
 	globalColor.green=0xFF;
-	globalColor.blue=0xFF;
+	globalColor.blue=0x00;
 
 	//LED-Test
 	for(uint8_t i = 0; i<16; i++)
@@ -108,6 +110,7 @@ void SysTick_Handler(void)
 	{
 		timerFlag = 1;
 		timer = 0;
+		power_exec();
 	}
 }
 

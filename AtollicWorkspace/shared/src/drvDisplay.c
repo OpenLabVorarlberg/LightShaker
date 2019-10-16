@@ -88,6 +88,24 @@ void displayInit()
 	//enable the IRQ
 	NVIC_EnableIRQ(TIM3_IRQn);
 	//don't activate this timer now, because an overflow would produce a line on the display!
+	RowsVisible = 16;
+	RowsOverscan = 0;
+	DispRowMasks[0]  = 0b0000001111000000;
+	DispRowMasks[1]  = 0b0000110000110000;
+	DispRowMasks[2]  = 0b0001000000001000;
+	DispRowMasks[3]  = 0b0010000000000100;
+	DispRowMasks[4]  = 0b0100010000010010;
+	DispRowMasks[5]  = 0b0100010000010010;
+	DispRowMasks[6]  = 0b1000000000001001;
+	DispRowMasks[7]  = 0b1000000110001001;
+	DispRowMasks[8]  = 0b1000000000001001;
+	DispRowMasks[9]  = 0b1000000000001001;
+	DispRowMasks[10] = 0b0100010000010010;
+	DispRowMasks[11] = 0b0100010000010010;
+	DispRowMasks[12] = 0b0010000000000100;
+	DispRowMasks[13] = 0b0001000000001000;
+	DispRowMasks[14] = 0b0000110000110000;
+	DispRowMasks[15] = 0b0000001111000000;
 }
 
 //called 2 times for every row

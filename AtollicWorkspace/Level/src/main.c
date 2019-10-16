@@ -27,6 +27,7 @@
 
 #include "drvApa102.h"
 #include "drvMMA8653.h"
+#include "drvPower.h"
 
 /* Private typedef */
 
@@ -85,8 +86,7 @@ int main(void)
 	SysTick_Config(6000);
 
 	//init the drivers
-//	dbgLed_init();
-//	dbgLed_on();
+	power_init();
 	apa102_init();
 	mma8653_init();
 	mma8653_setDataWidth(MMA8653_DATAWIDTH_8);
@@ -110,6 +110,7 @@ int main(void)
 	{
 		if(timerFlag)
 		{
+			power_exec();
 			timerFlag = 0;
 			levelResult = mma8653_read8().y;
 			if(levelResult == 0)
@@ -136,6 +137,7 @@ int main(void)
 				}
 				apa102_setSingle(led_pos,2);
 			}
+
 		}
 	}
 

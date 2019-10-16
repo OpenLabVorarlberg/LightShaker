@@ -1,0 +1,65 @@
+13:10:23 **** Rebuild of configuration Debug for project LightShaker_POV ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0 -std=gnu11 -DUSE_FULL_LL_DRIVER -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F042x6 -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_pwr_ex.o ..\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_hal_pwr_ex.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0 -std=gnu11 -DUSE_FULL_LL_DRIVER -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F042x6 -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Core\Src\drvPower.o ..\Core\Src\drvPower.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0 -std=gnu11 -DUSE_FULL_LL_DRIVER -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F042x6 -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_ll_utils.o ..\Drivers\STM32F0xx_HAL_Driver\Src\stm32f0xx_ll_utils.c 
+arm-atollic-eabi-gcc -c -mthumb -mcpu=cortex-m0 -std=gnu11 -DUSE_FULL_LL_DRIVER -D__weak=__attribute__((weak)) -D__packed=__attribute__((__packed__)) -DUSE_HAL_DRIVER -DSTM32F042x6 -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Core/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc -I../Drivers/STM32F0xx_HAL_Driver/Inc/Legacy -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I../Drivers/CMSIS/Device/ST/STM32F0xx/Include -I../Drivers/CMSIS/Include -Os -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o Core\Src\drvMMA8653.o ..\Core\Src\drvMMA8653.c 
+..\Core\Src\drvMMA8653.c: In function 'mma8653_initIrq':
+..\Core\Src\drvMMA8653.c:406:2: warning: implicit declaration of function 'RCC_APB2PeriphClockCmd' [-Wimplicit-function-declaration]
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+  ^~~~~~~~~~~~~~~~~~~~~~
+..\Core\Src\drvMMA8653.c:406:25: error: 'RCC_APB2Periph_SYSCFG' undeclared (first use in this function)
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+                         ^~~~~~~~~~~~~~~~~~~~~
+..\Core\Src\drvMMA8653.c:406:25: note: each undeclared identifier is reported only once for each function it appears in
+..\Core\Src\drvMMA8653.c:408:2: warning: implicit declaration of function 'SYSCFG_EXTILineConfig' [-Wimplicit-function-declaration]
+  SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource2);
+  ^~~~~~~~~~~~~~~~~~~~~
+..\Core\Src\drvMMA8653.c:408:24: error: 'EXTI_PortSourceGPIOA' undeclared (first use in this function)
+  SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource2);
+                        ^~~~~~~~~~~~~~~~~~~~
+..\Core\Src\drvMMA8653.c:408:46: error: 'EXTI_PinSource2' undeclared (first use in this function)
+  SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOA, EXTI_PinSource2);
+                                              ^~~~~~~~~~~~~~~
+..\Core\Src\drvMMA8653.c:410:2: error: unknown type name 'EXTI_InitTypeDef'
+  EXTI_InitTypeDef EXTI_InitStruct;
+  ^~~~~~~~~~~~~~~~
+..\Core\Src\drvMMA8653.c:411:17: error: request for member 'EXTI_Line' in something not a structure or union
+  EXTI_InitStruct.EXTI_Line = EXTI_Line2;
+                 ^
+..\Core\Src\drvMMA8653.c:411:30: error: 'EXTI_Line2' undeclared (first use in this function)
+  EXTI_InitStruct.EXTI_Line = EXTI_Line2;
+                              ^~~~~~~~~~
+..\Core\Src\drvMMA8653.c:412:17: error: request for member 'EXTI_Mode' in something not a structure or union
+  EXTI_InitStruct.EXTI_Mode = EXTI_Mode_Interrupt;
+                 ^
+..\Core\Src\drvMMA8653.c:412:30: error: 'EXTI_Mode_Interrupt' undeclared (first use in this function)
+  EXTI_InitStruct.EXTI_Mode = EXTI_Mode_Interrupt;
+                              ^~~~~~~~~~~~~~~~~~~
+..\Core\Src\drvMMA8653.c:413:17: error: request for member 'EXTI_Trigger' in something not a structure or union
+  EXTI_InitStruct.EXTI_Trigger = EXTI_Trigger_Falling;
+                 ^
+..\Core\Src\drvMMA8653.c:413:33: error: 'EXTI_Trigger_Falling' undeclared (first use in this function)
+  EXTI_InitStruct.EXTI_Trigger = EXTI_Trigger_Falling;
+                                 ^~~~~~~~~~~~~~~~~~~~
+..\Core\Src\drvMMA8653.c:414:17: error: request for member 'EXTI_LineCmd' in something not a structure or union
+  EXTI_InitStruct.EXTI_LineCmd = ENABLE;
+                 ^
+..\Core\Src\drvMMA8653.c:415:2: warning: implicit declaration of function 'EXTI_Init' [-Wimplicit-function-declaration]
+  EXTI_Init(&EXTI_InitStruct);
+  ^~~~~~~~~
+..\Core\Src\drvMMA8653.c:417:2: error: unknown type name 'NVIC_InitTypeDef'
+  NVIC_InitTypeDef NVIC_InitStruct;
+  ^~~~~~~~~~~~~~~~
+..\Core\Src\drvMMA8653.c:418:17: error: request for member 'NVIC_IRQChannel' in something not a structure or union
+  NVIC_InitStruct.NVIC_IRQChannel = EXTI2_3_IRQn;
+                 ^
+..\Core\Src\drvMMA8653.c:419:17: error: request for member 'NVIC_IRQChannelCmd' in something not a structure or union
+  NVIC_InitStruct.NVIC_IRQChannelCmd = ENABLE;
+                 ^
+..\Core\Src\drvMMA8653.c:420:2: warning: implicit declaration of function 'NVIC_Init' [-Wimplicit-function-declaration]
+  NVIC_Init(&NVIC_InitStruct);
+  ^~~~~~~~~
+
+13:10:25 Build Finished (took 2s.117ms)
+

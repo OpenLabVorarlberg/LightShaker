@@ -84,7 +84,6 @@ void PendSV_Handler(void)
 {
 }
 
-
 /**
   * @brief  This function handles USB FS Handler.
   * @param  None

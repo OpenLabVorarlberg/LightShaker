@@ -255,9 +255,6 @@ void consoleInit()
 		DispRowMasks[13] = 0b0001000000001000;
 		DispRowMasks[14] = 0b0000110000110000;
 		DispRowMasks[15] = 0b0000001111000000;
-		globalColor.red = 255;
-		globalColor.green = 255;
-		globalColor.blue = 255;
 	}
 
 }

@@ -1,0 +1,45 @@
+/*
+ * drvPower.c
+ *
+ *  Created on: 14.10.2019
+ *      Author: ChrLin00
+ *      This driver manages the User Button and battery power control
+ *      Pins used:
+ *      PA1 - Button 	- low if pressed, Vbat if not pressed
+ *      PA4 - Supp_Hold	- hold high to keep supply active
+ *      PB1 - USB_pres	- high if usb is connected
+ *
+ *
+ */
+
+#include "stm32f0xx_gpio.h"
+#include "stm32f0xx_rcc.h"
+
+
+void power_init()
+{
+	//enable clock for periphery modules
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);
+
+	//init gpios
+	//PB1
+	GPIO_InitTypeDef GPIO_InitStruct;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_1;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_Init(GPIOB, &GPIO_InitStruct);
+	//PA4
+	GPIO_WriteBit(GPIOA,GPIO_Pin_4,Bit_SET);
+	GPIO_InitTypeDef GPIO_InitStruct;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_4;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_Init(GPIOA, &GPIO_InitStruct);
+	//PA1
+	//TODO: implement Vbat measurement
+	GPIO_InitTypeDef GPIO_InitStruct;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_1;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IN;
+	GPIO_Init(GPIOA, &GPIO_InitStruct);
+}
+
+

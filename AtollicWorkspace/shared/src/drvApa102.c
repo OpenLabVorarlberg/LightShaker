@@ -57,7 +57,10 @@ void apa102_init()
 	DMA_Init(DMA1_Channel3, &DMA_InitStruct);
 
 	apa102_allOff();
-
+	globalColor.red = 255;
+	globalColor.green = 255;
+	globalColor.blue = 255;
+	globalColor.global = 10;
 }
 
 
