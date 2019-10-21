@@ -1,60 +1,44 @@
 #include "drvApa102.h"
-#include "stm32f0xx_gpio.h"
-#include "stm32f0xx_spi.h"
-#include "stm32f0xx_rcc.h"
+#include "stm32f0xx.h"
 
 
 #define LED_CNT		16
-
 colorVrgb leds[LED_CNT];
-
 uint8_t spiSendData[12+4*LED_CNT];
 
 void apa102_init()
 {
 
+	//that's what a bare-metal implementation would look like:
+
 	//enable clock for periphery modules
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1,ENABLE);
+	RCC->AHBENR |= RCC_AHBENR_GPIOAEN | RCC_AHBENR_DMAEN;
+	RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
 
 	//gpio
-	GPIO_InitTypeDef GPIO_InitStructure;
 	//configure PINs PA7 and PA5 as AF out
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5 | GPIO_Pin_7;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	GPIOA->MODER &= ~(GPIO_MODER_MODER5 | GPIO_MODER_MODER7);
+	GPIOA->MODER |= GPIO_MODER_MODER5_1 | GPIO_MODER_MODER7_1;
+	//configure PINs PA7 and PA5 as high speed out
+	GPIOA->OSPEEDR |= GPIO_OSPEEDER_OSPEEDR5 | GPIO_OSPEEDER_OSPEEDR7;
 
 	//init the SPI module
-	SPI_InitTypeDef SPI_InitStruct;
-	SPI_InitStruct.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;
-	SPI_InitStruct.SPI_CPHA = SPI_CPHA_2Edge;
-	SPI_InitStruct.SPI_CPOL = SPI_CPOL_High;
-	SPI_InitStruct.SPI_DataSize = SPI_DataSize_8b;
-	SPI_InitStruct.SPI_Direction = SPI_Direction_Tx;
-	SPI_InitStruct.SPI_FirstBit = SPI_FirstBit_MSB;
-	SPI_InitStruct.SPI_Mode = SPI_Mode_Master;
-	SPI_InitStruct.SPI_NSS = SPI_NSS_Soft;
-	SPI_Init(SPI1, &SPI_InitStruct);
+	//Full-Duplex Master, NSS pin not used, Clock Prescaler 8, MSB first, Cpol 1, CPHA 1
+	SPI1->CR1 = SPI_CR1_SSM | SPI_CR1_SSI | SPI_CR1_BR_1 | SPI_CR1_MSTR | SPI_CR1_CPOL | SPI_CR1_CPHA;
+	//data size 8b (default in CR2)
+	//enable dma request for tx
+	SPI1->CR2 = SPI_CR2_TXDMAEN;
+	//enable SPI:
+	SPI1->CR1 |= SPI_CR1_SPE;
 
-	SPI_I2S_DMACmd(SPI1,SPI_I2S_DMAReq_Tx,ENABLE);
-	//start the SPI module:
-	SPI_Cmd(SPI1,ENABLE);
+	//config DMA for SPI TX
+	//priority high, memToPer, Memory Increment
+	DMA1_Channel3->CCR |= DMA_CCR_PL_1 | DMA_CCR_MINC | DMA_CCR_DIR;
+	//memory Address
+	DMA1_Channel3->CMAR = (uint32_t)spiSendData;
+	//peripheral address
+	DMA1_Channel3->CPAR = (uint32_t)&(SPI1->DR);
 
-	DMA_InitTypeDef DMA_InitStruct;
-	DMA_InitStruct.DMA_DIR = DMA_DIR_PeripheralDST;
-	DMA_InitStruct.DMA_M2M = DMA_M2M_Disable;
-	DMA_InitStruct.DMA_MemoryBaseAddr = (uint32_t)spiSendData;
-	DMA_InitStruct.DMA_MemoryDataSize = DMA_MemoryDataSize_Byte;
-	DMA_InitStruct.DMA_MemoryInc = DMA_MemoryInc_Enable;
-	DMA_InitStruct.DMA_Mode = DMA_Mode_Normal;
-	DMA_InitStruct.DMA_PeripheralBaseAddr = (uint32_t)&(SPI1->DR);
-	DMA_InitStruct.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
-	DMA_InitStruct.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
-	DMA_InitStruct.DMA_Priority = DMA_Priority_High;
-	DMA_Init(DMA1_Channel3, &DMA_InitStruct);
 
 	apa102_allOff();
 	globalColor.red = 255;
@@ -68,7 +52,9 @@ void updateStripe()
 {
 	uint8_t ledIdx = 0;
 	uint8_t byteIdx = 0;
-	DMA_Cmd(DMA1_Channel3, DISABLE);
+
+	//disable the DMA channel
+	DMA1_Channel3->CCR &= ~DMA_CCR_EN;
 	//start frame
 	for(uint8_t i = 0; i < 4; i++)
 	{
@@ -98,15 +84,13 @@ void updateStripe()
 		byteIdx++;
 	}
 
-
 	//now the DMA has to send the spiSendData to the SPI tx fifo :)
-	DMA_SetCurrDataCounter(DMA1_Channel3,12+4*LED_CNT);
-	DMA_Cmd(DMA1_Channel3, ENABLE);
+	DMA1_Channel3->CNDTR = 12+4*LED_CNT;
+	DMA1_Channel3->CCR |= DMA_CCR_EN;
 }
 
 
 //so far only one global color
-
 void apa102_setPattern(uint16_t mask, uint8_t global)
 {
 	//the global-value in the Led-frame is only 5 bit (max.31)!
