@@ -115,6 +115,7 @@ int main(void)
 	{
 		apa102_setSingle(i,10);
 		delay(20);
+
 	}
 	NvMem_init();
 	if(power_UsbPresent())
@@ -151,7 +152,7 @@ int main(void)
 				consoleExecute();
 			}
 
-			//power_exec();
+			power_exec();
 
 		}
 	}

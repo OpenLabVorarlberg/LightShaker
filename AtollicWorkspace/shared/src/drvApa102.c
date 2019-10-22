@@ -1,5 +1,6 @@
 #include "drvApa102.h"
 #include "stm32f0xx.h"
+#include "drvNvMemory.h"
 
 
 #define LED_CNT		16
@@ -47,6 +48,12 @@ void apa102_init()
 	globalColor.global = 10;
 }
 
+void apa102_setGlobalColor(uint8_t red, uint8_t green, uint8_t blue)
+{
+	globalColor.red = red;
+	globalColor.green = green;
+	globalColor.blue = blue;
+}
 
 void updateStripe()
 {

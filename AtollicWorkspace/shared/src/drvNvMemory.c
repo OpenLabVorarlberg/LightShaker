@@ -14,7 +14,7 @@
 #include "stm32f0xx.h"
 
 
-#define NVMEM_PAGE_COUNT		2	//if you change that, don't forget to change the length of the flash-section in the linker-script!
+#define NVMEM_PAGE_COUNT		1	//if you change that, don't forget to change the length of the flash-section in the linker-script!
 #define NVMEM_FLASH_PAGESIZE	1024
 #define NVMEM_FLASH_BASE		(0x08008000 - NVMEM_PAGE_COUNT*NVMEM_FLASH_PAGESIZE)
 #define NVMEM_AD_TOP			(NVMEM_FLASH_PAGESIZE*NVMEM_PAGE_COUNT/2)-1
@@ -31,6 +31,10 @@ bool NvMem_Writable;
  */
 void NvMem_init()
 {
+
+	//enable flash-if clock
+	RCC->AHBENR |= RCC_AHBENR_FLITFEN;
+
 	for(uint16_t ad = 0; ad<=NVMEM_AD_TOP; ad++)
 	{
 		NvMem_RamBuffer[ad]=~READ16(NVMEM_FLASH_BASE+2*ad);
@@ -79,11 +83,9 @@ uint8_t NvMem_write(uint16_t address, uint16_t data)
  */
 uint8_t NvMem_SaveToFlash()
 {
-	//enable flash-if clock
-	RCC->AHBENR |= RCC_AHBENR_FLITFEN;
 
 	//wait till flash is ready
-	while((FLASH->SR & FLASH_SR_BSY)!=0)
+	while(FLASH->SR & FLASH_SR_BSY)
 	{
 
 	}
@@ -121,8 +123,8 @@ uint8_t NvMem_SaveToFlash()
 	for(uint16_t ad = 0; ad< NVMEM_AD_TOP; ad++)
 	{
 		FLASH->CR |= FLASH_CR_PG;
-		flash_ad += 2;
-		*(uint16_t *)(flash_ad) = ~NvMem_RamBuffer[ad];
+		uint16_t value_to_write = ~NvMem_RamBuffer[ad];
+		*(uint16_t *)(flash_ad) = value_to_write;
 		while((FLASH->SR & FLASH_SR_BSY)!=0)
 		{
 
@@ -135,10 +137,12 @@ uint8_t NvMem_SaveToFlash()
 		{
 			return ERR_FLASH_WRPTERR;
 		}
-		if(READ16(flash_ad) != ~NvMem_RamBuffer[ad])
+		uint16_t readback = READ16(flash_ad);
+		if(readback != (uint16_t)~(NvMem_RamBuffer[ad]))
 		{
 			return ERR_FLASH_WRONGREADBACK;
 		}
+		flash_ad += 2;
 	}
 	NvMem_Writable = false;
 	return 0;

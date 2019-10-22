@@ -34,13 +34,13 @@ ENTRY(Reset_Handler)
 _estack = 0x20001800;    /* end of 6K RAM */
 
 /* Generate a link error if heap and stack don't fit into RAM */
-_Min_Heap_Size = 0;      /* required amount of heap  */
-_Min_Stack_Size = 0x80; /* required amount of stack */
+_Min_Heap_Size = 0x100;      /* required amount of heap  */
+_Min_Stack_Size = 0x100; /* required amount of stack */
 
 /* Specify the memory areas */
 MEMORY
 {
-  FLASH (rx)      : ORIGIN = 0x08000000, LENGTH = 30K
+  FLASH (rx)      : ORIGIN = 0x08000000, LENGTH = 31K
   RAM (xrw)       : ORIGIN = 0x20000000, LENGTH = 6K
 }
 

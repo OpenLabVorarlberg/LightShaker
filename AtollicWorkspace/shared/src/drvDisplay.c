@@ -64,7 +64,7 @@ void displayInit()
 
 	apa102_allOff();
 
-	RowsLogic = NvMem_read(NVMEM_AD_ROWS_VISIBLE+2*NVMEM_AD_OVERSCAN);
+	RowsLogic = NvMem_read(NVMEM_AD_ROWS_VISIBLE)+2*NvMem_read(NVMEM_AD_OVERSCAN);
 
 	//set up timer TIM2 for measuring t_frame
 	//upcounting,12MHz-> prescaler = 4,
@@ -124,6 +124,8 @@ void displayInit()
 	RowsOverscan = NvMem_read(NVMEM_AD_OVERSCAN);
 	RowsVisible = NvMem_read(NVMEM_AD_ROWS_VISIBLE);
 
+	//set the color to whatever is defined in NvMem
+	apa102_setGlobalColor(NvMem_read(NVMEM_AD_GLOBAL_RED),NvMem_read(NVMEM_AD_GLOBAL_GREEN),NvMem_read(NVMEM_AD_GLOBAL_BLUE));
 
 }
 
