@@ -9722,3 +9722,9 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.atollic.truestudio.mbs 2 0 2019-10-21 10:54:30.211
 !MESSAGE Playground needs property 'com.atollic.truestudio.general.runtimelib.2094051787' fixed. Fixing to 'com.atollic.truestudio.ld.general.clib.small'.
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-10-21 16:50:16.200
+!MESSAGE Indexed 'POV_Display' (47 sources, 95 headers) in 1,48 sec: 8 742 declarations; 28 477 references; 2 unresolved inclusions; 34 syntax errors; 0 unresolved names (0 %)
+
+!ENTRY org.eclipse.cdt.core 1 0 2019-10-21 16:50:27.798
+!MESSAGE Indexed 'POV_Display' (47 sources, 95 headers) in 1,39 sec: 8 742 declarations; 28 477 references; 2 unresolved inclusions; 34 syntax errors; 0 unresolved names (0 %)

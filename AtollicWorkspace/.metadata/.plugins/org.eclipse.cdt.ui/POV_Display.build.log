@@ -1,1 +1,20 @@
-Info: Nothing to build for POV_Display
+17:07:48 **** Incremental Build of configuration Debug for project POV_Display ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-gcc -c ..\src\configConsole.c -mthumb -mcpu=cortex-m0 -std=c99 -DSTM32F042 -DUSE_STDPERIPH_DRIVER -IC:\git\LightShaker\AtollicWorkspace\shared\src -IC:\git\LightShaker\AtollicWorkspace\POV_Display\src -IC:\git\LightShaker\AtollicWorkspace\shared\Libraries\CMSIS\Include -IC:\git\LightShaker\AtollicWorkspace\shared\Libraries\CMSIS\Device\ST\STM32F0xx\Include -IC:\git\LightShaker\AtollicWorkspace\shared\Libraries\STM32F0xx_StdPeriph_Driver\inc -IC:\git\LightShaker\AtollicWorkspace\shared\Libraries\STM32_USB_Device_Driver\inc -IC:\git\LightShaker\AtollicWorkspace\shared\Libraries\STM32_USB_Device_Library\Class\cdc\inc -IC:\git\LightShaker\AtollicWorkspace\shared\Libraries\STM32_USB_Device_Library\Core\inc -O0 -ffunction-sections -fdata-sections -g -fstack-usage -Wall -specs=nano.specs -o src\configConsole.o 
+arm-atollic-eabi-gcc -o POV_Display.elf Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_adc.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_can.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_cec.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_comp.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_crc.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_crs.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_dac.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_dbgmcu.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_dma.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_exti.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_flash.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_gpio.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_i2c.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_iwdg.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_misc.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_pwr.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_rcc.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_rtc.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_spi.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_syscfg.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_tim.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_usart.o Libraries\STM32F0xx_StdPeriph_Driver\src\stm32f0xx_wwdg.o Libraries\STM32_USB_Device_Driver\src\usb_core.o Libraries\STM32_USB_Device_Driver\src\usb_dcd.o Libraries\STM32_USB_Device_Driver\src\usb_dcd_int.o Libraries\STM32_USB_Device_Library\Class\cdc\src\usbd_cdc_core.o Libraries\STM32_USB_Device_Library\Class\cdc\src\usbd_cdc_if_template.o Libraries\STM32_USB_Device_Library\Core\src\usbd_core.o Libraries\STM32_USB_Device_Library\Core\src\usbd_ioreq.o Libraries\STM32_USB_Device_Library\Core\src\usbd_req.o src\configConsole.o src\main.o src\src\drvApa102.o src\src\drvDisplay.o src\src\drvMMA8653.o src\src\drvNvMemory.o src\src\drvPower.o src\src\drvUSB.o src\src\eeprom.o src\src\usb_bsp.o src\src\usbd_desc.o src\src\usbd_pwr.o src\src\usbd_usr.o src\src\utilFifo.o src\startup_stm32f0xx.o src\stm32_it.o src\system_stm32f0xx.o -mthumb -mcpu=cortex-m0 -T..\stm32_flash.ld -specs=nosys.specs -static -Wl,-cref,-u,Reset_Handler -Wl,-Map=POV_Display.map -Wl,--gc-sections -Wl,--defsym=malloc_getpagesize_P=0x80 -Wl,--start-group -lc -lm -Wl,--end-group -specs=nano.specs 
+C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.2.0\ide\jre\bin\java -jar C:\Program Files (x86)\Atollic\TrueSTUDIO for STM32 9.2.0\Tools\arm-atollic-reports.jar convert-hex sizeinfo list POV_Display.elf 
+Generate build reports...
+Converting build output to hex
+Output sent to: POV_Display.hex
+Converting build output to hex done
+Print size information
+   text	   data	    bss	    dec	    hex	filename
+  27720	    296	   5556	  33572	   8324	POV_Display.elf
+Print size information done
+Generate listing file
+Output sent to: POV_Display.list
+Generate listing file done
+Generate build reports done
+
+17:07:50 Build Finished (took 1s.938ms)
+

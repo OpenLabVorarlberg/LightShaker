@@ -23,14 +23,13 @@
 
 /* Includes */
 #include "main.h"
-#include "stm32f0xx.h"
 #include "drvPower.h"
+#include "drvNvMemory.h"
 #include "drvUSB.h"
 #include "drvMMA8653.h"
 #include "drvApa102.h"
 #include "drvDisplay.h"
 #include "stdio.h"
-#include "math.h"
 #include "configConsole.h"
 
 /* Private typedef */
@@ -117,6 +116,7 @@ int main(void)
 		apa102_setSingle(i,10);
 		delay(20);
 	}
+	NvMem_init();
 	if(power_UsbPresent())
 	{
 		//we are attached to a USB-Port!
@@ -141,7 +141,7 @@ int main(void)
 				USB_Flags &= ~USB_FLAG_FIRST_CONTACT;
 				USB_VCP_DataTx((uint8_t*)"----LightShaker - POV_Display - Version1.2----\n",0);
 			}
-			if(USB_Flags & USB_FLAG_CDC_OPEN)
+			else if(USB_Flags & USB_FLAG_CDC_OPEN)
 			{
 				if(errorcode != 0)
 				{
@@ -151,7 +151,7 @@ int main(void)
 				consoleExecute();
 			}
 
-			power_exec();
+			//power_exec();
 
 		}
 	}

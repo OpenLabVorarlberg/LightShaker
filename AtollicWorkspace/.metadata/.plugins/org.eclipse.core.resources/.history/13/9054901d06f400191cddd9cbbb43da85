@@ -1,0 +1,20 @@
+/*
+ * drvNvMemory.h
+ *
+ *  Created on: 15.10.2019
+ *      Author: ChrLin00
+ */
+
+#ifndef SRC_DRVNVMEMORY_H_
+#define SRC_DRVNVMEMORY_H_
+
+#include "stdbool.h"
+
+
+#define ERR_NVMEM_OUTOFRANGE	 0x01
+#define ERR_NVMEM_ALREADYWRITTEN 0x02
+#define ERR_NVMEM_ERASEFAIL		 0x03
+#define ERR_FLASH_WRONGREADBACK	 0x04
+
+
+#endif /* SRC_DRVNVMEMORY_H_ */

@@ -17,15 +17,6 @@
 #define T_FRAME_MAX		65535*32*2	//in usec		//absolute max is (2^16-1)*LOGIC_ROWS*2
 
 
-
-volatile uint8_t RowsVisible;
-volatile uint8_t RowsOverscan;
-volatile uint8_t RowsLogic;						//should be 2^n
-volatile uint16_t DispRowMasks[32];
-
-
-
-
 void displayInit();
 void displaySendLine();
 void displayFindReturnPoint();

@@ -9,8 +9,8 @@
 #include "stdio.h"
 #include "drvApa102.h"
 #include "drvDisplay.h"
-#include "eeprom.h"
 #include "drvUSB.h"
+#include "drvNvMemory.h"
 #define CFLAG_NEWSTATE	(1<<0)
 #define LENGTH_UNKNOWN	0xFF
 
@@ -26,23 +26,6 @@ enum{
 uint8_t consoleFlags;
 
 uint8_t stringBuff[64];
-uint16_t VirtAddVarTab[NB_OF_VAR];
-#define EE_RED		VirtAddVarTab[0]
-#define EE_GREEN	VirtAddVarTab[1]
-#define EE_BLUE		VirtAddVarTab[2]
-#define EE_ROWS		VirtAddVarTab[3]
-#define EE_OVERSCAN	VirtAddVarTab[4]
-#define EE_PIC_START 5
-
-
-uint16_t VarDataTab[NB_OF_VAR];
-
-#define EE_VAL_RED		VarDataTab[0]
-#define EE_VAL_GREEN	VarDataTab[1]
-#define EE_VAL_BLUE		VarDataTab[2]
-#define EE_VAL_ROWS		VarDataTab[3]
-#define EE_VAL_OVERSCAN	VarDataTab[4]
-#define EE_VAL_PIC_START 5
 
 uint8_t CountOfEnteredDates;
 
@@ -196,66 +179,6 @@ void consoleInit()
 {
 	consoleStates = CSTATE_ROW_VIS;
 	consoleFlags |= CFLAG_NEWSTATE;
-	FLASH_Unlock();
-
-	//fill array with addresses
-	for(uint8_t i = 0; i < NB_OF_VAR; i++)
-	{
-		VirtAddVarTab[i] = (uint16_t)i;
-	}
-
-	EE_Init();
-
-
-	//read values from virtual eeprom (from flash)
-	for(uint8_t i = 0; i < NB_OF_VAR; i++)
-	{
-		EE_ReadVariable(VirtAddVarTab[i],&VarDataTab[i]);
-	}
-	globalColor.red = EE_VAL_RED;
-	globalColor.green = EE_VAL_GREEN;
-	globalColor.blue = EE_VAL_BLUE;
-	RowsVisible = EE_VAL_ROWS;
-	RowsOverscan = EE_VAL_OVERSCAN;
-	//uninitialized Flash should read 0xFFFF
-	//todo: check that
-	if(RowsVisible == 0xFF)
-	{
-		RowsVisible = 0;
-	}
-
-	//the array for the rowData holds 32 values -> limit RowsVisible to that
-	if( RowsVisible > 32)
-	{
-		RowsVisible = 32;
-	}
-	for(uint8_t i = 0; i< RowsVisible; i++)
-	{
-		DispRowMasks[i] = VarDataTab[EE_VAL_PIC_START+i];
-	}
-
-	//if the device is unconfigured (rowsVisible = 0), set a smiley as default picture
-	if(RowsVisible == 0)
-	{
-		RowsVisible = 16;
-		RowsOverscan = 0;
-		DispRowMasks[0]  = 0b0000001111000000;
-		DispRowMasks[1]  = 0b0000110000110000;
-		DispRowMasks[2]  = 0b0001000000001000;
-		DispRowMasks[3]  = 0b0010000000000100;
-		DispRowMasks[4]  = 0b0100010000010010;
-		DispRowMasks[5]  = 0b0100010000010010;
-		DispRowMasks[6]  = 0b1000000000001001;
-		DispRowMasks[7]  = 0b1000000110001001;
-		DispRowMasks[8]  = 0b1000000000001001;
-		DispRowMasks[9]  = 0b1000000000001001;
-		DispRowMasks[10] = 0b0100010000010010;
-		DispRowMasks[11] = 0b0100010000010010;
-		DispRowMasks[12] = 0b0010000000000100;
-		DispRowMasks[13] = 0b0001000000001000;
-		DispRowMasks[14] = 0b0000110000110000;
-		DispRowMasks[15] = 0b0000001111000000;
-	}
 
 }
 
@@ -279,8 +202,8 @@ void consoleExecute()
 		{
 			consoleFlags &= ~CFLAG_NEWSTATE;
 			USB_VCP_DataTx((uint8_t*)"set number of visible rows - 1..32",0);
-			sprintf((char*)stringBuff,"[%u]\n",RowsVisible);
-			USB_VCP_DataTx((uint8_t*)stringBuff,0);
+			sprintf((char*)stringBuff,"[%u]\n",NvMem_read(NVMEM_AD_ROWS_VISIBLE));
+			USB_VCP_DataTx((uint8_t*)stringBuff,0);	//TODO: something very bad happens here!!
 		}
 		if(inputLength == 0)
 		{
@@ -301,9 +224,8 @@ void consoleExecute()
 			consoleError();
 			return;
 		}
-		EE_WriteVariable(EE_ROWS,(uint8_t)rows);
-		RowsVisible = (uint8_t) rows;
-		sprintf((char*)stringBuff,"saved number of visible rows %u\n",RowsVisible);
+		NvMem_write(NVMEM_AD_ROWS_VISIBLE,rows);
+		sprintf((char*)stringBuff,"saved number of visible rows %u\n",NvMem_read(NVMEM_AD_ROWS_VISIBLE));
 		USB_VCP_DataTx((uint8_t*)stringBuff,0);
 		consoleStates = CSTATE_ROW_OVERSCAN;
 		consoleFlags = CFLAG_NEWSTATE;
@@ -313,7 +235,7 @@ void consoleExecute()
 		{
 			consoleFlags &= ~CFLAG_NEWSTATE;
 			USB_VCP_DataTx((uint8_t*)"set number of overscan rows (start and end)",0);
-			sprintf((char*)stringBuff,"[%u]\n",RowsOverscan);
+			sprintf((char*)stringBuff,"[%u]\n",NvMem_read(NVMEM_AD_OVERSCAN));
 			USB_VCP_DataTx((uint8_t*)stringBuff,0);
 			USB_VCP_DataTx((uint8_t*)"the total number of rows (visible + 2*overscan) should be 2^n!\n",0);
 		}
@@ -336,9 +258,8 @@ void consoleExecute()
 			consoleError();
 			return;
 		}
-		EE_WriteVariable(EE_OVERSCAN,(uint8_t)overscan);
-		RowsOverscan = (uint8_t)overscan;
-		sprintf((char*)stringBuff,"saved number of overscan rows %u\n",RowsVisible);
+		NvMem_write(NVMEM_AD_OVERSCAN, overscan);
+		sprintf((char*)stringBuff,"saved number of overscan rows %u\n",NvMem_read(NVMEM_AD_OVERSCAN));
 		USB_VCP_DataTx((uint8_t*)stringBuff,0);
 		consoleStates = CSTATE_PICTURE;
 		consoleFlags = CFLAG_NEWSTATE;
@@ -355,7 +276,7 @@ void consoleExecute()
 			sprintf((char*)stringBuff,"%u>",CountOfEnteredDates);
 			USB_VCP_DataTx((uint8_t*)stringBuff,0);
 		}
-		if(CountOfEnteredDates < RowsVisible)
+		if(CountOfEnteredDates < NvMem_read(NVMEM_AD_ROWS_VISIBLE))
 		{
 			if(inputLength == 0)
 			{
@@ -381,7 +302,7 @@ void consoleExecute()
 				consoleError();
 				return;
 			}
-			EE_WriteVariable(VirtAddVarTab[EE_PIC_START+CountOfEnteredDates],rowData);
+			NvMem_write(NVMEM_AD_PICTURE_START+CountOfEnteredDates,rowData);
 			USB_VCP_DataTx((uint8_t*)" saved\n",0);
 			CountOfEnteredDates++;
 			sprintf((char*)stringBuff,"%u>",CountOfEnteredDates);
@@ -401,7 +322,7 @@ void consoleExecute()
 		{
 			consoleFlags &= ~CFLAG_NEWSTATE;
 			USB_VCP_DataTx((uint8_t*)"set global color as uint8_t R, uint8_t G, uint8_t B ",0);
-			sprintf((char*)stringBuff,"[%u,%u,%u]\n",EE_VAL_RED,EE_VAL_GREEN,EE_VAL_BLUE);
+			sprintf((char*)stringBuff,"[%u,%u,%u]\n",NvMem_read(NVMEM_AD_GLOBAL_RED),NvMem_read(NVMEM_AD_GLOBAL_GREEN),NvMem_read(NVMEM_AD_GLOBAL_BLUE));
 			USB_VCP_DataTx((uint8_t*)stringBuff,0);
 		}
 		if(inputLength == 0)
@@ -458,9 +379,9 @@ void consoleExecute()
 			return;
 		}
 		//all values ok -> write to flash
-		EE_WriteVariable(EE_RED,(uint8_t)red);
-		EE_WriteVariable(EE_GREEN,(uint8_t)green);
-		EE_WriteVariable(EE_BLUE,(uint8_t)blue);
+		NvMem_write(NVMEM_AD_GLOBAL_RED,red);
+		NvMem_write(NVMEM_AD_GLOBAL_GREEN,green);
+		NvMem_write(NVMEM_AD_GLOBAL_BLUE,blue);
 
 		sprintf((char*)stringBuff,"saved global color %u,%u,%u\n",(uint8_t)red,(uint8_t)green,(uint8_t)blue);
 		USB_VCP_DataTx((uint8_t*)stringBuff,0);
@@ -473,6 +394,7 @@ void consoleExecute()
 		if(consoleFlags & CFLAG_NEWSTATE)
 		{
 			consoleFlags &= ~CFLAG_NEWSTATE;
+			NvMem_SaveToFlash();	//TODO: return errorcode
 			USB_VCP_DataTx((uint8_t*)"config done, ready for work!\n",0);
 		}
 		break;
