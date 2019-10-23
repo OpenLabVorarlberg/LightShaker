@@ -88,6 +88,12 @@ int main(void)
 	//init the drivers
 	power_init();
 	apa102_init();
+	//LED-Test
+	for(uint8_t i = 0; i<16; i++)
+	{
+		apa102_setSingle(i,10);
+		delay(20);
+	}
 	mma8653_init();
 	mma8653_setDataWidth(MMA8653_DATAWIDTH_8);
 	mma8653_setDataRate(RATE_12Hz5);
@@ -96,12 +102,6 @@ int main(void)
 	globalColor.green=0xFF;
 	globalColor.blue=0xFF;
 
-	//LED-Test
-	for(uint8_t i = 0; i<16; i++)
-	{
-		apa102_setSingle(i,10);
-		delay(20);
-	}
 	apa102_allOff();
 
 
