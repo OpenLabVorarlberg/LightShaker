@@ -119,6 +119,13 @@ void displayInit()
 		NvMem_write(NVMEM_AD_PICTURE_START+14, 0b0000110000110000);
 		NvMem_write(NVMEM_AD_PICTURE_START+15, 0b0000001111000000);
 	}
+	//if the color has never been configured (or if somebody configured it to 0,0,0) the Lightshaker doesn't do anything visible, so let's change that
+	if(!NvMem_read(NVMEM_AD_GLOBAL_BLUE) && !NvMem_read(NVMEM_AD_GLOBAL_GREEN) && !NvMem_read(NVMEM_AD_GLOBAL_RED))
+	{
+		NvMem_write(NVMEM_AD_GLOBAL_BLUE,255);
+		NvMem_write(NVMEM_AD_GLOBAL_GREEN,255);
+		NvMem_write(NVMEM_AD_GLOBAL_RED,255);
+	}
 
 	//init the display data
 	RowsOverscan = NvMem_read(NVMEM_AD_OVERSCAN);
