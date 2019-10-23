@@ -1,8 +1,0 @@
-# Make USB pads shorter
-# Fix power problem (+2.5V on +5V when turned off)
-
-ToDo for REV 3
-# Add Diode to "GATE" Signal to prevent leakage current over ESD Protection of yC input pin to mess with turning off the power
-# Add 100k between D+ and D- after 27R
-# Fix Signal Name "Gate" and "SUPP_HOLD"
-# Change value of R2, R3 to 470R.
