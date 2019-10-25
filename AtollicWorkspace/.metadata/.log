@@ -10379,3 +10379,8 @@ This warning can be switched off on the Team > Git > Confirmations and Warnings 
 
 !ENTRY com.atollic.truestudio.mbs 2 0 2019-10-23 12:53:04.694
 !MESSAGE Playground needs property 'com.atollic.truestudio.general.runtimelib.1875705317' fixed. Fixing to 'com.atollic.truestudio.ld.general.clib.small'.
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2019-10-25 12:36:10.215
+!MESSAGE Request for monitor: 'RequestMonitor (org.eclipse.cdt.dsf.concurrent.RequestMonitor@13f6d24): Status ERROR: org.eclipse.cdt.dsf.gdb code=10004 Interrupt failed. null' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2019-10-25 12:36:10.215
+!MESSAGE Interrupt failed.

@@ -1,0 +1,24 @@
+#include <stddef.h>
+#include "stdint.h"
+#include "drvMMA8653.h"
+
+// waits for the given time of ticks
+void Warten(uint32_t ticks);
+
+// turns on the LED with the given number
+void LedEin(uint8_t ledNummer);
+
+// turns on all LEDs where a "1" is set
+void LedMusterEin(uint16_t muster);
+
+// change the LED color using RGB values
+void RGBFarbeAendern(uint8_t rot, uint8_t gruen, uint8_t blau);
+
+// return the current value from the accelerometer
+acc8_t AktuelleBeschleunigung();
+
+// demo: a red light flowing from left to right and back again
+void KnightRider(void);
+
+// demo: turns on and off one LED after the other in different colors
+void FarbenSpiel(void);
