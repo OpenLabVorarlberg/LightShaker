@@ -98,7 +98,7 @@ void displayInit()
 
 	//if the device is unconfigured (rowsVisible = 0), set a smiley as default picture
 	//TODO: this could be planted into flash directly (to save a bit of memory)
-	if(NvMem_read(NVMEM_AD_ROWS_VISIBLE) == 0)
+	if(NvMem_read(NVMEM_AD_ROWS_VISIBLE) > 32 || NvMem_read(NVMEM_AD_ROWS_VISIBLE) == 0)
 	{
 		NvMem_write(NVMEM_AD_ROWS_VISIBLE, 16);
 		NvMem_write(NVMEM_AD_OVERSCAN, 0);

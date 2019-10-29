@@ -2228,63 +2228,6 @@
 					<entry kind="includePath" name="C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ARMTools/lib/gcc/arm-atollic-eabi/6.3.1/include-fixed">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_DSP">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_QBIT">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_SAT">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_CRYPTO">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_UNALIGNED">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_QRDMX">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_32BIT_STATE">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_LDREX">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_CLZ">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_SIMD32">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __thumb2__">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FP">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_FMA">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_NEON__">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_NEON">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_NEON_FP">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_ARCH_EXT_IDIV__">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_IDIV">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_ASM_SYNTAX_UNIFIED__">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
 					<entry kind="includePath" name="C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ARMTools/arm-atollic-eabi/include">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -3322,11 +3265,20 @@
 					</entry>
 				</language>
 				<language id="org.eclipse.cdt.core.g++">
+					<entry kind="includePath" name="/${ProjName}/#undef __ARM_ARCH_EXT_IDIV__">
+						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
+					</entry>
 					<entry kind="includePath" name="C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ARMTools/arm-atollic-eabi/include/c++/6.3.1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="includePath" name="C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ARMTools/arm-atollic-eabi/include/c++/6.3.1/arm-atollic-eabi/armv6-m">
 						<flag value="BUILTIN|READONLY"/>
+					</entry>
+					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_IDIV">
+						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
+					</entry>
+					<entry kind="includePath" name="/${ProjName}/#undef __ARM_ASM_SYNTAX_UNIFIED__">
+						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
 					</entry>
 					<entry kind="includePath" name="C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ARMTools/arm-atollic-eabi/include/c++/6.3.1/backward">
 						<flag value="BUILTIN|READONLY"/>

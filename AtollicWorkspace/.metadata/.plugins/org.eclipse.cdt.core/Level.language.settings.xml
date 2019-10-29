@@ -1047,6 +1047,12 @@
 					</entry>
 				</language>
 				<language id="org.eclipse.cdt.core.g++">
+					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_IDIV">
+						<flag value="BUILTIN|READONLY|LOCAL|VALUE_WORKSPACE_PATH"/>
+					</entry>
+					<entry kind="includePath" name="/${ProjName}/#undef __ARM_ASM_SYNTAX_UNIFIED__">
+						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
+					</entry>
 					<entry kind="includePath" name="C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ARMTools/arm-atollic-eabi/include/c++/6.3.1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -3265,29 +3271,14 @@
 					</entry>
 				</language>
 				<language id="org.eclipse.cdt.core.g++">
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_NEON">
-						<flag value="BUILTIN|READONLY|LOCAL|VALUE_WORKSPACE_PATH"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_NEON_FP">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
 					<entry kind="includePath" name="C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ARMTools/arm-atollic-eabi/include/c++/6.3.1">
 						<flag value="BUILTIN|READONLY"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_ARCH_EXT_IDIV__">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
 					</entry>
 					<entry kind="includePath" name="C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ARMTools/arm-atollic-eabi/include/c++/6.3.1/arm-atollic-eabi/armv6-m">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_FEATURE_IDIV">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
-					</entry>
 					<entry kind="includePath" name="C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ARMTools/arm-atollic-eabi/include/c++/6.3.1/backward">
 						<flag value="BUILTIN|READONLY"/>
-					</entry>
-					<entry kind="includePath" name="/${ProjName}/#undef __ARM_ASM_SYNTAX_UNIFIED__">
-						<flag value="BUILTIN|READONLY|VALUE_WORKSPACE_PATH"/>
 					</entry>
 					<entry kind="includePath" name="C:/Program Files (x86)/Atollic/TrueSTUDIO for STM32 9.2.0/ARMTools/lib/gcc/arm-atollic-eabi/6.3.1/include">
 						<flag value="BUILTIN|READONLY"/>
@@ -3305,9 +3296,6 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__ACCUM_IBIT__" value="16">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
-					<entry kind="macro" name="__ACCUM_MAX__" value="0x7fffffffffffffffLL">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__ACCUM_MAX__" value="0X7FFFFFFFP-15K">
@@ -3344,6 +3332,9 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__ARM_SIZEOF_WCHAR_T" value="4">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
+					<entry kind="macro" name="__ATOMIC_ACQUIRE" value="2">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__ATOMIC_ACQ_REL" value="4">
@@ -3463,9 +3454,6 @@
 					<entry kind="macro" name="__DEC32_MIN_EXP__" value="(-94)">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="macro" name="__DEC32_MIN__" value="198712">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
 					<entry kind="macro" name="__DEC32_MIN__" value="1E-95DF">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -3518,9 +3506,6 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__FLOAT_WORD_ORDER__" value="__ORDER_LITTLE_ENDIAN__">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
-					<entry kind="macro" name="__FLT_DECIMAL_DIG__" value="short unsigned int">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__FLT_DECIMAL_DIG__" value="9">
@@ -3622,6 +3607,9 @@
 					<entry kind="macro" name="__GCC_IEC_559" value="0">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
+					<entry kind="macro" name="__GCC_IEC_559_COMPLEX" value="0">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
 					<entry kind="macro" name="__GNUC_MINOR__" value="3">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -3694,9 +3682,6 @@
 					<entry kind="macro" name="__INT8_C(c)" value="c">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="macro" name="__INT8_MAX__" value="2">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
 					<entry kind="macro" name="__INT8_MAX__" value="0x7f">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -3716,6 +3701,9 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__INTPTR_TYPE__" value="int">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
+					<entry kind="macro" name="__INT_FAST16_MAX__" value="0x7fffffff">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__INT_FAST16_TYPE__" value="int">
@@ -3751,6 +3739,9 @@
 					<entry kind="macro" name="__INT_LEAST32_TYPE__" value="long int">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
+					<entry kind="macro" name="__INT_LEAST64_MAX__" value="0x7fffffffffffffffLL">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
 					<entry kind="macro" name="__INT_LEAST64_TYPE__" value="long long int">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -3770,6 +3761,9 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__LACCUM_IBIT__" value="32">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
+					<entry kind="macro" name="__LACCUM_MAX__" value="0X7FFFFFFFFFFFFFFFP-31LK">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__LACCUM_MIN__" value="(-0X1P31LK-0X1P31LK)">
@@ -3839,6 +3833,9 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__LLACCUM_MAX__" value="0X7FFFFFFFFFFFFFFFP-31LLK">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
+					<entry kind="macro" name="__LLACCUM_MIN__" value="(-0X1P31LLK-0X1P31LLK)">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__LLFRACT_EPSILON__" value="0x1P-63LLR">
@@ -4015,9 +4012,6 @@
 					<entry kind="macro" name="__THUMBEL__" value="1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="macro" name="__THUMB_INTERWORK__" value="(-0X1P31LLK-0X1P31LLK)">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
 					<entry kind="macro" name="__THUMB_INTERWORK__" value="1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -4085,6 +4079,9 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__UINT16_MAX__" value="0xffff">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
+					<entry kind="macro" name="__UINT16_TYPE__" value="short unsigned int">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__UINT32_C(c)" value="c ## UL">
@@ -4180,16 +4177,10 @@
 					<entry kind="macro" name="__ULACCUM_EPSILON__" value="0x1P-32ULK">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="macro" name="__ULACCUM_FBIT__" value="0x7fffffff">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
 					<entry kind="macro" name="__ULACCUM_FBIT__" value="32">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__ULACCUM_IBIT__" value="32">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
-					<entry kind="macro" name="__ULACCUM_MAX__" value="0">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__ULACCUM_MAX__" value="0XFFFFFFFFFFFFFFFFP-32ULK">
@@ -4336,9 +4327,6 @@
 					<entry kind="macro" name="__WINT_TYPE__" value="unsigned int">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
-					<entry kind="macro" name="__arm__" value="0X7FFFFFFFFFFFFFFFP-31LK">
-						<flag value="BUILTIN|READONLY"/>
-					</entry>
 					<entry kind="macro" name="__arm__" value="1">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
@@ -4409,6 +4397,9 @@
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__cpp_rtti" value="199711">
+						<flag value="BUILTIN|READONLY"/>
+					</entry>
+					<entry kind="macro" name="__cpp_runtime_arrays" value="198712">
 						<flag value="BUILTIN|READONLY"/>
 					</entry>
 					<entry kind="macro" name="__cpp_rvalue_reference" value="200610">
