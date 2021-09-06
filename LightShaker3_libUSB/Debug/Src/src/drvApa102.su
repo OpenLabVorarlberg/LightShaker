@@ -1,0 +1,6 @@
+drvApa102.c:9:6:apa102_init	8	static
+drvApa102.c:49:6:apa102_setGlobalColor	24	static
+drvApa102.c:55:6:updateStripe	16	static
+drvApa102.c:93:6:apa102_setPattern	24	static
+drvApa102.c:112:6:apa102_setSingle	16	static
+drvApa102.c:116:6:apa102_allOff	16	static

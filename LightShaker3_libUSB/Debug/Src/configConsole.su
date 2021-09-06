@@ -1,0 +1,5 @@
+configConsole.c:37:10:StrFindChar	32	static
+configConsole.c:59:10:StrToU32	32	static
+configConsole.c:178:6:consoleInit	8	static
+configConsole.c:185:6:consoleError	8	static
+configConsole.c:195:6:consoleExecute	56	static

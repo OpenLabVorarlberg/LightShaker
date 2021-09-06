@@ -1,0 +1,14 @@
+stm32f0xx_crc.c:94:6:CRC_DeInit	8	static
+stm32f0xx_crc.c:116:6:CRC_ResetDR	8	static
+stm32f0xx_crc.c:132:6:CRC_PolynomialSizeSelect	24	static
+stm32f0xx_crc.c:160:6:CRC_ReverseInputDataSelect	24	static
+stm32f0xx_crc.c:185:6:CRC_ReverseOutputDataCmd	16	static
+stm32f0xx_crc.c:204:6:CRC_SetInitRegister	16	static
+stm32f0xx_crc.c:214:6:CRC_SetPolynomial	16	static
+stm32f0xx_crc.c:239:10:CRC_CalcCRC	16	static
+stm32f0xx_crc.c:251:10:CRC_CalcCRC16bits	16	static
+stm32f0xx_crc.c:263:10:CRC_CalcCRC8bits	16	static
+stm32f0xx_crc.c:275:10:CRC_CalcBlockCRC	24	static
+stm32f0xx_crc.c:289:10:CRC_GetCRC	8	static
+stm32f0xx_crc.c:314:6:CRC_SetIDRegister	16	static
+stm32f0xx_crc.c:323:9:CRC_GetIDRegister	8	static

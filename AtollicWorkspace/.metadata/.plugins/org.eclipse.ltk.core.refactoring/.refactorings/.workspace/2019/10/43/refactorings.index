@@ -1,7 +1,0 @@
-1571728817063	Rename resource 'STM32F303CC_usb_test'
-1571728877438	Delete resource 'usb_test'
-1571729210101	Delete resource 'USB_Test/Drivers'
-1571730154058	Delete 3 resources
-1571730966683	Delete resource 'USB_Test/src/system_stm32f0xx.c'
-1571990961923	Delete resource 'Playground/src/helper.c'
-1571990965677	Delete resource 'Playground/src/helper.h'

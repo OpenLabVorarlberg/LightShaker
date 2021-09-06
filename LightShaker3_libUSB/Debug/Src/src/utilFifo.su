@@ -1,0 +1,3 @@
+utilFifo.c:11:9:FifoIn	24	static
+utilFifo.c:31:9:FifoOut	16	static
+utilFifo.c:42:10:FifoCount	16	static

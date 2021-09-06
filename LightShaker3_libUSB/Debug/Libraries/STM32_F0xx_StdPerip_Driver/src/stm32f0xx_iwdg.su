@@ -1,0 +1,7 @@
+stm32f0xx_iwdg.c:145:6:IWDG_WriteAccessCmd	16	static
+stm32f0xx_iwdg.c:164:6:IWDG_SetPrescaler	16	static
+stm32f0xx_iwdg.c:176:6:IWDG_SetReload	16	static
+stm32f0xx_iwdg.c:188:6:IWDG_ReloadCounter	8	static
+stm32f0xx_iwdg.c:197:6:IWDG_SetWindowValue	16	static
+stm32f0xx_iwdg.c:224:6:IWDG_Enable	8	static
+stm32f0xx_iwdg.c:253:12:IWDG_GetFlagStatus	24	static

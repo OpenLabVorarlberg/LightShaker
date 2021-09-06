@@ -1,0 +1,6 @@
+drvProgram.c:20:6:init_povdisplay	8	static
+drvProgram.c:32:6:init_level	8	static
+drvProgram.c:43:6:init_test1	8	static
+drvProgram.c:50:6:povdisplay	8	static
+drvProgram.c:69:6:level	16	static
+drvProgram.c:96:6:test1	8	static

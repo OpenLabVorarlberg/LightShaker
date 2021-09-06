@@ -1,4 +1,0 @@
-C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 5.4.2\ide\plugins\sst.tm_1.1.2.201508171502\CSHOME\
-C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 5.4.2\ide\plugins\sst.csgp_1.0.5.201508171502\CSHOME
-C:\Program Files (x86)\Atollic\TrueSTUDIO for ARM 5.4.2\ARMTools
-D:\git\LightShaker\AtollicWorkspace\.metadata\.plugins\sst.tm

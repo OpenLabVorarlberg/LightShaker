@@ -1,0 +1,15 @@
+usbd_core.h:431:24:USBD_GetInfo	16	static
+usbd_core.c:32:13:USBD_Process_Reset	16	static
+usbd_core.c:46:13:USBD_Set_Address	16	static
+usbd_core.c:59:13:USBD_Process_Callback	16	static
+usbd_core.c:71:28:USBD_Configure	16	static
+usbd_core.c:91:28:USBD_Process_Device_Request	16	static
+usbd_core.c:136:28:USBD_Process_Interface_Request	16	static
+usbd_core.c:154:28:USBD_Process_EP_Request	16	static
+usbd_core.c:181:28:USBD_Process_Request	32	static
+usbd_core.c:206:13:USBD_Delay_PID	16	static
+usbd_core.c:217:13:USBD_Process_EP_Tx	32	static
+usbd_core.c:250:13:USBD_Process_EP_Rx	32	static
+usbd_core.c:322:13:USBD_Process_EP0	16	static
+usbd_core.c:344:13:USBD_Process_Event	24	static
+usbd_core.c:365:42:USBD_Poll	16	static

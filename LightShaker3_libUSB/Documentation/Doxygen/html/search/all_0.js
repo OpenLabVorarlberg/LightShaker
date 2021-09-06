@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['_5f_5fattribute_5f_5f_0',['__attribute__',['../usb__std_8h.html#a415a092f02f61ae44f0642e12093d59c',1,'__attribute__():&#160;usb_std.h'],['../usbd__core_8h.html#a08741aec1a118eb0094335d37a938af5',1,'__attribute__():&#160;usbd_core.h'],['../ms__os_8h.html#a85c1cf4230b81aa2a179954ea1040e51',1,'__attribute__((packed)):&#160;ms_os.h'],['../usb__std_8h.html#af1bef1b651901ccb54bd304f236f2e54',1,'__attribute__((packed)):&#160;usb_std.h']]],
+  ['_5f_5fcat_1',['__CAT',['../usb__std_8h.html#a772e0cfcaab693fe1a7cb77b07da5a5a',1,'usb_std.h']]],
+  ['_5fbcl_2',['_BCL',['../definitions_8h.html#a2091ea54d4f763e86fe67e4da26a8894',1,'definitions.h']]],
+  ['_5fbmd_3',['_BMD',['../definitions_8h.html#aa50e3f03c5cad31a3d45552cb7ba7511',1,'definitions.h']]],
+  ['_5fbst_4',['_BST',['../definitions_8h.html#a958a485c78912b39c53137e9d591ef3f',1,'definitions.h']]],
+  ['_5fbv_5',['_BV',['../definitions_8h.html#a11643f271076024c395a93800b3d9546',1,'definitions.h']]],
+  ['_5freserveda_6',['_reservedA',['../structms__compat__id__descriptor.html#a81ee0b747f410bd77f8be1cc2b45a484',1,'ms_compat_id_descriptor::_reservedA()'],['../ms__os_8h.html#a81ee0b747f410bd77f8be1cc2b45a484',1,'_reservedA():&#160;ms_os.h']]],
+  ['_5freservedb_7',['_reservedB',['../structms__compat__id__descriptor.html#a1fb2ed2d35819c1d69a5de17eabe868a',1,'ms_compat_id_descriptor::_reservedB()'],['../ms__os_8h.html#a1fb2ed2d35819c1d69a5de17eabe868a',1,'_reservedB():&#160;ms_os.h']]],
+  ['_5freservedc_8',['_reservedC',['../structms__compat__id__descriptor.html#a54271a6d22a1a593319abaa71a9838ad',1,'ms_compat_id_descriptor::_reservedC()'],['../ms__os_8h.html#a54271a6d22a1a593319abaa71a9838ad',1,'_reservedC():&#160;ms_os.h']]],
+  ['_5fusbd_5fcontrol_5frequest_5f_9',['_usbd_control_request_',['../struct__usbd__control__request__.html',1,'']]],
+  ['_5fusbd_5fdevice_5f_10',['_usbd_device_',['../struct__usbd__device__.html',1,'']]],
+  ['_5fusbd_5fdevice_5fstatus_5f_11',['_usbd_device_status_',['../struct__usbd__device__status__.html',1,'']]],
+  ['_5fusbd_5fstatus_5frespond_5f_12',['_usbd_status_respond_',['../usbd__core_8h.html#a6dc36ea8aa75c9ea3898404876ee39b8',1,'usbd_core.h']]],
+  ['_5fwbc_13',['_WBC',['../definitions_8h.html#a40d98924aae58895f76c5f3936c54ca4',1,'definitions.h']]],
+  ['_5fwbs_14',['_WBS',['../definitions_8h.html#a01b0bc1dfcf4c5eca5fc56aae50ae707',1,'definitions.h']]],
+  ['_5fwvl_15',['_WVL',['../definitions_8h.html#a14cb9a1987c7ed8a96f3a5ecd15f0661',1,'definitions.h']]]
+];
