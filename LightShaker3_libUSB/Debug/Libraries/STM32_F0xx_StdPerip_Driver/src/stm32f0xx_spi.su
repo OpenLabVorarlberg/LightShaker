@@ -28,4 +28,4 @@ stm32f0xx_spi.c:1118:10:SPI_GetTransmissionFIFOStatus	16	static
 stm32f0xx_spi.c:1133:10:SPI_GetReceptionFIFOStatus	16	static
 stm32f0xx_spi.c:1157:12:SPI_I2S_GetFlagStatus	24	static
 stm32f0xx_spi.c:1190:6:SPI_I2S_ClearFlag	16	static
-stm32f0xx_spi.c:1213:10:SPI_I2S_GetITStatus	24	static
+stm32f0xx_spi.c:1213:10:SPI_I2S_GetITStatus	32	static

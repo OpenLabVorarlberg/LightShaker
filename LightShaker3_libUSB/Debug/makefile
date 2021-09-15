@@ -1,5 +1,6 @@
 ################################################################################
 # Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (9-2020-q2-update)
 ################################################################################
 
 -include ../makefile.init
@@ -30,6 +31,17 @@ endif
 
 -include ../makefile.defs
 
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
+
+BUILD_ARTIFACT_NAME := LightShaker3_libUSB
+BUILD_ARTIFACT_EXTENSION := elf
+BUILD_ARTIFACT_PREFIX :=
+BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
+
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
 LightShaker3_libUSB.elf \
@@ -45,37 +57,46 @@ LightShaker3_libUSB.bin \
 
 
 # All Target
-all: LightShaker3_libUSB.elf secondary-outputs
+all: main-build
+
+# Main-build Target
+main-build: LightShaker3_libUSB.elf secondary-outputs
 
 # Tool invocations
-LightShaker3_libUSB.elf: $(OBJS) $(USER_OBJS) C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\STM32F042F6PX_FLASH.ld
-	arm-none-eabi-gcc -o "LightShaker3_libUSB.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\STM32F042F6PX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LightShaker3_libUSB.map" -Wl,--gc-sections -static -L"C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\Libraries\CMSIS\Device\ST\STM32F0xx\Include" -L"C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\Libraries\CMSIS\Include" -L"C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\Libraries\CMSIS\RTOS" -L"C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\Libraries\STM32_F0xx_StdPerip_Driver\inc" -L"C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\Libraries\STM32_F0xx_StdPerip_Driver\src" -L"C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\Src\src" -L"C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\Src" -L"C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\USB\inc" -L"C:\Users\SteDun00\Desktop\GitHub\LightShaker3_libUSB\USB\src" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+LightShaker3_libUSB.elf: $(OBJS) $(USER_OBJS) C:\git\LightShaker\LightShaker3_libUSB\STM32F042F6PX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "LightShaker3_libUSB.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m0 -T"C:\git\LightShaker\LightShaker3_libUSB\STM32F042F6PX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LightShaker3_libUSB.map" -Wl,--gc-sections -static -L"C:\git\LightShaker\LightShaker3_libUSB\Libraries\CMSIS\Device\ST\STM32F0xx\Include" -L"C:\git\LightShaker\LightShaker3_libUSB\Libraries\CMSIS\Include" -L"C:\git\LightShaker\LightShaker3_libUSB\Libraries\CMSIS\RTOS" -L"C:\git\LightShaker\LightShaker3_libUSB\Libraries\STM32_F0xx_StdPerip_Driver\inc" -L"C:\git\LightShaker\LightShaker3_libUSB\Libraries\STM32_F0xx_StdPerip_Driver\src" -L"C:\git\LightShaker\LightShaker3_libUSB\Src\src" -L"C:\git\LightShaker\LightShaker3_libUSB\Src" -L"C:\git\LightShaker\LightShaker3_libUSB\USB\inc" -L"C:\git\LightShaker\LightShaker3_libUSB\USB\src" --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-default.size.stdout: $(EXECUTABLES)
+default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-size  $(EXECUTABLES)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-LightShaker3_libUSB.list: $(EXECUTABLES)
+LightShaker3_libUSB.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "LightShaker3_libUSB.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-LightShaker3_libUSB.bin: $(EXECUTABLES)
+LightShaker3_libUSB.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "LightShaker3_libUSB.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) *
+	-$(RM) $(SIZE_OUTPUT)$(OBJDUMP_LIST)$(EXECUTABLES)$(OBJS)$(S_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(OBJCOPY_BIN) LightShaker3_libUSB.elf
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
-.PHONY: all clean dependents
-.SECONDARY:
+fail-specified-linker-script-missing:
+	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'
+	@exit 2
+
+warn-no-linker-script-specified:
+	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
+
+.PHONY: all clean dependents fail-specified-linker-script-missing warn-no-linker-script-specified
 
 -include ../makefile.targets

@@ -4,4 +4,4 @@ eeprom.c:305:10:EE_WriteVariable	32	static
 eeprom.c:327:21:EE_Format	24	static
 eeprom.c:362:17:EE_FindValidPage	24	static
 eeprom.c:416:17:EE_VerifyPageFullWriteVariable	40	static
-eeprom.c:473:17:EE_PageTransfer	48	static
+eeprom.c:473:17:EE_PageTransfer	56	static

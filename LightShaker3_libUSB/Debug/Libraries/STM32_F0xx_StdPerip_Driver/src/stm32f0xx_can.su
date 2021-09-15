@@ -12,7 +12,7 @@ stm32f0xx_can.c:689:6:CAN_Receive	32	static
 stm32f0xx_can.c:742:6:CAN_FIFORelease	16	static
 stm32f0xx_can.c:763:9:CAN_MessagePending	24	static
 stm32f0xx_can.c:805:9:CAN_OperatingModeRequest	24	static
-stm32f0xx_can.c:868:9:CAN_Sleep	24	static
+stm32f0xx_can.c:868:9:CAN_Sleep	32	static
 stm32f0xx_can.c:892:9:CAN_WakeUp	24	static
 stm32f0xx_can.c:950:9:CAN_GetLastErrorCode	32	static
 stm32f0xx_can.c:974:9:CAN_GetReceiveErrorCounter	32	static

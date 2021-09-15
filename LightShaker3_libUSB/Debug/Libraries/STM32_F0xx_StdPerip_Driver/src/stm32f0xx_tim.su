@@ -69,7 +69,7 @@ stm32f0xx_tim.c:2241:6:TIM_ITConfig	16	static
 stm32f0xx_tim.c:2279:6:TIM_GenerateEvent	16	static
 stm32f0xx_tim.c:2316:12:TIM_GetFlagStatus	24	static
 stm32f0xx_tim.c:2361:6:TIM_ClearFlag	16	static
-stm32f0xx_tim.c:2395:10:TIM_GetITStatus	24	static
+stm32f0xx_tim.c:2395:10:TIM_GetITStatus	32	static
 stm32f0xx_tim.c:2439:6:TIM_ClearITPendingBit	16	static
 stm32f0xx_tim.c:2476:6:TIM_DMAConfig	16	static
 stm32f0xx_tim.c:2505:6:TIM_DMACmd	16	static
