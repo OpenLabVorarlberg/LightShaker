@@ -1,6 +1,7 @@
 #include "drvApa102.h"
 #include "stm32f0xx.h"
 #include "drvNvMemory.h"
+#include "main.h"
 
 #define LED_CNT		16
 colorVrgb leds[LED_CNT];
@@ -44,6 +45,12 @@ void apa102_init() {
 	globalColor.green = 255;
 	globalColor.blue = 255;
 	globalColor.global = 10;
+
+	//LED-Test
+	for(uint8_t i = 0; i<16; i++) {
+		apa102_setSingle(i,10);
+		delay(20);
+	}
 }
 
 void apa102_setGlobalColor(uint8_t red, uint8_t green, uint8_t blue) {
@@ -111,6 +118,26 @@ void apa102_setPattern(uint16_t mask, uint8_t global) {
 
 void apa102_setSingle(uint8_t index, uint8_t global) {
 	apa102_setPattern(1 << index, global);
+}
+
+void apa102_Bargraph(uint8_t hight, uint8_t global)
+{
+	if(!hight)
+	{
+		apa102_allOff();
+		return;
+	}
+	if(hight > 16)
+	{
+		hight = 16;
+	}
+	uint16_t pattern = 0;
+	for(uint8_t i = 0; i < hight; i++)
+	{
+		pattern += 1<<i;
+	}
+	apa102_setPattern(pattern, global);
+	return;
 }
 
 void apa102_allOff() {

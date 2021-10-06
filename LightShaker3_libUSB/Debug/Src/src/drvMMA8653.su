@@ -1,3 +1,4 @@
+core_cm0.h:495:22:NVIC_DisableIRQ	16	static
 drvMMA8653.c:53:9:I2C_RdReg	40	static
 drvMMA8653.c:103:6:I2C_WrReg	24	static
 drvMMA8653.c:153:6:I2C_BitHandling	32	static
@@ -10,3 +11,4 @@ drvMMA8653.c:293:9:mma8653_setDataWidth	16	static
 drvMMA8653.c:324:8:mma8653_read8	32	static
 drvMMA8653.c:338:9:mma8653_read10	40	static
 drvMMA8653.c:353:6:mma8653_initIrq	24	static
+drvMMA8653.c:388:6:mma6853_deInit	8	static

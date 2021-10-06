@@ -27,15 +27,19 @@ Allocating common symbols
 Common symbol       size              file
 
 power_timer         0x1               ./Src/src/drvPower.o
-levelResult         0x2               ./Src/main.o
+levelResult         0x2               ./Src/App_Level.o
 RowsOverscan        0x1               ./Src/src/drvDisplay.o
+power_buttonState   0x1               ./Src/src/drvPower.o
 DispRowMasks        0x40              ./Src/src/drvDisplay.o
-systemFlags         0x1               ./Src/main.o
+power_flags         0x1               ./Src/App_POVDisplay.o
+systemFlags         0x1               ./Src/src/drvProgram.o
 NvMem_RamBuffer     0x400             ./Src/src/drvNvMemory.o
 DisplayPosition     0x1               ./Src/src/drvDisplay.o
-led_pos             0x1               ./Src/main.o
+led_pos             0x1               ./Src/App_Level.o
 consoleStates       0x1               ./Src/configConsole.o
 RowsVisible         0x1               ./Src/src/drvDisplay.o
+power_buttonHoldTime
+                    0x1               ./Src/App_POVDisplay.o
 leds                0x40              ./Src/src/drvApa102.o
 rxBuf               0x4               ./Src/src/drvMMA8653.o
 delayTimer          0x4               ./Src/main.o
@@ -46,12 +50,10 @@ RowsLogic           0x1               ./Src/src/drvDisplay.o
 NvMem_Writable      0x1               ./Src/src/drvNvMemory.o
 movementState       0x1               ./Src/src/drvDisplay.o
 spiSendData         0x4c              ./Src/src/drvApa102.o
-tempstring          0x20              ./Src/main.o
-cnt_time            0x1               ./Src/src/drvPower.o
 CountOfEnteredDates
                     0x1               ./Src/configConsole.o
 consoleFlags        0x1               ./Src/configConsole.o
-globalColor         0x4               ./Src/configConsole.o
+globalColor         0x4               ./Src/AppMgmt.o
 
 Discarded input sections
 
@@ -813,8 +815,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .data          0x0000000000000000        0x0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .bss           0x0000000000000000        0x0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
- .text.EXTI_DeInit
-                0x0000000000000000       0x34 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .text.EXTI_StructInit
                 0x0000000000000000       0x28 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .text.EXTI_GenerateSWInterrupt
@@ -1090,8 +1090,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
  .data          0x0000000000000000        0x0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
  .bss           0x0000000000000000        0x0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
- .text.I2C_DeInit
-                0x0000000000000000       0x50 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
  .text.I2C_StructInit
                 0x0000000000000000       0x3c ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
  .text.I2C_SoftwareResetCmd
@@ -1489,8 +1487,6 @@ Discarded input sections
  .text.RCC_AHBPeriphResetCmd
                 0x0000000000000000       0x40 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
  .text.RCC_APB2PeriphResetCmd
-                0x0000000000000000       0x40 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
- .text.RCC_APB1PeriphResetCmd
                 0x0000000000000000       0x40 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
  .text.RCC_ITConfig
                 0x0000000000000000       0x50 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
@@ -2300,6 +2296,94 @@ Discarded input sections
  .debug_frame   0x0000000000000000      0x104 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_wwdg.o
  .ARM.attributes
                 0x0000000000000000       0x2c ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_wwdg.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/AppMgmt.o
+ .text          0x0000000000000000        0x0 ./Src/AppMgmt.o
+ .data          0x0000000000000000        0x0 ./Src/AppMgmt.o
+ .bss           0x0000000000000000        0x0 ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000      0xa7e ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000       0x22 ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000       0x8e ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000       0x51 ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000      0x103 ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000       0x6a ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000      0x1df ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000       0x86 ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000       0x3a ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000       0x1f ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000      0x242 ./Src/AppMgmt.o
+ .debug_macro   0x0000000000000000     0x5b9e ./Src/AppMgmt.o
+ .group         0x0000000000000000        0xc ./Src/App_Level.o
+ .group         0x0000000000000000        0xc ./Src/App_Level.o
+ .group         0x0000000000000000        0xc ./Src/App_Level.o
+ .group         0x0000000000000000        0xc ./Src/App_Level.o
+ .group         0x0000000000000000        0xc ./Src/App_Level.o
+ .group         0x0000000000000000        0xc ./Src/App_Level.o
+ .group         0x0000000000000000        0xc ./Src/App_Level.o
+ .group         0x0000000000000000        0xc ./Src/App_Level.o
+ .text          0x0000000000000000        0x0 ./Src/App_Level.o
+ .data          0x0000000000000000        0x0 ./Src/App_Level.o
+ .bss           0x0000000000000000        0x0 ./Src/App_Level.o
+ .debug_macro   0x0000000000000000      0xa7e ./Src/App_Level.o
+ .debug_macro   0x0000000000000000       0x22 ./Src/App_Level.o
+ .debug_macro   0x0000000000000000       0x8e ./Src/App_Level.o
+ .debug_macro   0x0000000000000000       0x51 ./Src/App_Level.o
+ .debug_macro   0x0000000000000000      0x103 ./Src/App_Level.o
+ .debug_macro   0x0000000000000000       0x6a ./Src/App_Level.o
+ .debug_macro   0x0000000000000000      0x1df ./Src/App_Level.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_POVDisplay.o
+ .text          0x0000000000000000        0x0 ./Src/App_POVDisplay.o
+ .data          0x0000000000000000        0x0 ./Src/App_POVDisplay.o
+ .bss           0x0000000000000000        0x0 ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000      0xa7e ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000       0x22 ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000       0x22 ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000       0x8e ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000       0x51 ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000      0x103 ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000       0x6a ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000      0x1df ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000       0x10 ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000       0x86 ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000       0x3a ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000       0x1f ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000      0x242 ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000     0x5b9e ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000000000      0x51c ./Src/App_POVDisplay.o
+ .group         0x0000000000000000        0xc ./Src/App_Playground.o
+ .text          0x0000000000000000        0x0 ./Src/App_Playground.o
+ .data          0x0000000000000000        0x0 ./Src/App_Playground.o
+ .bss           0x0000000000000000        0x0 ./Src/App_Playground.o
+ .debug_macro   0x0000000000000000      0xa7e ./Src/App_Playground.o
  .group         0x0000000000000000        0xc ./Src/configConsole.o
  .group         0x0000000000000000        0xc ./Src/configConsole.o
  .group         0x0000000000000000        0xc ./Src/configConsole.o
@@ -2347,6 +2431,8 @@ Discarded input sections
                 0x0000000000000000       0x90 ./Src/configConsole.o
  .text.StrToU32
                 0x0000000000000000      0x2ca ./Src/configConsole.o
+ .text.consoleInit
+                0x0000000000000000       0x28 ./Src/configConsole.o
  .rodata        0x0000000000000000      0x21e ./Src/configConsole.o
  .text.consoleError
                 0x0000000000000000       0x48 ./Src/configConsole.o
@@ -2354,42 +2440,59 @@ Discarded input sections
                 0x0000000000000000      0x534 ./Src/configConsole.o
  .rodata.consoleExecute
                 0x0000000000000000       0x14 ./Src/configConsole.o
+ .debug_info    0x0000000000000000      0xcc8 ./Src/configConsole.o
+ .debug_abbrev  0x0000000000000000      0x29f ./Src/configConsole.o
+ .debug_aranges
+                0x0000000000000000       0x40 ./Src/configConsole.o
+ .debug_ranges  0x0000000000000000       0x48 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000      0x222 ./Src/configConsole.o
  .debug_macro   0x0000000000000000      0xa7e ./Src/configConsole.o
  .debug_macro   0x0000000000000000       0x22 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x4c ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x18 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x94 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x3c ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x34 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000      0x174 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x16 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x43 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x57 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x34 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x10 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x58 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x71 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x1c ./Src/configConsole.o
+ .debug_macro   0x0000000000000000      0x12a ./Src/configConsole.o
+ .debug_macro   0x0000000000000000      0x339 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x10 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x35 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x20 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x1c ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x10 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x10 ./Src/configConsole.o
  .debug_macro   0x0000000000000000       0x6a ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x1c ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x52 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x22 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x10 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x40 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0xd5 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x1c ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x3d ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x16 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000      0x145 ./Src/configConsole.o
  .debug_macro   0x0000000000000000      0x103 ./Src/configConsole.o
  .debug_macro   0x0000000000000000      0x1df ./Src/configConsole.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
- .group         0x0000000000000000        0xc ./Src/main.o
+ .debug_macro   0x0000000000000000       0x1c ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x22 ./Src/configConsole.o
+ .debug_macro   0x0000000000000000       0x4c ./Src/configConsole.o
+ .debug_line    0x0000000000000000      0x989 ./Src/configConsole.o
+ .debug_str     0x0000000000000000     0x841b ./Src/configConsole.o
+ .comment       0x0000000000000000       0x54 ./Src/configConsole.o
+ .debug_frame   0x0000000000000000       0xac ./Src/configConsole.o
+ .ARM.attributes
+                0x0000000000000000       0x2c ./Src/configConsole.o
+ COMMON         0x0000000000000000       0x46 ./Src/configConsole.o
  .group         0x0000000000000000        0xc ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/main.o
  .group         0x0000000000000000        0xc ./Src/main.o
@@ -2410,8 +2513,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Src/main.o
  .data          0x0000000000000000        0x0 ./Src/main.o
  .bss           0x0000000000000000        0x0 ./Src/main.o
- .bss.errorcode
-                0x0000000000000000        0x1 ./Src/main.o
  .debug_macro   0x0000000000000000      0xa7e ./Src/main.o
  .debug_macro   0x0000000000000000      0x174 ./Src/main.o
  .debug_macro   0x0000000000000000       0x22 ./Src/main.o
@@ -2425,37 +2526,11 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1f ./Src/main.o
  .debug_macro   0x0000000000000000      0x242 ./Src/main.o
  .debug_macro   0x0000000000000000     0x5b9e ./Src/main.o
+ .debug_macro   0x0000000000000000       0x22 ./Src/main.o
  .debug_macro   0x0000000000000000      0x522 ./Src/main.o
- .debug_macro   0x0000000000000000       0x22 ./Src/main.o
- .debug_macro   0x0000000000000000       0x4c ./Src/main.o
  .debug_macro   0x0000000000000000       0x1c ./Src/main.o
- .debug_macro   0x0000000000000000       0x18 ./Src/main.o
- .debug_macro   0x0000000000000000       0x3c ./Src/main.o
- .debug_macro   0x0000000000000000       0x34 ./Src/main.o
- .debug_macro   0x0000000000000000       0x35 ./Src/main.o
- .debug_macro   0x0000000000000000      0x339 ./Src/main.o
- .debug_macro   0x0000000000000000       0x10 ./Src/main.o
- .debug_macro   0x0000000000000000       0x16 ./Src/main.o
- .debug_macro   0x0000000000000000       0x43 ./Src/main.o
- .debug_macro   0x0000000000000000       0x34 ./Src/main.o
- .debug_macro   0x0000000000000000       0x10 ./Src/main.o
- .debug_macro   0x0000000000000000       0x58 ./Src/main.o
- .debug_macro   0x0000000000000000       0x71 ./Src/main.o
- .debug_macro   0x0000000000000000       0x1c ./Src/main.o
- .debug_macro   0x0000000000000000      0x12a ./Src/main.o
- .debug_macro   0x0000000000000000       0x10 ./Src/main.o
- .debug_macro   0x0000000000000000       0x1c ./Src/main.o
- .debug_macro   0x0000000000000000       0x52 ./Src/main.o
- .debug_macro   0x0000000000000000       0x22 ./Src/main.o
- .debug_macro   0x0000000000000000       0x10 ./Src/main.o
- .debug_macro   0x0000000000000000       0x40 ./Src/main.o
- .debug_macro   0x0000000000000000       0xd5 ./Src/main.o
- .debug_macro   0x0000000000000000       0x1c ./Src/main.o
- .debug_macro   0x0000000000000000       0x3d ./Src/main.o
- .debug_macro   0x0000000000000000       0x16 ./Src/main.o
- .debug_macro   0x0000000000000000      0x145 ./Src/main.o
  .debug_macro   0x0000000000000000       0x3a ./Src/main.o
- .debug_macro   0x0000000000000000      0x184 ./Src/main.o
+ .group         0x0000000000000000        0xc ./Src/stm32_it.o
  .group         0x0000000000000000        0xc ./Src/stm32_it.o
  .group         0x0000000000000000        0xc ./Src/stm32_it.o
  .group         0x0000000000000000        0xc ./Src/stm32_it.o
@@ -2486,6 +2561,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1f ./Src/stm32_it.o
  .debug_macro   0x0000000000000000      0x242 ./Src/stm32_it.o
  .debug_macro   0x0000000000000000     0x5b9e ./Src/stm32_it.o
+ .debug_macro   0x0000000000000000       0x22 ./Src/stm32_it.o
  .debug_macro   0x0000000000000000       0x1c ./Src/stm32_it.o
  .group         0x0000000000000000        0xc ./Src/syscalls.o
  .group         0x0000000000000000        0xc ./Src/syscalls.o
@@ -2825,6 +2901,7 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./Src/src/drvApa102.o
  .group         0x0000000000000000        0xc ./Src/src/drvApa102.o
  .group         0x0000000000000000        0xc ./Src/src/drvApa102.o
+ .group         0x0000000000000000        0xc ./Src/src/drvApa102.o
  .text          0x0000000000000000        0x0 ./Src/src/drvApa102.o
  .data          0x0000000000000000        0x0 ./Src/src/drvApa102.o
  .bss           0x0000000000000000        0x0 ./Src/src/drvApa102.o
@@ -2842,6 +2919,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000     0x5b9e ./Src/src/drvApa102.o
  .debug_macro   0x0000000000000000       0x22 ./Src/src/drvApa102.o
  .debug_macro   0x0000000000000000       0x4c ./Src/src/drvApa102.o
+ .debug_macro   0x0000000000000000      0x174 ./Src/src/drvApa102.o
  .group         0x0000000000000000        0xc ./Src/src/drvDisplay.o
  .group         0x0000000000000000        0xc ./Src/src/drvDisplay.o
  .group         0x0000000000000000        0xc ./Src/src/drvDisplay.o
@@ -2898,6 +2976,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1f ./Src/src/drvDisplay.o
  .debug_macro   0x0000000000000000      0x242 ./Src/src/drvDisplay.o
  .debug_macro   0x0000000000000000     0x5b9e ./Src/src/drvDisplay.o
+ .debug_macro   0x0000000000000000       0x22 ./Src/src/drvDisplay.o
  .debug_macro   0x0000000000000000       0x1c ./Src/src/drvDisplay.o
  .debug_macro   0x0000000000000000       0x10 ./Src/src/drvDisplay.o
  .debug_macro   0x0000000000000000      0x2f1 ./Src/src/drvDisplay.o
@@ -2923,8 +3002,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x34 ./Src/src/drvDisplay.o
  .debug_macro   0x0000000000000000       0x3a ./Src/src/drvDisplay.o
  .debug_macro   0x0000000000000000       0xce ./Src/src/drvDisplay.o
- .debug_macro   0x0000000000000000       0x22 ./Src/src/drvDisplay.o
- .debug_macro   0x0000000000000000       0x4c ./Src/src/drvDisplay.o
+ .group         0x0000000000000000        0xc ./Src/src/drvMMA8653.o
  .group         0x0000000000000000        0xc ./Src/src/drvMMA8653.o
  .group         0x0000000000000000        0xc ./Src/src/drvMMA8653.o
  .group         0x0000000000000000        0xc ./Src/src/drvMMA8653.o
@@ -2980,6 +3058,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1f ./Src/src/drvMMA8653.o
  .debug_macro   0x0000000000000000      0x242 ./Src/src/drvMMA8653.o
  .debug_macro   0x0000000000000000     0x5b9e ./Src/src/drvMMA8653.o
+ .debug_macro   0x0000000000000000       0x22 ./Src/src/drvMMA8653.o
  .debug_macro   0x0000000000000000       0x10 ./Src/src/drvMMA8653.o
  .debug_macro   0x0000000000000000      0x184 ./Src/src/drvMMA8653.o
  .debug_macro   0x0000000000000000      0x2a0 ./Src/src/drvMMA8653.o
@@ -3037,6 +3116,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1f ./Src/src/drvNvMemory.o
  .debug_macro   0x0000000000000000      0x242 ./Src/src/drvNvMemory.o
  .debug_macro   0x0000000000000000     0x5b9e ./Src/src/drvNvMemory.o
+ .group         0x0000000000000000        0xc ./Src/src/drvPower.o
  .group         0x0000000000000000        0xc ./Src/src/drvPower.o
  .group         0x0000000000000000        0xc ./Src/src/drvPower.o
  .group         0x0000000000000000        0xc ./Src/src/drvPower.o
@@ -3112,9 +3192,26 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./Src/src/drvProgram.o
  .group         0x0000000000000000        0xc ./Src/src/drvProgram.o
  .group         0x0000000000000000        0xc ./Src/src/drvProgram.o
+ .group         0x0000000000000000        0xc ./Src/src/drvProgram.o
  .text          0x0000000000000000        0x0 ./Src/src/drvProgram.o
  .data          0x0000000000000000        0x0 ./Src/src/drvProgram.o
  .bss           0x0000000000000000        0x0 ./Src/src/drvProgram.o
+ .text.init_povdisplay
+                0x0000000000000000       0x32 ./Src/src/drvProgram.o
+ .text.init_level
+                0x0000000000000000       0x36 ./Src/src/drvProgram.o
+ .text.init_test1
+                0x0000000000000000       0x26 ./Src/src/drvProgram.o
+ .text.povdisplay
+                0x0000000000000000       0x20 ./Src/src/drvProgram.o
+ .text.level    0x0000000000000000       0xcc ./Src/src/drvProgram.o
+ .text.test1    0x0000000000000000       0x30 ./Src/src/drvProgram.o
+ .debug_info    0x0000000000000000      0xafb ./Src/src/drvProgram.o
+ .debug_abbrev  0x0000000000000000      0x1c8 ./Src/src/drvProgram.o
+ .debug_aranges
+                0x0000000000000000       0x48 ./Src/src/drvProgram.o
+ .debug_ranges  0x0000000000000000       0x38 ./Src/src/drvProgram.o
+ .debug_macro   0x0000000000000000      0x25b ./Src/src/drvProgram.o
  .debug_macro   0x0000000000000000      0xa7e ./Src/src/drvProgram.o
  .debug_macro   0x0000000000000000       0x22 ./Src/src/drvProgram.o
  .debug_macro   0x0000000000000000       0x8e ./Src/src/drvProgram.o
@@ -3125,6 +3222,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./Src/src/drvProgram.o
  .debug_macro   0x0000000000000000       0x22 ./Src/src/drvProgram.o
  .debug_macro   0x0000000000000000       0x4c ./Src/src/drvProgram.o
+ .debug_macro   0x0000000000000000       0x1c ./Src/src/drvProgram.o
  .debug_macro   0x0000000000000000       0x1c ./Src/src/drvProgram.o
  .debug_macro   0x0000000000000000       0x52 ./Src/src/drvProgram.o
  .debug_macro   0x0000000000000000       0x18 ./Src/src/drvProgram.o
@@ -3159,6 +3257,14 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1f ./Src/src/drvProgram.o
  .debug_macro   0x0000000000000000      0x242 ./Src/src/drvProgram.o
  .debug_macro   0x0000000000000000     0x5b9e ./Src/src/drvProgram.o
+ .debug_line    0x0000000000000000      0x801 ./Src/src/drvProgram.o
+ .debug_str     0x0000000000000000    0x287ba ./Src/src/drvProgram.o
+ .comment       0x0000000000000000       0x54 ./Src/src/drvProgram.o
+ .debug_frame   0x0000000000000000       0xbc ./Src/src/drvProgram.o
+ .ARM.attributes
+                0x0000000000000000       0x2c ./Src/src/drvProgram.o
+ COMMON         0x0000000000000000        0x1 ./Src/src/drvProgram.o
+ .group         0x0000000000000000        0xc ./Src/src/drvSwitch.o
  .group         0x0000000000000000        0xc ./Src/src/drvSwitch.o
  .group         0x0000000000000000        0xc ./Src/src/drvSwitch.o
  .group         0x0000000000000000        0xc ./Src/src/drvSwitch.o
@@ -3208,6 +3314,16 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Src/src/drvSwitch.o
  .data          0x0000000000000000        0x0 ./Src/src/drvSwitch.o
  .bss           0x0000000000000000        0x0 ./Src/src/drvSwitch.o
+ .text.debounce
+                0x0000000000000000       0x6e ./Src/src/drvSwitch.o
+ .text.switch_exec
+                0x0000000000000000       0x9e ./Src/src/drvSwitch.o
+ .debug_info    0x0000000000000000      0xb82 ./Src/src/drvSwitch.o
+ .debug_abbrev  0x0000000000000000      0x210 ./Src/src/drvSwitch.o
+ .debug_aranges
+                0x0000000000000000       0x28 ./Src/src/drvSwitch.o
+ .debug_ranges  0x0000000000000000       0x18 ./Src/src/drvSwitch.o
+ .debug_macro   0x0000000000000000      0x27f ./Src/src/drvSwitch.o
  .debug_macro   0x0000000000000000      0xa7e ./Src/src/drvSwitch.o
  .debug_macro   0x0000000000000000       0x22 ./Src/src/drvSwitch.o
  .debug_macro   0x0000000000000000       0x8e ./Src/src/drvSwitch.o
@@ -3225,6 +3341,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./Src/src/drvSwitch.o
  .debug_macro   0x0000000000000000       0x22 ./Src/src/drvSwitch.o
  .debug_macro   0x0000000000000000       0x4c ./Src/src/drvSwitch.o
+ .debug_macro   0x0000000000000000       0x1c ./Src/src/drvSwitch.o
  .debug_macro   0x0000000000000000       0x1c ./Src/src/drvSwitch.o
  .debug_macro   0x0000000000000000       0x52 ./Src/src/drvSwitch.o
  .debug_macro   0x0000000000000000       0x18 ./Src/src/drvSwitch.o
@@ -3254,6 +3371,12 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x3d ./Src/src/drvSwitch.o
  .debug_macro   0x0000000000000000       0x16 ./Src/src/drvSwitch.o
  .debug_macro   0x0000000000000000      0x145 ./Src/src/drvSwitch.o
+ .debug_line    0x0000000000000000      0x84c ./Src/src/drvSwitch.o
+ .debug_str     0x0000000000000000    0x2c0df ./Src/src/drvSwitch.o
+ .comment       0x0000000000000000       0x54 ./Src/src/drvSwitch.o
+ .debug_frame   0x0000000000000000       0x54 ./Src/src/drvSwitch.o
+ .ARM.attributes
+                0x0000000000000000       0x2c ./Src/src/drvSwitch.o
  .group         0x0000000000000000        0xc ./Src/src/eeprom.o
  .group         0x0000000000000000        0xc ./Src/src/eeprom.o
  .group         0x0000000000000000        0xc ./Src/src/eeprom.o
@@ -3382,6 +3505,44 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./USB/src/usbd_core.o
  .data          0x0000000000000000        0x0 ./USB/src/usbd_core.o
  .bss           0x0000000000000000        0x0 ./USB/src/usbd_core.o
+ .text.USBD_GetInfo
+                0x0000000000000000       0x1a ./USB/src/usbd_core.o
+ .text.USBD_Process_Reset
+                0x0000000000000000       0x50 ./USB/src/usbd_core.o
+ .text.USBD_Set_Address
+                0x0000000000000000       0x3c ./USB/src/usbd_core.o
+ .text.USBD_Process_Callback
+                0x0000000000000000       0x2c ./USB/src/usbd_core.o
+ .text.USBD_Configure
+                0x0000000000000000       0x5c ./USB/src/usbd_core.o
+ .text.USBD_Process_Device_Request
+                0x0000000000000000       0xd8 ./USB/src/usbd_core.o
+ .rodata.USBD_Process_Device_Request
+                0x0000000000000000       0x28 ./USB/src/usbd_core.o
+ .text.USBD_Process_Interface_Request
+                0x0000000000000000       0x2e ./USB/src/usbd_core.o
+ .text.USBD_Process_EP_Request
+                0x0000000000000000       0x82 ./USB/src/usbd_core.o
+ .text.USBD_Process_Request
+                0x0000000000000000       0x8c ./USB/src/usbd_core.o
+ .text.USBD_Delay_PID
+                0x0000000000000000       0x4c ./USB/src/usbd_core.o
+ .text.USBD_Process_EP_Tx
+                0x0000000000000000       0xe0 ./USB/src/usbd_core.o
+ .text.USBD_Process_EP_Rx
+                0x0000000000000000      0x218 ./USB/src/usbd_core.o
+ .text.USBD_Process_EP0
+                0x0000000000000000       0x64 ./USB/src/usbd_core.o
+ .text.USBD_Process_Event
+                0x0000000000000000       0xb0 ./USB/src/usbd_core.o
+ .text.USBD_Poll
+                0x0000000000000000       0x24 ./USB/src/usbd_core.o
+ .debug_info    0x0000000000000000     0x125c ./USB/src/usbd_core.o
+ .debug_abbrev  0x0000000000000000      0x2b9 ./USB/src/usbd_core.o
+ .debug_aranges
+                0x0000000000000000       0x90 ./USB/src/usbd_core.o
+ .debug_ranges  0x0000000000000000       0x80 ./USB/src/usbd_core.o
+ .debug_macro   0x0000000000000000      0x183 ./USB/src/usbd_core.o
  .debug_macro   0x0000000000000000      0xa7e ./USB/src/usbd_core.o
  .debug_macro   0x0000000000000000       0x22 ./USB/src/usbd_core.o
  .debug_macro   0x0000000000000000       0x8e ./USB/src/usbd_core.o
@@ -3407,6 +3568,17 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./USB/src/usbd_core.o
  .debug_macro   0x0000000000000000       0x35 ./USB/src/usbd_core.o
  .debug_macro   0x0000000000000000       0x20 ./USB/src/usbd_core.o
+ .debug_macro   0x0000000000000000       0x94 ./USB/src/usbd_core.o
+ .debug_macro   0x0000000000000000       0x10 ./USB/src/usbd_core.o
+ .debug_macro   0x0000000000000000      0x460 ./USB/src/usbd_core.o
+ .debug_macro   0x0000000000000000      0x1ef ./USB/src/usbd_core.o
+ .debug_macro   0x0000000000000000       0x10 ./USB/src/usbd_core.o
+ .debug_line    0x0000000000000000      0x9db ./USB/src/usbd_core.o
+ .debug_str     0x0000000000000000     0x94c0 ./USB/src/usbd_core.o
+ .comment       0x0000000000000000       0x54 ./USB/src/usbd_core.o
+ .debug_frame   0x0000000000000000      0x1f4 ./USB/src/usbd_core.o
+ .ARM.attributes
+                0x0000000000000000       0x2c ./USB/src/usbd_core.o
  .group         0x0000000000000000        0xc ./USB/src/usbd_stm32f042f6p6_devfs.o
  .group         0x0000000000000000        0xc ./USB/src/usbd_stm32f042f6p6_devfs.o
  .group         0x0000000000000000        0xc ./USB/src/usbd_stm32f042f6p6_devfs.o
@@ -3433,6 +3605,46 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .data          0x0000000000000000        0x0 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .bss           0x0000000000000000        0x0 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.EPT      0x0000000000000000       0x28 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.EPR      0x0000000000000000       0x28 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.get_next_pma
+                0x0000000000000000       0x9c ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.getInfo  0x0000000000000000       0x38 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.ep_setStall
+                0x0000000000000000      0x154 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.ep_isStalled
+                0x0000000000000000       0x68 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.enable   0x0000000000000000       0x8c ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.connect  0x0000000000000000       0xbc ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.set_address
+                0x0000000000000000       0x2c ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.ep_config
+                0x0000000000000000      0x2b4 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.ep_deConfig
+                0x0000000000000000       0x58 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.pma_read
+                0x0000000000000000       0xcc ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.ep_read  0x0000000000000000      0x16c ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.pma_write
+                0x0000000000000000       0x80 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.ep_write
+                0x0000000000000000      0x13c ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.get_frame
+                0x0000000000000000       0x1c ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.event_poll
+                0x0000000000000000      0x21c ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.fnv1a32_turn
+                0x0000000000000000       0x60 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .text.get_serial_num_desc
+                0x0000000000000000       0xb0 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .rodata.usbd_devfs
+                0x0000000000000000       0x34 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_info    0x0000000000000000      0xfde ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_abbrev  0x0000000000000000      0x393 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_aranges
+                0x0000000000000000       0xb0 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_ranges  0x0000000000000000       0xb8 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_macro   0x0000000000000000      0x169 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000      0xa7e ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000       0x22 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000       0x4c ./USB/src/usbd_stm32f042f6p6_devfs.o
@@ -3440,16 +3652,28 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x94 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000       0x3c ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000      0x103 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_macro   0x0000000000000000       0x3a ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000       0x57 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000       0x6a ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000      0x1df ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_macro   0x0000000000000000       0x82 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000      0x460 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000       0x22 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000       0x94 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_macro   0x0000000000000000      0x1f5 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000       0x10 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_macro   0x0000000000000000       0x22 ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000       0x3a ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000       0x1f ./USB/src/usbd_stm32f042f6p6_devfs.o
  .debug_macro   0x0000000000000000      0x242 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_macro   0x0000000000000000     0xf1e6 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_macro   0x0000000000000000       0x3a ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_line    0x0000000000000000      0xc38 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_str     0x0000000000000000    0x573be ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .comment       0x0000000000000000       0x54 ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .debug_frame   0x0000000000000000      0x26c ./USB/src/usbd_stm32f042f6p6_devfs.o
+ .ARM.attributes
+                0x0000000000000000       0x2c ./USB/src/usbd_stm32f042f6p6_devfs.o
  .group         0x0000000000000000        0xc ./USB/src/winusb_loop.o
  .group         0x0000000000000000        0xc ./USB/src/winusb_loop.o
  .group         0x0000000000000000        0xc ./USB/src/winusb_loop.o
@@ -3490,14 +3714,82 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./USB/src/winusb_loop.o
  .data          0x0000000000000000        0x0 ./USB/src/winusb_loop.o
  .bss           0x0000000000000000        0x0 ./USB/src/winusb_loop.o
+ .text.USBD_Init
+                0x0000000000000000       0x44 ./USB/src/winusb_loop.o
+ .text.USBD_Register_Control
+                0x0000000000000000       0x18 ./USB/src/winusb_loop.o
+ .text.USBD_Register_Config
+                0x0000000000000000       0x18 ./USB/src/winusb_loop.o
+ .text.USBD_Register_Descriptor
+                0x0000000000000000       0x18 ./USB/src/winusb_loop.o
+ .text.USBD_EP_Config
+                0x0000000000000000       0x40 ./USB/src/winusb_loop.o
+ .text.USBD_EP_Deconfig
+                0x0000000000000000       0x24 ./USB/src/winusb_loop.o
+ .text.USBD_Register_Endpoint
+                0x0000000000000000       0x30 ./USB/src/winusb_loop.o
+ .text.USBD_EP_Read
+                0x0000000000000000       0x3c ./USB/src/winusb_loop.o
  .text.USBD_EP_Write
                 0x0000000000000000       0x3c ./USB/src/winusb_loop.o
+ .text.USBD_Enable
+                0x0000000000000000       0x24 ./USB/src/winusb_loop.o
+ .text.USBD_Connect
+                0x0000000000000000       0x26 ./USB/src/winusb_loop.o
+ .bss.usb_device_state
+                0x0000000000000000        0x3 ./USB/src/winusb_loop.o
+ .bss.winusb_dev
+                0x0000000000000000       0x64 ./USB/src/winusb_loop.o
+ .bss.fifo      0x0000000000000000      0x100 ./USB/src/winusb_loop.o
+ .bss.fpos      0x0000000000000000        0x4 ./USB/src/winusb_loop.o
+ .rodata.device_desc
+                0x0000000000000000       0x12 ./USB/src/winusb_loop.o
+ .rodata.config_desc
+                0x0000000000000000       0x27 ./USB/src/winusb_loop.o
+ .rodata.ms_os_desc
+                0x0000000000000000       0x14 ./USB/src/winusb_loop.o
+ .rodata.language_desc
+                0x0000000000000000        0x4 ./USB/src/winusb_loop.o
+ .rodata.manufacturer_desc_en
+                0x0000000000000000       0x34 ./USB/src/winusb_loop.o
+ .rodata.product_desc_en
+                0x0000000000000000       0x22 ./USB/src/winusb_loop.o
+ .rodata.serial_desc_en
+                0x0000000000000000       0x12 ./USB/src/winusb_loop.o
+ .rodata.dTable
+                0x0000000000000000       0x10 ./USB/src/winusb_loop.o
+ .rodata.devguid_ext_prop_feature_desc
+                0x0000000000000000       0x8e ./USB/src/winusb_loop.o
+ .rodata.compatid_desc
+                0x0000000000000000       0x28 ./USB/src/winusb_loop.o
+ .text.winusb_get_desc
+                0x0000000000000000       0xc4 ./USB/src/winusb_loop.o
+ .text.winusb_set_config
+                0x0000000000000000       0xd0 ./USB/src/winusb_loop.o
+ .text.winusb_control
+                0x0000000000000000       0xcc ./USB/src/winusb_loop.o
+ .text.bulk_from_host
+                0x0000000000000000       0x60 ./USB/src/winusb_loop.o
+ .text.bulk_to_host
+                0x0000000000000000       0x20 ./USB/src/winusb_loop.o
  .bss.interrupt_data
                 0x0000000000000000        0x9 ./USB/src/winusb_loop.o
  .text.usb_interrupt_send
                 0x0000000000000000       0x6c ./USB/src/winusb_loop.o
+ .text.winusb_init_usbd
+                0x0000000000000000       0x84 ./USB/src/winusb_loop.o
+ .text.usb_device_connect
+                0x0000000000000000       0x24 ./USB/src/winusb_loop.o
  .text.usb_device_disconnect
                 0x0000000000000000       0x24 ./USB/src/winusb_loop.o
+ .text.USB_Handler
+                0x0000000000000000       0x18 ./USB/src/winusb_loop.o
+ .debug_info    0x0000000000000000     0x1bb4 ./USB/src/winusb_loop.o
+ .debug_abbrev  0x0000000000000000      0x32e ./USB/src/winusb_loop.o
+ .debug_aranges
+                0x0000000000000000       0xc0 ./USB/src/winusb_loop.o
+ .debug_ranges  0x0000000000000000       0xb0 ./USB/src/winusb_loop.o
+ .debug_macro   0x0000000000000000      0x237 ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000      0xa7e ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000       0x22 ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000       0x22 ./USB/src/winusb_loop.o
@@ -3528,12 +3820,20 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x460 ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000      0x1ef ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000       0x10 ./USB/src/winusb_loop.o
+ .debug_macro   0x0000000000000000       0x22 ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000       0x10 ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000       0x22 ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000       0x3a ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000       0x1f ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000      0x242 ./USB/src/winusb_loop.o
  .debug_macro   0x0000000000000000     0xf1e6 ./USB/src/winusb_loop.o
+ .debug_line    0x0000000000000000      0x99c ./USB/src/winusb_loop.o
+ .debug_str     0x0000000000000000    0x5a80c ./USB/src/winusb_loop.o
+ .comment       0x0000000000000000       0x54 ./USB/src/winusb_loop.o
+ .debug_frame   0x0000000000000000      0x2ac ./USB/src/winusb_loop.o
+ .ARM.attributes
+                0x0000000000000000       0x2c ./USB/src/winusb_loop.o
+ COMMON         0x0000000000000000       0x80 ./USB/src/winusb_loop.o
  .text          0x0000000000000000        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-errno.o)
  .data          0x0000000000000000        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-errno.o)
  .bss           0x0000000000000000        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-errno.o)
@@ -3639,6 +3939,10 @@ LOAD ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
 LOAD ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_tim.o
 LOAD ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_usart.o
 LOAD ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_wwdg.o
+LOAD ./Src/AppMgmt.o
+LOAD ./Src/App_Level.o
+LOAD ./Src/App_POVDisplay.o
+LOAD ./Src/App_Playground.o
 LOAD ./Src/configConsole.o
 LOAD ./Src/main.o
 LOAD ./Src/stm32_it.o
@@ -3690,7 +3994,7 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000008000000                g_pfnVectors
                 0x00000000080000c0                . = ALIGN (0x4)
 
-.text           0x00000000080000c0     0x3f78
+.text           0x00000000080000c0     0x2608
                 0x00000000080000c0                . = ALIGN (0x4)
  *(.text)
  .text          0x00000000080000c0       0x48 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
@@ -3702,578 +4006,454 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x000000000800021c                __aeabi_idiv0
                 0x000000000800021c                __aeabi_ldiv0
  *(.text*)
+ .text.EXTI_DeInit
+                0x0000000008000220       0x34 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
+                0x0000000008000220                EXTI_DeInit
  .text.EXTI_Init
-                0x0000000008000220       0xe0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
-                0x0000000008000220                EXTI_Init
+                0x0000000008000254       0xe0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
+                0x0000000008000254                EXTI_Init
  .text.EXTI_ClearITPendingBit
-                0x0000000008000300       0x1c ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
-                0x0000000008000300                EXTI_ClearITPendingBit
+                0x0000000008000334       0x1c ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
+                0x0000000008000334                EXTI_ClearITPendingBit
  .text.GPIO_Init
-                0x000000000800031c      0x128 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
-                0x000000000800031c                GPIO_Init
+                0x0000000008000350      0x128 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
+                0x0000000008000350                GPIO_Init
  .text.GPIO_ReadInputDataBit
-                0x0000000008000444       0x46 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
-                0x0000000008000444                GPIO_ReadInputDataBit
+                0x0000000008000478       0x46 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
+                0x0000000008000478                GPIO_ReadInputDataBit
  .text.GPIO_WriteBit
-                0x000000000800048a       0x3a ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
-                0x000000000800048a                GPIO_WriteBit
+                0x00000000080004be       0x3a ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
+                0x00000000080004be                GPIO_WriteBit
  .text.GPIO_PinAFConfig
-                0x00000000080004c4       0xa4 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
-                0x00000000080004c4                GPIO_PinAFConfig
+                0x00000000080004f8       0xa4 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
+                0x00000000080004f8                GPIO_PinAFConfig
+ .text.I2C_DeInit
+                0x000000000800059c       0x50 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
+                0x000000000800059c                I2C_DeInit
  .text.I2C_Init
-                0x0000000008000568       0xd0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
-                0x0000000008000568                I2C_Init
- .text.I2C_Cmd  0x0000000008000638       0x3a ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
-                0x0000000008000638                I2C_Cmd
- *fill*         0x0000000008000672        0x2 
+                0x00000000080005ec       0xd0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
+                0x00000000080005ec                I2C_Init
+ .text.I2C_Cmd  0x00000000080006bc       0x3a ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
+                0x00000000080006bc                I2C_Cmd
+ *fill*         0x00000000080006f6        0x2 
  .text.I2C_TransferHandling
-                0x0000000008000674       0x68 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
-                0x0000000008000674                I2C_TransferHandling
+                0x00000000080006f8       0x68 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
+                0x00000000080006f8                I2C_TransferHandling
  .text.I2C_SendData
-                0x00000000080006dc       0x1e ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
-                0x00000000080006dc                I2C_SendData
+                0x0000000008000760       0x1e ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
+                0x0000000008000760                I2C_SendData
  .text.I2C_ReceiveData
-                0x00000000080006fa       0x16 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
-                0x00000000080006fa                I2C_ReceiveData
+                0x000000000800077e       0x16 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
+                0x000000000800077e                I2C_ReceiveData
  .text.I2C_GetFlagStatus
-                0x0000000008000710       0x48 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
-                0x0000000008000710                I2C_GetFlagStatus
+                0x0000000008000794       0x48 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
+                0x0000000008000794                I2C_GetFlagStatus
  .text.I2C_ClearFlag
-                0x0000000008000758       0x18 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
-                0x0000000008000758                I2C_ClearFlag
+                0x00000000080007dc       0x18 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
+                0x00000000080007dc                I2C_ClearFlag
  .text.NVIC_Init
-                0x0000000008000770       0xac ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
-                0x0000000008000770                NVIC_Init
+                0x00000000080007f4       0xac ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
+                0x00000000080007f4                NVIC_Init
  .text.SysTick_CLKSourceConfig
-                0x000000000800081c       0x34 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
-                0x000000000800081c                SysTick_CLKSourceConfig
+                0x00000000080008a0       0x34 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
+                0x00000000080008a0                SysTick_CLKSourceConfig
  .text.RCC_AHBPeriphClockCmd
-                0x0000000008000850       0x40 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
-                0x0000000008000850                RCC_AHBPeriphClockCmd
+                0x00000000080008d4       0x40 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
+                0x00000000080008d4                RCC_AHBPeriphClockCmd
  .text.RCC_APB2PeriphClockCmd
-                0x0000000008000890       0x40 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
-                0x0000000008000890                RCC_APB2PeriphClockCmd
+                0x0000000008000914       0x40 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
+                0x0000000008000914                RCC_APB2PeriphClockCmd
  .text.RCC_APB1PeriphClockCmd
-                0x00000000080008d0       0x40 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
-                0x00000000080008d0                RCC_APB1PeriphClockCmd
+                0x0000000008000954       0x40 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
+                0x0000000008000954                RCC_APB1PeriphClockCmd
+ .text.RCC_APB1PeriphResetCmd
+                0x0000000008000994       0x40 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
+                0x0000000008000994                RCC_APB1PeriphResetCmd
  .text.SYSCFG_EXTILineConfig
-                0x0000000008000910       0x90 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
-                0x0000000008000910                SYSCFG_EXTILineConfig
- .text.consoleInit
-                0x00000000080009a0       0x28 ./Src/configConsole.o
-                0x00000000080009a0                consoleInit
+                0x00000000080009d4       0x90 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
+                0x00000000080009d4                SYSCFG_EXTILineConfig
+ .text.AppMgmt_AppInit
+                0x0000000008000a64       0x44 ./Src/AppMgmt.o
+                0x0000000008000a64                AppMgmt_AppInit
+ .text.AppMgmt_AppExec
+                0x0000000008000aa8       0x48 ./Src/AppMgmt.o
+                0x0000000008000aa8                AppMgmt_AppExec
+ .text.AppMgmt_CycleApps
+                0x0000000008000af0       0x44 ./Src/AppMgmt.o
+                0x0000000008000af0                AppMgmt_CycleApps
+ .text.AppMgmt_LoadApp
+                0x0000000008000b34       0x12 ./Src/AppMgmt.o
+                0x0000000008000b34                AppMgmt_LoadApp
+ .text.Level_Init
+                0x0000000008000b46       0x1a ./Src/App_Level.o
+                0x0000000008000b46                Level_Init
+ .text.Level_Exec
+                0x0000000008000b60       0xa8 ./Src/App_Level.o
+                0x0000000008000b60                Level_Exec
+ .text.NVIC_DisableIRQ
+                0x0000000008000c08       0x30 ./Src/App_POVDisplay.o
+ .text.NVIC_ClearPendingIRQ
+                0x0000000008000c38       0x34 ./Src/App_POVDisplay.o
+ .text.PovD_Init
+                0x0000000008000c6c       0x20 ./Src/App_POVDisplay.o
+                0x0000000008000c6c                PovD_Init
+ .text.PovD_Exec
+                0x0000000008000c8c        0xa ./Src/App_POVDisplay.o
+                0x0000000008000c8c                PovD_Exec
+ .text.PovD_DeInit
+                0x0000000008000c96       0x26 ./Src/App_POVDisplay.o
+                0x0000000008000c96                PovD_DeInit
+ .text.Playground_Init
+                0x0000000008000cbc        0xa ./Src/App_Playground.o
+                0x0000000008000cbc                Playground_Init
+ .text.Playground_Exec
+                0x0000000008000cc6        0xa ./Src/App_Playground.o
+                0x0000000008000cc6                Playground_Exec
  .text.NVIC_SetPriority
-                0x00000000080009c8       0xdc ./Src/main.o
+                0x0000000008000cd0       0xdc ./Src/main.o
  .text.SysTick_Config
-                0x0000000008000aa4       0x48 ./Src/main.o
+                0x0000000008000dac       0x48 ./Src/main.o
  .text.SysTick_Handler
-                0x0000000008000aec       0x48 ./Src/main.o
-                0x0000000008000aec                SysTick_Handler
- .text.delay    0x0000000008000b34       0x28 ./Src/main.o
-                0x0000000008000b34                delay
- .text.main     0x0000000008000b5c      0x114 ./Src/main.o
-                0x0000000008000b5c                main
+                0x0000000008000df4       0x90 ./Src/main.o
+                0x0000000008000df4                SysTick_Handler
+ .text.delay    0x0000000008000e84       0x28 ./Src/main.o
+                0x0000000008000e84                delay
+ .text.main     0x0000000008000eac       0xe8 ./Src/main.o
+                0x0000000008000eac                main
  .text.NMI_Handler
-                0x0000000008000c70        0xa ./Src/stm32_it.o
-                0x0000000008000c70                NMI_Handler
+                0x0000000008000f94        0xa ./Src/stm32_it.o
+                0x0000000008000f94                NMI_Handler
  .text.HardFault_Handler
-                0x0000000008000c7a        0x6 ./Src/stm32_it.o
-                0x0000000008000c7a                HardFault_Handler
+                0x0000000008000f9e        0x6 ./Src/stm32_it.o
+                0x0000000008000f9e                HardFault_Handler
  .text.SVC_Handler
-                0x0000000008000c80        0xa ./Src/stm32_it.o
-                0x0000000008000c80                SVC_Handler
+                0x0000000008000fa4        0xa ./Src/stm32_it.o
+                0x0000000008000fa4                SVC_Handler
  .text.PendSV_Handler
-                0x0000000008000c8a        0xa ./Src/stm32_it.o
-                0x0000000008000c8a                PendSV_Handler
+                0x0000000008000fae        0xa ./Src/stm32_it.o
+                0x0000000008000fae                PendSV_Handler
  .text.USB_IRQHandler
-                0x0000000008000c94        0xa ./Src/stm32_it.o
-                0x0000000008000c94                USB_IRQHandler
+                0x0000000008000fb8        0xa ./Src/stm32_it.o
+                0x0000000008000fb8                USB_IRQHandler
  .text.EXTI2_3_IRQHandler
-                0x0000000008000c9e        0xe ./Src/stm32_it.o
-                0x0000000008000c9e                EXTI2_3_IRQHandler
+                0x0000000008000fc2        0xe ./Src/stm32_it.o
+                0x0000000008000fc2                EXTI2_3_IRQHandler
  .text.TIM2_IRQHandler
-                0x0000000008000cac        0xe ./Src/stm32_it.o
-                0x0000000008000cac                TIM2_IRQHandler
+                0x0000000008000fd0        0xe ./Src/stm32_it.o
+                0x0000000008000fd0                TIM2_IRQHandler
  .text.TIM3_IRQHandler
-                0x0000000008000cba        0xe ./Src/stm32_it.o
-                0x0000000008000cba                TIM3_IRQHandler
+                0x0000000008000fde        0xe ./Src/stm32_it.o
+                0x0000000008000fde                TIM3_IRQHandler
  .text.SystemInit
-                0x0000000008000cc8       0x90 ./Src/system_stm32f0xx.o
-                0x0000000008000cc8                SystemInit
+                0x0000000008000fec       0x90 ./Src/system_stm32f0xx.o
+                0x0000000008000fec                SystemInit
  .text.SystemCoreClockUpdate
-                0x0000000008000d58      0x104 ./Src/system_stm32f0xx.o
-                0x0000000008000d58                SystemCoreClockUpdate
+                0x000000000800107c      0x104 ./Src/system_stm32f0xx.o
+                0x000000000800107c                SystemCoreClockUpdate
  .text.SetSysClock
-                0x0000000008000e5c       0x5c ./Src/system_stm32f0xx.o
+                0x0000000008001180       0x5c ./Src/system_stm32f0xx.o
  .text.apa102_init
-                0x0000000008000eb8       0xd0 ./Src/src/drvApa102.o
-                0x0000000008000eb8                apa102_init
+                0x00000000080011dc      0x104 ./Src/src/drvApa102.o
+                0x00000000080011dc                apa102_init
  .text.apa102_setGlobalColor
-                0x0000000008000f88       0x44 ./Src/src/drvApa102.o
-                0x0000000008000f88                apa102_setGlobalColor
+                0x00000000080012e0       0x44 ./Src/src/drvApa102.o
+                0x00000000080012e0                apa102_setGlobalColor
  .text.updateStripe
-                0x0000000008000fcc      0x148 ./Src/src/drvApa102.o
-                0x0000000008000fcc                updateStripe
+                0x0000000008001324      0x148 ./Src/src/drvApa102.o
+                0x0000000008001324                updateStripe
  .text.apa102_setPattern
-                0x0000000008001114       0xc8 ./Src/src/drvApa102.o
-                0x0000000008001114                apa102_setPattern
+                0x000000000800146c       0xc8 ./Src/src/drvApa102.o
+                0x000000000800146c                apa102_setPattern
  .text.apa102_setSingle
-                0x00000000080011dc       0x32 ./Src/src/drvApa102.o
-                0x00000000080011dc                apa102_setSingle
- *fill*         0x000000000800120e        0x2 
+                0x0000000008001534       0x32 ./Src/src/drvApa102.o
+                0x0000000008001534                apa102_setSingle
+ .text.apa102_Bargraph
+                0x0000000008001566       0x8c ./Src/src/drvApa102.o
+                0x0000000008001566                apa102_Bargraph
+ *fill*         0x00000000080015f2        0x2 
  .text.apa102_allOff
-                0x0000000008001210       0x6c ./Src/src/drvApa102.o
-                0x0000000008001210                apa102_allOff
+                0x00000000080015f4       0x6c ./Src/src/drvApa102.o
+                0x00000000080015f4                apa102_allOff
  .text.NVIC_EnableIRQ
-                0x000000000800127c       0x2c ./Src/src/drvDisplay.o
+                0x0000000008001660       0x2c ./Src/src/drvDisplay.o
  .text.displayInit
-                0x00000000080012a8      0x25c ./Src/src/drvDisplay.o
-                0x00000000080012a8                displayInit
+                0x000000000800168c      0x25c ./Src/src/drvDisplay.o
+                0x000000000800168c                displayInit
  .text.displaySendLine
-                0x0000000008001504       0xd8 ./Src/src/drvDisplay.o
-                0x0000000008001504                displaySendLine
+                0x00000000080018e8       0xd8 ./Src/src/drvDisplay.o
+                0x00000000080018e8                displaySendLine
  .text.displayEndOfLocktime
-                0x00000000080015dc       0x40 ./Src/src/drvDisplay.o
-                0x00000000080015dc                displayEndOfLocktime
+                0x00000000080019c0       0x40 ./Src/src/drvDisplay.o
+                0x00000000080019c0                displayEndOfLocktime
  .text.displayFrameStart
-                0x000000000800161c       0xa0 ./Src/src/drvDisplay.o
-                0x000000000800161c                displayFrameStart
+                0x0000000008001a00       0xa0 ./Src/src/drvDisplay.o
+                0x0000000008001a00                displayFrameStart
  .text.displayFindReturnPoint
-                0x00000000080016bc      0x1e4 ./Src/src/drvDisplay.o
-                0x00000000080016bc                displayFindReturnPoint
+                0x0000000008001aa0      0x1e4 ./Src/src/drvDisplay.o
+                0x0000000008001aa0                displayFindReturnPoint
+ .text.NVIC_DisableIRQ
+                0x0000000008001c84       0x30 ./Src/src/drvMMA8653.o
  .text.I2C_RdReg
-                0x00000000080018a0      0x11c ./Src/src/drvMMA8653.o
-                0x00000000080018a0                I2C_RdReg
+                0x0000000008001cb4      0x11c ./Src/src/drvMMA8653.o
+                0x0000000008001cb4                I2C_RdReg
  .text.I2C_WrReg
-                0x00000000080019bc       0xc4 ./Src/src/drvMMA8653.o
-                0x00000000080019bc                I2C_WrReg
+                0x0000000008001dd0       0xc4 ./Src/src/drvMMA8653.o
+                0x0000000008001dd0                I2C_WrReg
  .text.I2C_BitHandling
-                0x0000000008001a80       0x84 ./Src/src/drvMMA8653.o
-                0x0000000008001a80                I2C_BitHandling
+                0x0000000008001e94       0x84 ./Src/src/drvMMA8653.o
+                0x0000000008001e94                I2C_BitHandling
  .text.mma8653_goStandby
-                0x0000000008001b04       0x4c ./Src/src/drvMMA8653.o
-                0x0000000008001b04                mma8653_goStandby
+                0x0000000008001f18       0x4c ./Src/src/drvMMA8653.o
+                0x0000000008001f18                mma8653_goStandby
  .text.mma8653_goActive
-                0x0000000008001b50       0x4c ./Src/src/drvMMA8653.o
-                0x0000000008001b50                mma8653_goActive
+                0x0000000008001f64       0x4c ./Src/src/drvMMA8653.o
+                0x0000000008001f64                mma8653_goActive
  .text.mma8653_init
-                0x0000000008001b9c      0x140 ./Src/src/drvMMA8653.o
-                0x0000000008001b9c                mma8653_init
+                0x0000000008001fb0      0x140 ./Src/src/drvMMA8653.o
+                0x0000000008001fb0                mma8653_init
  .text.mma8653_setRange
-                0x0000000008001cdc       0x46 ./Src/src/drvMMA8653.o
-                0x0000000008001cdc                mma8653_setRange
+                0x00000000080020f0       0x46 ./Src/src/drvMMA8653.o
+                0x00000000080020f0                mma8653_setRange
  .text.mma8653_setDataRate
-                0x0000000008001d22       0x4a ./Src/src/drvMMA8653.o
-                0x0000000008001d22                mma8653_setDataRate
+                0x0000000008002136       0x4a ./Src/src/drvMMA8653.o
+                0x0000000008002136                mma8653_setDataRate
  .text.mma8653_setDataWidth
-                0x0000000008001d6c       0x62 ./Src/src/drvMMA8653.o
-                0x0000000008001d6c                mma8653_setDataWidth
- *fill*         0x0000000008001dce        0x2 
+                0x0000000008002180       0x62 ./Src/src/drvMMA8653.o
+                0x0000000008002180                mma8653_setDataWidth
+ *fill*         0x00000000080021e2        0x2 
  .text.mma8653_read8
-                0x0000000008001dd0       0x80 ./Src/src/drvMMA8653.o
-                0x0000000008001dd0                mma8653_read8
+                0x00000000080021e4       0x80 ./Src/src/drvMMA8653.o
+                0x00000000080021e4                mma8653_read8
  .text.mma8653_initIrq
-                0x0000000008001e50       0x70 ./Src/src/drvMMA8653.o
-                0x0000000008001e50                mma8653_initIrq
+                0x0000000008002264       0x70 ./Src/src/drvMMA8653.o
+                0x0000000008002264                mma8653_initIrq
+ .text.mma6853_deInit
+                0x00000000080022d4       0x24 ./Src/src/drvMMA8653.o
+                0x00000000080022d4                mma6853_deInit
  .text.NvMem_init
-                0x0000000008001ec0       0x6c ./Src/src/drvNvMemory.o
-                0x0000000008001ec0                NvMem_init
+                0x00000000080022f8       0x6c ./Src/src/drvNvMemory.o
+                0x00000000080022f8                NvMem_init
  .text.NvMem_read
-                0x0000000008001f2c       0x34 ./Src/src/drvNvMemory.o
-                0x0000000008001f2c                NvMem_read
+                0x0000000008002364       0x34 ./Src/src/drvNvMemory.o
+                0x0000000008002364                NvMem_read
  .text.NvMem_write
-                0x0000000008001f60       0x54 ./Src/src/drvNvMemory.o
-                0x0000000008001f60                NvMem_write
+                0x0000000008002398       0x54 ./Src/src/drvNvMemory.o
+                0x0000000008002398                NvMem_write
  .text.power_init
-                0x0000000008001fb4       0xa0 ./Src/src/drvPower.o
-                0x0000000008001fb4                power_init
+                0x00000000080023ec       0xa0 ./Src/src/drvPower.o
+                0x00000000080023ec                power_init
  .text.power_UsbPresent
-                0x0000000008002054       0x1c ./Src/src/drvPower.o
-                0x0000000008002054                power_UsbPresent
+                0x000000000800248c       0x1c ./Src/src/drvPower.o
+                0x000000000800248c                power_UsbPresent
  .text.power_hold
-                0x0000000008002070       0x20 ./Src/src/drvPower.o
-                0x0000000008002070                power_hold
+                0x00000000080024a8       0x38 ./Src/src/drvPower.o
+                0x00000000080024a8                power_hold
  .text.power_exec
-                0x0000000008002090       0x58 ./Src/src/drvPower.o
-                0x0000000008002090                power_exec
- .text.init_povdisplay
-                0x00000000080020e8       0x32 ./Src/src/drvProgram.o
-                0x00000000080020e8                init_povdisplay
- .text.init_level
-                0x000000000800211a       0x36 ./Src/src/drvProgram.o
-                0x000000000800211a                init_level
- .text.init_test1
-                0x0000000008002150       0x26 ./Src/src/drvProgram.o
-                0x0000000008002150                init_test1
- *fill*         0x0000000008002176        0x2 
- .text.povdisplay
-                0x0000000008002178       0x20 ./Src/src/drvProgram.o
-                0x0000000008002178                povdisplay
- .text.level    0x0000000008002198       0xcc ./Src/src/drvProgram.o
-                0x0000000008002198                level
- .text.test1    0x0000000008002264       0x30 ./Src/src/drvProgram.o
-                0x0000000008002264                test1
- .text.debounce
-                0x0000000008002294       0x6e ./Src/src/drvSwitch.o
-                0x0000000008002294                debounce
- .text.switch_exec
-                0x0000000008002302       0x9e ./Src/src/drvSwitch.o
-                0x0000000008002302                switch_exec
+                0x00000000080024e0       0xf0 ./Src/src/drvPower.o
+                0x00000000080024e0                power_exec
  .text.Reset_Handler
-                0x00000000080023a0       0x80 ./Startup/startup_stm32f042f6px.o
-                0x00000000080023a0                Reset_Handler
+                0x00000000080025d0       0x80 ./Startup/startup_stm32f042f6px.o
+                0x00000000080025d0                Reset_Handler
  .text.Default_Handler
-                0x0000000008002420        0x2 ./Startup/startup_stm32f042f6px.o
-                0x0000000008002420                TIM1_CC_IRQHandler
-                0x0000000008002420                TSC_IRQHandler
-                0x0000000008002420                I2C1_IRQHandler
-                0x0000000008002420                RCC_CRS_IRQHandler
-                0x0000000008002420                SPI1_IRQHandler
-                0x0000000008002420                ADC1_IRQHandler
-                0x0000000008002420                TIM17_IRQHandler
-                0x0000000008002420                CEC_CAN_IRQHandler
-                0x0000000008002420                RTC_IRQHandler
-                0x0000000008002420                PVD_VDDIO2_IRQHandler
-                0x0000000008002420                TIM16_IRQHandler
-                0x0000000008002420                EXTI4_15_IRQHandler
-                0x0000000008002420                DMA1_Channel1_IRQHandler
-                0x0000000008002420                Default_Handler
-                0x0000000008002420                TIM14_IRQHandler
-                0x0000000008002420                DMA1_Channel4_5_IRQHandler
-                0x0000000008002420                EXTI0_1_IRQHandler
-                0x0000000008002420                SPI2_IRQHandler
-                0x0000000008002420                WWDG_IRQHandler
-                0x0000000008002420                DMA1_Channel2_3_IRQHandler
-                0x0000000008002420                USART2_IRQHandler
-                0x0000000008002420                FLASH_IRQHandler
-                0x0000000008002420                USART1_IRQHandler
-                0x0000000008002420                TIM1_BRK_UP_TRG_COM_IRQHandler
- .text.USBD_GetInfo
-                0x0000000008002422       0x1a ./USB/src/usbd_core.o
- .text.USBD_Process_Reset
-                0x000000000800243c       0x50 ./USB/src/usbd_core.o
- .text.USBD_Set_Address
-                0x000000000800248c       0x3c ./USB/src/usbd_core.o
- .text.USBD_Process_Callback
-                0x00000000080024c8       0x2c ./USB/src/usbd_core.o
- .text.USBD_Configure
-                0x00000000080024f4       0x5c ./USB/src/usbd_core.o
- .text.USBD_Process_Device_Request
-                0x0000000008002550       0xd8 ./USB/src/usbd_core.o
- .text.USBD_Process_Interface_Request
-                0x0000000008002628       0x2e ./USB/src/usbd_core.o
- .text.USBD_Process_EP_Request
-                0x0000000008002656       0x82 ./USB/src/usbd_core.o
- .text.USBD_Process_Request
-                0x00000000080026d8       0x8c ./USB/src/usbd_core.o
- .text.USBD_Delay_PID
-                0x0000000008002764       0x4c ./USB/src/usbd_core.o
- .text.USBD_Process_EP_Tx
-                0x00000000080027b0       0xe0 ./USB/src/usbd_core.o
- .text.USBD_Process_EP_Rx
-                0x0000000008002890      0x218 ./USB/src/usbd_core.o
- .text.USBD_Process_EP0
-                0x0000000008002aa8       0x64 ./USB/src/usbd_core.o
- .text.USBD_Process_Event
-                0x0000000008002b0c       0xb0 ./USB/src/usbd_core.o
- .text.USBD_Poll
-                0x0000000008002bbc       0x24 ./USB/src/usbd_core.o
-                0x0000000008002bbc                USBD_Poll
- .text.EPT      0x0000000008002be0       0x28 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .text.EPR      0x0000000008002c08       0x28 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .text.get_next_pma
-                0x0000000008002c30       0x9c ./USB/src/usbd_stm32f042f6p6_devfs.o
- .text.getInfo  0x0000000008002ccc       0x38 ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x0000000008002ccc                getInfo
- .text.ep_setStall
-                0x0000000008002d04      0x154 ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x0000000008002d04                ep_setStall
- .text.ep_isStalled
-                0x0000000008002e58       0x68 ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x0000000008002e58                ep_isStalled
- .text.enable   0x0000000008002ec0       0x8c ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x0000000008002ec0                enable
- .text.connect  0x0000000008002f4c       0xbc ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x0000000008002f4c                connect
- .text.set_address
-                0x0000000008003008       0x2c ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x0000000008003008                set_address
- .text.ep_config
-                0x0000000008003034      0x2b4 ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x0000000008003034                ep_config
- .text.ep_deConfig
-                0x00000000080032e8       0x58 ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x00000000080032e8                ep_deConfig
- .text.pma_read
-                0x0000000008003340       0xcc ./USB/src/usbd_stm32f042f6p6_devfs.o
- .text.ep_read  0x000000000800340c      0x16c ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x000000000800340c                ep_read
- .text.pma_write
-                0x0000000008003578       0x80 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .text.ep_write
-                0x00000000080035f8      0x13c ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x00000000080035f8                ep_write
- .text.get_frame
-                0x0000000008003734       0x1c ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x0000000008003734                get_frame
- .text.event_poll
-                0x0000000008003750      0x21c ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x0000000008003750                event_poll
- .text.fnv1a32_turn
-                0x000000000800396c       0x60 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .text.get_serial_num_desc
-                0x00000000080039cc       0xb0 ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x00000000080039cc                get_serial_num_desc
- .text.USBD_Init
-                0x0000000008003a7c       0x44 ./USB/src/winusb_loop.o
- .text.USBD_Register_Control
-                0x0000000008003ac0       0x18 ./USB/src/winusb_loop.o
- .text.USBD_Register_Config
-                0x0000000008003ad8       0x18 ./USB/src/winusb_loop.o
- .text.USBD_Register_Descriptor
-                0x0000000008003af0       0x18 ./USB/src/winusb_loop.o
- .text.USBD_EP_Config
-                0x0000000008003b08       0x40 ./USB/src/winusb_loop.o
- .text.USBD_EP_Deconfig
-                0x0000000008003b48       0x24 ./USB/src/winusb_loop.o
- .text.USBD_Register_Endpoint
-                0x0000000008003b6c       0x30 ./USB/src/winusb_loop.o
- .text.USBD_EP_Read
-                0x0000000008003b9c       0x3c ./USB/src/winusb_loop.o
- .text.USBD_Enable
-                0x0000000008003bd8       0x24 ./USB/src/winusb_loop.o
- .text.USBD_Connect
-                0x0000000008003bfc       0x26 ./USB/src/winusb_loop.o
- *fill*         0x0000000008003c22        0x2 
- .text.winusb_get_desc
-                0x0000000008003c24       0xc4 ./USB/src/winusb_loop.o
- .text.winusb_set_config
-                0x0000000008003ce8       0xd0 ./USB/src/winusb_loop.o
- .text.winusb_control
-                0x0000000008003db8       0xcc ./USB/src/winusb_loop.o
- .text.bulk_from_host
-                0x0000000008003e84       0x60 ./USB/src/winusb_loop.o
- .text.bulk_to_host
-                0x0000000008003ee4       0x20 ./USB/src/winusb_loop.o
- .text.winusb_init_usbd
-                0x0000000008003f04       0x84 ./USB/src/winusb_loop.o
-                0x0000000008003f04                winusb_init_usbd
- .text.usb_device_connect
-                0x0000000008003f88       0x24 ./USB/src/winusb_loop.o
-                0x0000000008003f88                usb_device_connect
- .text.USB_Handler
-                0x0000000008003fac       0x18 ./USB/src/winusb_loop.o
-                0x0000000008003fac                USB_Handler
+                0x0000000008002650        0x2 ./Startup/startup_stm32f042f6px.o
+                0x0000000008002650                TIM1_CC_IRQHandler
+                0x0000000008002650                TSC_IRQHandler
+                0x0000000008002650                I2C1_IRQHandler
+                0x0000000008002650                RCC_CRS_IRQHandler
+                0x0000000008002650                SPI1_IRQHandler
+                0x0000000008002650                ADC1_IRQHandler
+                0x0000000008002650                TIM17_IRQHandler
+                0x0000000008002650                CEC_CAN_IRQHandler
+                0x0000000008002650                RTC_IRQHandler
+                0x0000000008002650                PVD_VDDIO2_IRQHandler
+                0x0000000008002650                TIM16_IRQHandler
+                0x0000000008002650                EXTI4_15_IRQHandler
+                0x0000000008002650                DMA1_Channel1_IRQHandler
+                0x0000000008002650                Default_Handler
+                0x0000000008002650                TIM14_IRQHandler
+                0x0000000008002650                DMA1_Channel4_5_IRQHandler
+                0x0000000008002650                EXTI0_1_IRQHandler
+                0x0000000008002650                SPI2_IRQHandler
+                0x0000000008002650                WWDG_IRQHandler
+                0x0000000008002650                DMA1_Channel2_3_IRQHandler
+                0x0000000008002650                USART2_IRQHandler
+                0x0000000008002650                FLASH_IRQHandler
+                0x0000000008002650                USART1_IRQHandler
+                0x0000000008002650                TIM1_BRK_UP_TRG_COM_IRQHandler
+ *fill*         0x0000000008002652        0x2 
  .text.__libc_init_array
-                0x0000000008003fc4       0x48 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
-                0x0000000008003fc4                __libc_init_array
- .text.memcpy   0x000000000800400c       0x12 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
-                0x000000000800400c                memcpy
+                0x0000000008002654       0x48 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
+                0x0000000008002654                __libc_init_array
+ .text.memcpy   0x000000000800269c       0x12 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
+                0x000000000800269c                memcpy
  *(.glue_7)
- .glue_7        0x000000000800401e        0x0 linker stubs
+ .glue_7        0x00000000080026ae        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x000000000800401e        0x0 linker stubs
+ .glue_7t       0x00000000080026ae        0x0 linker stubs
  *(.eh_frame)
- *fill*         0x000000000800401e        0x2 
- .eh_frame      0x0000000008004020        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+ *fill*         0x00000000080026ae        0x2 
+ .eh_frame      0x00000000080026b0        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
  *(.init)
- .init          0x0000000008004020        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crti.o
-                0x0000000008004020                _init
- .init          0x0000000008004024        0x8 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtn.o
+ .init          0x00000000080026b0        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crti.o
+                0x00000000080026b0                _init
+ .init          0x00000000080026b4        0x8 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtn.o
  *(.fini)
- .fini          0x000000000800402c        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crti.o
-                0x000000000800402c                _fini
- .fini          0x0000000008004030        0x8 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtn.o
-                0x0000000008004038                . = ALIGN (0x4)
-                0x0000000008004038                _etext = .
+ .fini          0x00000000080026bc        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crti.o
+                0x00000000080026bc                _fini
+ .fini          0x00000000080026c0        0x8 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtn.o
+                0x00000000080026c8                . = ALIGN (0x4)
+                0x00000000080026c8                _etext = .
 
-.vfp11_veneer   0x0000000008004038        0x0
- .vfp11_veneer  0x0000000008004038        0x0 linker stubs
+.vfp11_veneer   0x00000000080026c8        0x0
+ .vfp11_veneer  0x00000000080026c8        0x0 linker stubs
 
-.v4_bx          0x0000000008004038        0x0
- .v4_bx         0x0000000008004038        0x0 linker stubs
+.v4_bx          0x00000000080026c8        0x0
+ .v4_bx         0x00000000080026c8        0x0 linker stubs
 
-.iplt           0x0000000008004038        0x0
- .iplt          0x0000000008004038        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x00000000080026c8        0x0
+ .iplt          0x00000000080026c8        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x0000000008004038      0x1f8
-                0x0000000008004038                . = ALIGN (0x4)
+.rodata         0x00000000080026c8       0x14
+                0x00000000080026c8                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.displayFindReturnPoint
-                0x0000000008004038       0x14 ./Src/src/drvDisplay.o
- .rodata.USBD_Process_Device_Request
-                0x000000000800404c       0x28 ./USB/src/usbd_core.o
- .rodata.usbd_devfs
-                0x0000000008004074       0x34 ./USB/src/usbd_stm32f042f6p6_devfs.o
-                0x0000000008004074                usbd_devfs
- .rodata.device_desc
-                0x00000000080040a8       0x12 ./USB/src/winusb_loop.o
- *fill*         0x00000000080040ba        0x2 
- .rodata.config_desc
-                0x00000000080040bc       0x27 ./USB/src/winusb_loop.o
- *fill*         0x00000000080040e3        0x1 
- .rodata.ms_os_desc
-                0x00000000080040e4       0x14 ./USB/src/winusb_loop.o
- .rodata.language_desc
-                0x00000000080040f8        0x4 ./USB/src/winusb_loop.o
- .rodata.manufacturer_desc_en
-                0x00000000080040fc       0x34 ./USB/src/winusb_loop.o
- .rodata.product_desc_en
-                0x0000000008004130       0x22 ./USB/src/winusb_loop.o
- *fill*         0x0000000008004152        0x2 
- .rodata.serial_desc_en
-                0x0000000008004154       0x12 ./USB/src/winusb_loop.o
- *fill*         0x0000000008004166        0x2 
- .rodata.dTable
-                0x0000000008004168       0x10 ./USB/src/winusb_loop.o
- .rodata.devguid_ext_prop_feature_desc
-                0x0000000008004178       0x8e ./USB/src/winusb_loop.o
- *fill*         0x0000000008004206        0x2 
- .rodata.compatid_desc
-                0x0000000008004208       0x28 ./USB/src/winusb_loop.o
-                0x0000000008004230                . = ALIGN (0x4)
+                0x00000000080026c8       0x14 ./Src/src/drvDisplay.o
+                0x00000000080026dc                . = ALIGN (0x4)
 
-.rel.dyn        0x0000000008004230        0x0
- .rel.iplt      0x0000000008004230        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x00000000080026dc        0x0
+ .rel.iplt      0x00000000080026dc        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
 
-.ARM.extab      0x0000000008004230        0x0
-                0x0000000008004230                . = ALIGN (0x4)
+.ARM.extab      0x00000000080026dc        0x0
+                0x00000000080026dc                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008004230                . = ALIGN (0x4)
+                0x00000000080026dc                . = ALIGN (0x4)
 
-.ARM            0x0000000008004230        0x0
-                0x0000000008004230                . = ALIGN (0x4)
-                0x0000000008004230                __exidx_start = .
+.ARM            0x00000000080026dc        0x0
+                0x00000000080026dc                . = ALIGN (0x4)
+                0x00000000080026dc                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000008004230                __exidx_end = .
-                0x0000000008004230                . = ALIGN (0x4)
+                0x00000000080026dc                __exidx_end = .
+                0x00000000080026dc                . = ALIGN (0x4)
 
-.preinit_array  0x0000000008004230        0x0
-                0x0000000008004230                . = ALIGN (0x4)
-                0x0000000008004230                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x00000000080026dc        0x0
+                0x00000000080026dc                . = ALIGN (0x4)
+                0x00000000080026dc                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008004230                PROVIDE (__preinit_array_end = .)
-                0x0000000008004230                . = ALIGN (0x4)
+                0x00000000080026dc                PROVIDE (__preinit_array_end = .)
+                0x00000000080026dc                . = ALIGN (0x4)
 
-.init_array     0x0000000008004230        0x4
-                0x0000000008004230                . = ALIGN (0x4)
-                0x0000000008004230                PROVIDE (__init_array_start = .)
+.init_array     0x00000000080026dc        0x4
+                0x00000000080026dc                . = ALIGN (0x4)
+                0x00000000080026dc                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x0000000008004230        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
-                0x0000000008004234                PROVIDE (__init_array_end = .)
-                0x0000000008004234                . = ALIGN (0x4)
+ .init_array    0x00000000080026dc        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x00000000080026e0                PROVIDE (__init_array_end = .)
+                0x00000000080026e0                . = ALIGN (0x4)
 
-.fini_array     0x0000000008004234        0x4
-                0x0000000008004234                . = ALIGN (0x4)
+.fini_array     0x00000000080026e0        0x4
+                0x00000000080026e0                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x0000000008004234        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+ .fini_array    0x00000000080026e0        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000008004238                . = ALIGN (0x4)
-                0x0000000008004238                _sidata = LOADADDR (.data)
+                0x00000000080026e4                . = ALIGN (0x4)
+                0x00000000080026e4                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x14 load address 0x0000000008004238
+.data           0x0000000020000000       0x18 load address 0x00000000080026e4
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
  *(.data*)
+ .data.timer_ms
+                0x0000000020000000        0x1 ./Src/main.o
+                0x0000000020000000                timer_ms
+ .data.timer_10ms
+                0x0000000020000001        0x1 ./Src/main.o
+                0x0000000020000001                timer_10ms
+ *fill*         0x0000000020000002        0x2 
  .data.SystemCoreClock
-                0x0000000020000000        0x4 ./Src/system_stm32f0xx.o
-                0x0000000020000000                SystemCoreClock
+                0x0000000020000004        0x4 ./Src/system_stm32f0xx.o
+                0x0000000020000004                SystemCoreClock
  .data.AHBPrescTable
-                0x0000000020000004       0x10 ./Src/system_stm32f0xx.o
-                0x0000000020000004                AHBPrescTable
-                0x0000000020000014                . = ALIGN (0x4)
-                0x0000000020000014                _edata = .
+                0x0000000020000008       0x10 ./Src/system_stm32f0xx.o
+                0x0000000020000008                AHBPrescTable
+                0x0000000020000018                . = ALIGN (0x4)
+                0x0000000020000018                _edata = .
 
-.igot.plt       0x0000000020000014        0x0 load address 0x000000000800424c
- .igot.plt      0x0000000020000014        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
-                0x0000000020000014                . = ALIGN (0x4)
+.igot.plt       0x0000000020000018        0x0 load address 0x00000000080026fc
+ .igot.plt      0x0000000020000018        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x0000000020000018                . = ALIGN (0x4)
 
-.bss            0x0000000020000014      0x764 load address 0x000000000800424c
-                0x0000000020000014                _sbss = .
-                0x0000000020000014                __bss_start__ = _sbss
+.bss            0x0000000020000018      0x510 load address 0x00000000080026fc
+                0x0000000020000018                _sbss = .
+                0x0000000020000018                __bss_start__ = _sbss
  *(.bss)
- .bss           0x0000000020000014       0x1c c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+ .bss           0x0000000020000018       0x1c c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
  *(.bss*)
- .bss.timer     0x0000000020000030        0x4 ./Src/main.o
-                0x0000000020000030                timer
- .bss.timerFlag
-                0x0000000020000034        0x1 ./Src/main.o
-                0x0000000020000034                timerFlag
- .bss.progselect
-                0x0000000020000035        0x1 ./Src/main.o
-                0x0000000020000035                progselect
- .bss.rowStep   0x0000000020000036        0x1 ./Src/src/drvDisplay.o
-                0x0000000020000036                rowStep
+ .bss.app_active
+                0x0000000020000034        0x1 ./Src/AppMgmt.o
+                0x0000000020000034                app_active
+ .bss.app_run   0x0000000020000035        0x1 ./Src/AppMgmt.o
+                0x0000000020000035                app_run
+ .bss.timerFlags
+                0x0000000020000036        0x1 ./Src/main.o
+                0x0000000020000036                timerFlags
+ .bss.rowStep   0x0000000020000037        0x1 ./Src/src/drvDisplay.o
+                0x0000000020000037                rowStep
  .bss.RowNumber
-                0x0000000020000037        0x1 ./Src/src/drvDisplay.o
-                0x0000000020000037                RowNumber
- .bss.isActive  0x0000000020000038        0x1 ./Src/src/drvMMA8653.o
-                0x0000000020000038                isActive
- *fill*         0x0000000020000039        0x3 
- .bss.usb_device_state
-                0x000000002000003c        0x3 ./USB/src/winusb_loop.o
-                0x000000002000003c                usb_device_state
- *fill*         0x000000002000003f        0x1 
- .bss.winusb_dev
-                0x0000000020000040       0x64 ./USB/src/winusb_loop.o
-                0x0000000020000040                winusb_dev
- .bss.fifo      0x00000000200000a4      0x100 ./USB/src/winusb_loop.o
-                0x00000000200000a4                fifo
- .bss.fpos      0x00000000200001a4        0x4 ./USB/src/winusb_loop.o
-                0x00000000200001a4                fpos
+                0x0000000020000038        0x1 ./Src/src/drvDisplay.o
+                0x0000000020000038                RowNumber
+ .bss.isActive  0x0000000020000039        0x1 ./Src/src/drvMMA8653.o
+                0x0000000020000039                isActive
  *(COMMON)
- COMMON         0x00000000200001a8       0x4c ./Src/configConsole.o
-                0x00000000200001a8                consoleStates
-                0x00000000200001ac                stringBuff
-                0x00000000200001ec                CountOfEnteredDates
-                0x00000000200001ed                consoleFlags
-                0x00000000200001f0                globalColor
- COMMON         0x00000000200001f4       0x28 ./Src/main.o
-                0x00000000200001f4                levelResult
-                0x00000000200001f6                systemFlags
-                0x00000000200001f7                led_pos
-                0x00000000200001f8                delayTimer
-                0x00000000200001fc                tempstring
- COMMON         0x000000002000021c       0x8c ./Src/src/drvApa102.o
-                0x000000002000021c                leds
-                0x000000002000025c                spiSendData
- COMMON         0x00000000200002a8       0x48 ./Src/src/drvDisplay.o
-                0x00000000200002a8                RowsOverscan
-                0x00000000200002ac                DispRowMasks
-                0x00000000200002ec                DisplayPosition
-                0x00000000200002ed                RowsVisible
-                0x00000000200002ee                RowsLogic
-                0x00000000200002ef                movementState
- COMMON         0x00000000200002f0        0x4 ./Src/src/drvMMA8653.o
-                0x00000000200002f0                rxBuf
- COMMON         0x00000000200002f4      0x401 ./Src/src/drvNvMemory.o
-                0x00000000200002f4                NvMem_RamBuffer
-                0x00000000200006f4                NvMem_Writable
- COMMON         0x00000000200006f5        0x2 ./Src/src/drvPower.o
-                0x00000000200006f5                power_timer
-                0x00000000200006f6                cnt_time
- *fill*         0x00000000200006f7        0x1 
- COMMON         0x00000000200006f8       0x80 ./USB/src/winusb_loop.o
-                0x00000000200006f8                winusb_controll_buffer
-                0x0000000020000778                . = ALIGN (0x4)
-                0x0000000020000778                _ebss = .
-                0x0000000020000778                __bss_end__ = _ebss
+ *fill*         0x000000002000003a        0x2 
+ COMMON         0x000000002000003c        0x4 ./Src/AppMgmt.o
+                0x000000002000003c                globalColor
+ COMMON         0x0000000020000040        0x3 ./Src/App_Level.o
+                0x0000000020000040                levelResult
+                0x0000000020000042                led_pos
+ COMMON         0x0000000020000043        0x2 ./Src/App_POVDisplay.o
+                0x0000000020000043                power_flags
+                0x0000000020000044                power_buttonHoldTime
+ *fill*         0x0000000020000045        0x3 
+ COMMON         0x0000000020000048        0x4 ./Src/main.o
+                0x0000000020000048                delayTimer
+ COMMON         0x000000002000004c       0x8c ./Src/src/drvApa102.o
+                0x000000002000004c                leds
+                0x000000002000008c                spiSendData
+ COMMON         0x00000000200000d8       0x48 ./Src/src/drvDisplay.o
+                0x00000000200000d8                RowsOverscan
+                0x00000000200000dc                DispRowMasks
+                0x000000002000011c                DisplayPosition
+                0x000000002000011d                RowsVisible
+                0x000000002000011e                RowsLogic
+                0x000000002000011f                movementState
+ COMMON         0x0000000020000120        0x4 ./Src/src/drvMMA8653.o
+                0x0000000020000120                rxBuf
+ COMMON         0x0000000020000124      0x401 ./Src/src/drvNvMemory.o
+                0x0000000020000124                NvMem_RamBuffer
+                0x0000000020000524                NvMem_Writable
+ COMMON         0x0000000020000525        0x2 ./Src/src/drvPower.o
+                0x0000000020000525                power_timer
+                0x0000000020000526                power_buttonState
+                0x0000000020000528                . = ALIGN (0x4)
+ *fill*         0x0000000020000527        0x1 
+                0x0000000020000528                _ebss = .
+                0x0000000020000528                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020000778      0x600 load address 0x000000000800424c
-                0x0000000020000778                . = ALIGN (0x8)
+                0x0000000020000528      0x600 load address 0x00000000080026fc
+                0x0000000020000528                . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
-                0x0000000020000778                PROVIDE (_end = .)
-                0x0000000020000978                . = (. + _Min_Heap_Size)
- *fill*         0x0000000020000778      0x200 
-                0x0000000020000d78                . = (. + _Min_Stack_Size)
- *fill*         0x0000000020000978      0x400 
-                0x0000000020000d78                . = ALIGN (0x8)
+                0x0000000020000528                PROVIDE (_end = .)
+                0x0000000020000728                . = (. + _Min_Heap_Size)
+ *fill*         0x0000000020000528      0x200 
+                0x0000000020000b28                . = (. + _Min_Stack_Size)
+ *fill*         0x0000000020000728      0x400 
+                0x0000000020000b28                . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -4300,98 +4480,90 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .ARM.attributes
                 0x0000000000000126       0x2c ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
  .ARM.attributes
-                0x0000000000000152       0x2c ./Src/configConsole.o
+                0x0000000000000152       0x2c ./Src/AppMgmt.o
  .ARM.attributes
-                0x000000000000017e       0x2c ./Src/main.o
+                0x000000000000017e       0x2c ./Src/App_Level.o
  .ARM.attributes
-                0x00000000000001aa       0x2c ./Src/stm32_it.o
+                0x00000000000001aa       0x2c ./Src/App_POVDisplay.o
  .ARM.attributes
-                0x00000000000001d6       0x2c ./Src/system_stm32f0xx.o
+                0x00000000000001d6       0x2c ./Src/App_Playground.o
  .ARM.attributes
-                0x0000000000000202       0x2c ./Src/src/drvApa102.o
+                0x0000000000000202       0x2c ./Src/main.o
  .ARM.attributes
-                0x000000000000022e       0x2c ./Src/src/drvDisplay.o
+                0x000000000000022e       0x2c ./Src/stm32_it.o
  .ARM.attributes
-                0x000000000000025a       0x2c ./Src/src/drvMMA8653.o
+                0x000000000000025a       0x2c ./Src/system_stm32f0xx.o
  .ARM.attributes
-                0x0000000000000286       0x2c ./Src/src/drvNvMemory.o
+                0x0000000000000286       0x2c ./Src/src/drvApa102.o
  .ARM.attributes
-                0x00000000000002b2       0x2c ./Src/src/drvPower.o
+                0x00000000000002b2       0x2c ./Src/src/drvDisplay.o
  .ARM.attributes
-                0x00000000000002de       0x2c ./Src/src/drvProgram.o
+                0x00000000000002de       0x2c ./Src/src/drvMMA8653.o
  .ARM.attributes
-                0x000000000000030a       0x2c ./Src/src/drvSwitch.o
+                0x000000000000030a       0x2c ./Src/src/drvNvMemory.o
  .ARM.attributes
-                0x0000000000000336       0x21 ./Startup/startup_stm32f042f6px.o
+                0x0000000000000336       0x2c ./Src/src/drvPower.o
  .ARM.attributes
-                0x0000000000000357       0x2c ./USB/src/usbd_core.o
+                0x0000000000000362       0x21 ./Startup/startup_stm32f042f6px.o
  .ARM.attributes
-                0x0000000000000383       0x2c ./USB/src/usbd_stm32f042f6p6_devfs.o
+                0x0000000000000383       0x2c c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
  .ARM.attributes
-                0x00000000000003af       0x2c ./USB/src/winusb_loop.o
+                0x00000000000003af       0x2c c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
  .ARM.attributes
-                0x00000000000003db       0x2c c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
+                0x00000000000003db       0x1e c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
  .ARM.attributes
-                0x0000000000000407       0x2c c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
+                0x00000000000003f9       0x1e c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
  .ARM.attributes
-                0x0000000000000433       0x1e c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
- .ARM.attributes
-                0x0000000000000451       0x1e c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a(_dvmd_tls.o)
- .ARM.attributes
-                0x000000000000046f       0x1e c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtn.o
+                0x0000000000000417       0x1e c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtn.o
 OUTPUT(LightShaker3_libUSB.elf elf32-littlearm)
 LOAD linker stubs
 LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc.a
 LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a
 LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a
 
-.debug_info     0x0000000000000000     0xbaac
+.debug_info     0x0000000000000000     0x58f7
  .debug_info    0x0000000000000000      0x35a ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_info    0x000000000000035a      0x64f ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_info    0x00000000000009a9      0xc77 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
  .debug_info    0x0000000000001620      0x3a1 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
  .debug_info    0x00000000000019c1      0xaf5 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
  .debug_info    0x00000000000024b6      0x2e7 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
- .debug_info    0x000000000000279d      0xcc8 ./Src/configConsole.o
- .debug_info    0x0000000000003465      0xebd ./Src/main.o
- .debug_info    0x0000000000004322      0x12b ./Src/stm32_it.o
- .debug_info    0x000000000000444d      0x2da ./Src/system_stm32f0xx.o
- .debug_info    0x0000000000004727      0x623 ./Src/src/drvApa102.o
- .debug_info    0x0000000000004d4a      0x7e6 ./Src/src/drvDisplay.o
- .debug_info    0x0000000000005530      0xa17 ./Src/src/drvMMA8653.o
- .debug_info    0x0000000000005f47      0x386 ./Src/src/drvNvMemory.o
- .debug_info    0x00000000000062cd      0x39a ./Src/src/drvPower.o
- .debug_info    0x0000000000006667      0xad7 ./Src/src/drvProgram.o
- .debug_info    0x000000000000713e      0xb5e ./Src/src/drvSwitch.o
- .debug_info    0x0000000000007c9c       0x22 ./Startup/startup_stm32f042f6px.o
- .debug_info    0x0000000000007cbe     0x125c ./USB/src/usbd_core.o
- .debug_info    0x0000000000008f1a      0xfde ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_info    0x0000000000009ef8     0x1bb4 ./USB/src/winusb_loop.o
+ .debug_info    0x000000000000279d      0x182 ./Src/AppMgmt.o
+ .debug_info    0x000000000000291f      0x183 ./Src/App_Level.o
+ .debug_info    0x0000000000002aa2      0x3a5 ./Src/App_POVDisplay.o
+ .debug_info    0x0000000000002e47       0x4e ./Src/App_Playground.o
+ .debug_info    0x0000000000002e95      0x525 ./Src/main.o
+ .debug_info    0x00000000000033ba      0x12b ./Src/stm32_it.o
+ .debug_info    0x00000000000034e5      0x2da ./Src/system_stm32f0xx.o
+ .debug_info    0x00000000000037bf      0x69d ./Src/src/drvApa102.o
+ .debug_info    0x0000000000003e5c      0x7e6 ./Src/src/drvDisplay.o
+ .debug_info    0x0000000000004642      0xb4f ./Src/src/drvMMA8653.o
+ .debug_info    0x0000000000005191      0x386 ./Src/src/drvNvMemory.o
+ .debug_info    0x0000000000005517      0x3be ./Src/src/drvPower.o
+ .debug_info    0x00000000000058d5       0x22 ./Startup/startup_stm32f042f6px.o
 
-.debug_abbrev   0x0000000000000000     0x27bf
+.debug_abbrev   0x0000000000000000     0x1a88
  .debug_abbrev  0x0000000000000000      0x1ab ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_abbrev  0x00000000000001ab      0x1c5 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_abbrev  0x0000000000000370      0x1a9 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
  .debug_abbrev  0x0000000000000519      0x163 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
  .debug_abbrev  0x000000000000067c      0x232 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
  .debug_abbrev  0x00000000000008ae      0x181 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
- .debug_abbrev  0x0000000000000a2f      0x29f ./Src/configConsole.o
- .debug_abbrev  0x0000000000000cce      0x2bf ./Src/main.o
- .debug_abbrev  0x0000000000000f8d       0x83 ./Src/stm32_it.o
- .debug_abbrev  0x0000000000001010      0x141 ./Src/system_stm32f0xx.o
- .debug_abbrev  0x0000000000001151      0x1c8 ./Src/src/drvApa102.o
- .debug_abbrev  0x0000000000001319      0x1e7 ./Src/src/drvDisplay.o
- .debug_abbrev  0x0000000000001500      0x275 ./Src/src/drvMMA8653.o
- .debug_abbrev  0x0000000000001775      0x154 ./Src/src/drvNvMemory.o
- .debug_abbrev  0x00000000000018c9      0x192 ./Src/src/drvPower.o
- .debug_abbrev  0x0000000000001a5b      0x1c8 ./Src/src/drvProgram.o
- .debug_abbrev  0x0000000000001c23      0x210 ./Src/src/drvSwitch.o
- .debug_abbrev  0x0000000000001e33       0x12 ./Startup/startup_stm32f042f6px.o
- .debug_abbrev  0x0000000000001e45      0x2b9 ./USB/src/usbd_core.o
- .debug_abbrev  0x00000000000020fe      0x393 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_abbrev  0x0000000000002491      0x32e ./USB/src/winusb_loop.o
+ .debug_abbrev  0x0000000000000a2f       0xab ./Src/AppMgmt.o
+ .debug_abbrev  0x0000000000000ada       0xb4 ./Src/App_Level.o
+ .debug_abbrev  0x0000000000000b8e      0x197 ./Src/App_POVDisplay.o
+ .debug_abbrev  0x0000000000000d25       0x2f ./Src/App_Playground.o
+ .debug_abbrev  0x0000000000000d54      0x1f3 ./Src/main.o
+ .debug_abbrev  0x0000000000000f47       0x83 ./Src/stm32_it.o
+ .debug_abbrev  0x0000000000000fca      0x141 ./Src/system_stm32f0xx.o
+ .debug_abbrev  0x000000000000110b      0x1c8 ./Src/src/drvApa102.o
+ .debug_abbrev  0x00000000000012d3      0x1e7 ./Src/src/drvDisplay.o
+ .debug_abbrev  0x00000000000014ba      0x2d6 ./Src/src/drvMMA8653.o
+ .debug_abbrev  0x0000000000001790      0x154 ./Src/src/drvNvMemory.o
+ .debug_abbrev  0x00000000000018e4      0x192 ./Src/src/drvPower.o
+ .debug_abbrev  0x0000000000001a76       0x12 ./Startup/startup_stm32f042f6px.o
 
-.debug_aranges  0x0000000000000000      0x940
+.debug_aranges  0x0000000000000000      0x770
  .debug_aranges
                 0x0000000000000000       0x58 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_aranges
@@ -4405,60 +4577,54 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_aranges
                 0x00000000000003d0       0x58 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
  .debug_aranges
-                0x0000000000000428       0x40 ./Src/configConsole.o
+                0x0000000000000428       0x38 ./Src/AppMgmt.o
  .debug_aranges
-                0x0000000000000468       0x40 ./Src/main.o
+                0x0000000000000460       0x28 ./Src/App_Level.o
  .debug_aranges
-                0x00000000000004a8       0x58 ./Src/stm32_it.o
+                0x0000000000000488       0x40 ./Src/App_POVDisplay.o
  .debug_aranges
-                0x0000000000000500       0x30 ./Src/system_stm32f0xx.o
+                0x00000000000004c8       0x28 ./Src/App_Playground.o
  .debug_aranges
-                0x0000000000000530       0x48 ./Src/src/drvApa102.o
+                0x00000000000004f0       0x40 ./Src/main.o
  .debug_aranges
-                0x0000000000000578       0x48 ./Src/src/drvDisplay.o
+                0x0000000000000530       0x58 ./Src/stm32_it.o
  .debug_aranges
-                0x00000000000005c0       0x78 ./Src/src/drvMMA8653.o
+                0x0000000000000588       0x30 ./Src/system_stm32f0xx.o
  .debug_aranges
-                0x0000000000000638       0x38 ./Src/src/drvNvMemory.o
+                0x00000000000005b8       0x50 ./Src/src/drvApa102.o
  .debug_aranges
-                0x0000000000000670       0x38 ./Src/src/drvPower.o
+                0x0000000000000608       0x48 ./Src/src/drvDisplay.o
  .debug_aranges
-                0x00000000000006a8       0x48 ./Src/src/drvProgram.o
+                0x0000000000000650       0x88 ./Src/src/drvMMA8653.o
  .debug_aranges
-                0x00000000000006f0       0x28 ./Src/src/drvSwitch.o
+                0x00000000000006d8       0x38 ./Src/src/drvNvMemory.o
  .debug_aranges
-                0x0000000000000718       0x28 ./Startup/startup_stm32f042f6px.o
+                0x0000000000000710       0x38 ./Src/src/drvPower.o
  .debug_aranges
-                0x0000000000000740       0x90 ./USB/src/usbd_core.o
- .debug_aranges
-                0x00000000000007d0       0xb0 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_aranges
-                0x0000000000000880       0xc0 ./USB/src/winusb_loop.o
+                0x0000000000000748       0x28 ./Startup/startup_stm32f042f6px.o
 
-.debug_ranges   0x0000000000000000      0x828
+.debug_ranges   0x0000000000000000      0x648
  .debug_ranges  0x0000000000000000       0x48 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_ranges  0x0000000000000048       0x70 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_ranges  0x00000000000000b8      0x158 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
  .debug_ranges  0x0000000000000210       0x20 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
  .debug_ranges  0x0000000000000230      0x150 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
  .debug_ranges  0x0000000000000380       0x48 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
- .debug_ranges  0x00000000000003c8       0x48 ./Src/configConsole.o
- .debug_ranges  0x0000000000000410       0x30 ./Src/main.o
- .debug_ranges  0x0000000000000440       0x48 ./Src/stm32_it.o
- .debug_ranges  0x0000000000000488       0x20 ./Src/system_stm32f0xx.o
- .debug_ranges  0x00000000000004a8       0x38 ./Src/src/drvApa102.o
- .debug_ranges  0x00000000000004e0       0x38 ./Src/src/drvDisplay.o
- .debug_ranges  0x0000000000000518       0x68 ./Src/src/drvMMA8653.o
- .debug_ranges  0x0000000000000580       0x28 ./Src/src/drvNvMemory.o
- .debug_ranges  0x00000000000005a8       0x28 ./Src/src/drvPower.o
- .debug_ranges  0x00000000000005d0       0x38 ./Src/src/drvProgram.o
- .debug_ranges  0x0000000000000608       0x18 ./Src/src/drvSwitch.o
- .debug_ranges  0x0000000000000620       0x20 ./Startup/startup_stm32f042f6px.o
- .debug_ranges  0x0000000000000640       0x80 ./USB/src/usbd_core.o
- .debug_ranges  0x00000000000006c0       0xb8 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_ranges  0x0000000000000778       0xb0 ./USB/src/winusb_loop.o
+ .debug_ranges  0x00000000000003c8       0x28 ./Src/AppMgmt.o
+ .debug_ranges  0x00000000000003f0       0x18 ./Src/App_Level.o
+ .debug_ranges  0x0000000000000408       0x30 ./Src/App_POVDisplay.o
+ .debug_ranges  0x0000000000000438       0x18 ./Src/App_Playground.o
+ .debug_ranges  0x0000000000000450       0x30 ./Src/main.o
+ .debug_ranges  0x0000000000000480       0x48 ./Src/stm32_it.o
+ .debug_ranges  0x00000000000004c8       0x20 ./Src/system_stm32f0xx.o
+ .debug_ranges  0x00000000000004e8       0x40 ./Src/src/drvApa102.o
+ .debug_ranges  0x0000000000000528       0x38 ./Src/src/drvDisplay.o
+ .debug_ranges  0x0000000000000560       0x78 ./Src/src/drvMMA8653.o
+ .debug_ranges  0x00000000000005d8       0x28 ./Src/src/drvNvMemory.o
+ .debug_ranges  0x0000000000000600       0x28 ./Src/src/drvPower.o
+ .debug_ranges  0x0000000000000628       0x20 ./Startup/startup_stm32f042f6px.o
 
-.debug_macro    0x0000000000000000    0x1362d
+.debug_macro    0x0000000000000000     0x233e
  .debug_macro   0x0000000000000000      0x18d ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_macro   0x000000000000018d       0xd9 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_macro   0x0000000000000266      0x18d ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
@@ -4471,138 +4637,87 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_macro   0x0000000000000d22      0x51c ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
  .debug_macro   0x000000000000123e      0x18d ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
  .debug_macro   0x00000000000013cb      0x17e ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
- .debug_macro   0x0000000000001549      0x222 ./Src/configConsole.o
- .debug_macro   0x000000000000176b       0x4c ./Src/configConsole.o
- .debug_macro   0x00000000000017b7       0x18 ./Src/configConsole.o
- .debug_macro   0x00000000000017cf       0x94 ./Src/configConsole.o
- .debug_macro   0x0000000000001863       0x3c ./Src/configConsole.o
- .debug_macro   0x000000000000189f       0x34 ./Src/configConsole.o
- .debug_macro   0x00000000000018d3      0x174 ./Src/configConsole.o
- .debug_macro   0x0000000000001a47       0x16 ./Src/configConsole.o
- .debug_macro   0x0000000000001a5d       0x43 ./Src/configConsole.o
- .debug_macro   0x0000000000001aa0       0x57 ./Src/configConsole.o
- .debug_macro   0x0000000000001af7       0x34 ./Src/configConsole.o
- .debug_macro   0x0000000000001b2b       0x10 ./Src/configConsole.o
- .debug_macro   0x0000000000001b3b       0x58 ./Src/configConsole.o
- .debug_macro   0x0000000000001b93       0x71 ./Src/configConsole.o
- .debug_macro   0x0000000000001c04       0x1c ./Src/configConsole.o
- .debug_macro   0x0000000000001c20      0x12a ./Src/configConsole.o
- .debug_macro   0x0000000000001d4a      0x339 ./Src/configConsole.o
- .debug_macro   0x0000000000002083       0x10 ./Src/configConsole.o
- .debug_macro   0x0000000000002093       0x35 ./Src/configConsole.o
- .debug_macro   0x00000000000020c8       0x20 ./Src/configConsole.o
- .debug_macro   0x00000000000020e8       0x1c ./Src/configConsole.o
- .debug_macro   0x0000000000002104       0x10 ./Src/configConsole.o
- .debug_macro   0x0000000000002114       0x10 ./Src/configConsole.o
- .debug_macro   0x0000000000002124       0x1c ./Src/configConsole.o
- .debug_macro   0x0000000000002140       0x52 ./Src/configConsole.o
- .debug_macro   0x0000000000002192       0x22 ./Src/configConsole.o
- .debug_macro   0x00000000000021b4       0x10 ./Src/configConsole.o
- .debug_macro   0x00000000000021c4       0x40 ./Src/configConsole.o
- .debug_macro   0x0000000000002204       0xd5 ./Src/configConsole.o
- .debug_macro   0x00000000000022d9       0x1c ./Src/configConsole.o
- .debug_macro   0x00000000000022f5       0x3d ./Src/configConsole.o
- .debug_macro   0x0000000000002332       0x16 ./Src/configConsole.o
- .debug_macro   0x0000000000002348      0x145 ./Src/configConsole.o
- .debug_macro   0x000000000000248d       0x1c ./Src/configConsole.o
- .debug_macro   0x00000000000024a9       0x22 ./Src/configConsole.o
- .debug_macro   0x00000000000024cb       0x4c ./Src/configConsole.o
- .debug_macro   0x0000000000002517      0x29c ./Src/main.o
- .debug_macro   0x00000000000027b3       0x10 ./Src/main.o
- .debug_macro   0x00000000000027c3       0x52 ./Src/main.o
- .debug_macro   0x0000000000002815       0x16 ./Src/main.o
- .debug_macro   0x000000000000282b       0x10 ./Src/main.o
- .debug_macro   0x000000000000283b       0xc4 ./Src/stm32_it.o
- .debug_macro   0x00000000000028ff       0x9e ./Src/system_stm32f0xx.o
- .debug_macro   0x000000000000299d       0xc0 ./Src/src/drvApa102.o
- .debug_macro   0x0000000000002a5d      0x1c8 ./Src/src/drvDisplay.o
- .debug_macro   0x0000000000002c25      0x25d ./Src/src/drvMMA8653.o
- .debug_macro   0x0000000000002e82       0xd4 ./Src/src/drvNvMemory.o
- .debug_macro   0x0000000000002f56       0xc0 ./Src/src/drvPower.o
- .debug_macro   0x0000000000003016      0x25c ./Src/src/drvProgram.o
- .debug_macro   0x0000000000003272      0x280 ./Src/src/drvSwitch.o
- .debug_macro   0x00000000000034f2      0x183 ./USB/src/usbd_core.o
- .debug_macro   0x0000000000003675       0x94 ./USB/src/usbd_core.o
- .debug_macro   0x0000000000003709       0x10 ./USB/src/usbd_core.o
- .debug_macro   0x0000000000003719      0x460 ./USB/src/usbd_core.o
- .debug_macro   0x0000000000003b79      0x1ef ./USB/src/usbd_core.o
- .debug_macro   0x0000000000003d68       0x10 ./USB/src/usbd_core.o
- .debug_macro   0x0000000000003d78      0x169 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_macro   0x0000000000003ee1       0x3a ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_macro   0x0000000000003f1b       0x82 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_macro   0x0000000000003f9d      0x1f5 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_macro   0x0000000000004192       0x22 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_macro   0x00000000000041b4     0xf1e6 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_macro   0x000000000001339a       0x3a ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_macro   0x00000000000133d4      0x237 ./USB/src/winusb_loop.o
- .debug_macro   0x000000000001360b       0x22 ./USB/src/winusb_loop.o
+ .debug_macro   0x0000000000001549       0xec ./Src/AppMgmt.o
+ .debug_macro   0x0000000000001635      0x174 ./Src/AppMgmt.o
+ .debug_macro   0x00000000000017a9       0x22 ./Src/AppMgmt.o
+ .debug_macro   0x00000000000017cb       0x7a ./Src/App_Level.o
+ .debug_macro   0x0000000000001845       0x10 ./Src/App_Level.o
+ .debug_macro   0x0000000000001855       0xee ./Src/App_POVDisplay.o
+ .debug_macro   0x0000000000001943       0x4c ./Src/App_POVDisplay.o
+ .debug_macro   0x000000000000198f       0x1c ./Src/App_POVDisplay.o
+ .debug_macro   0x00000000000019ab       0x1c ./Src/App_POVDisplay.o
+ .debug_macro   0x00000000000019c7       0x1b ./Src/App_Playground.o
+ .debug_macro   0x00000000000019e2       0xf5 ./Src/main.o
+ .debug_macro   0x0000000000001ad7       0xcd ./Src/stm32_it.o
+ .debug_macro   0x0000000000001ba4       0x9e ./Src/system_stm32f0xx.o
+ .debug_macro   0x0000000000001c42       0xd3 ./Src/src/drvApa102.o
+ .debug_macro   0x0000000000001d15      0x1c2 ./Src/src/drvDisplay.o
+ .debug_macro   0x0000000000001ed7       0x52 ./Src/src/drvDisplay.o
+ .debug_macro   0x0000000000001f29      0x266 ./Src/src/drvMMA8653.o
+ .debug_macro   0x000000000000218f       0xd4 ./Src/src/drvNvMemory.o
+ .debug_macro   0x0000000000002263       0xc5 ./Src/src/drvPower.o
+ .debug_macro   0x0000000000002328       0x16 ./Src/src/drvPower.o
 
-.debug_line     0x0000000000000000     0xb12d
+.debug_line     0x0000000000000000     0x863f
  .debug_line    0x0000000000000000      0x864 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_line    0x0000000000000864      0x97e ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_line    0x00000000000011e2      0xcf5 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
  .debug_line    0x0000000000001ed7      0x7a4 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
  .debug_line    0x000000000000267b      0xe09 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
  .debug_line    0x0000000000003484      0x811 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
- .debug_line    0x0000000000003c95      0x989 ./Src/configConsole.o
- .debug_line    0x000000000000461e      0x9b2 ./Src/main.o
- .debug_line    0x0000000000004fd0      0x567 ./Src/stm32_it.o
- .debug_line    0x0000000000005537      0x555 ./Src/system_stm32f0xx.o
- .debug_line    0x0000000000005a8c      0x6ec ./Src/src/drvApa102.o
- .debug_line    0x0000000000006178      0x93f ./Src/src/drvDisplay.o
- .debug_line    0x0000000000006ab7      0xa39 ./Src/src/drvMMA8653.o
- .debug_line    0x00000000000074f0      0x62f ./Src/src/drvNvMemory.o
- .debug_line    0x0000000000007b1f      0x57c ./Src/src/drvPower.o
- .debug_line    0x000000000000809b      0x801 ./Src/src/drvProgram.o
- .debug_line    0x000000000000889c      0x84c ./Src/src/drvSwitch.o
- .debug_line    0x00000000000090e8       0x96 ./Startup/startup_stm32f042f6px.o
- .debug_line    0x000000000000917e      0x9db ./USB/src/usbd_core.o
- .debug_line    0x0000000000009b59      0xc38 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_line    0x000000000000a791      0x99c ./USB/src/winusb_loop.o
+ .debug_line    0x0000000000003c95      0x589 ./Src/AppMgmt.o
+ .debug_line    0x000000000000421e      0x437 ./Src/App_Level.o
+ .debug_line    0x0000000000004655      0x5f8 ./Src/App_POVDisplay.o
+ .debug_line    0x0000000000004c4d       0x70 ./Src/App_Playground.o
+ .debug_line    0x0000000000004cbd      0x6c1 ./Src/main.o
+ .debug_line    0x000000000000537e      0x574 ./Src/stm32_it.o
+ .debug_line    0x00000000000058f2      0x555 ./Src/system_stm32f0xx.o
+ .debug_line    0x0000000000005e47      0x798 ./Src/src/drvApa102.o
+ .debug_line    0x00000000000065df      0x93f ./Src/src/drvDisplay.o
+ .debug_line    0x0000000000006f1e      0xa9f ./Src/src/drvMMA8653.o
+ .debug_line    0x00000000000079bd      0x62f ./Src/src/drvNvMemory.o
+ .debug_line    0x0000000000007fec      0x5bd ./Src/src/drvPower.o
+ .debug_line    0x00000000000085a9       0x96 ./Startup/startup_stm32f042f6px.o
 
-.debug_str      0x0000000000000000    0x984b3
- .debug_str     0x0000000000000000    0x40066 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
+.debug_str      0x0000000000000000    0x42600
+ .debug_str     0x0000000000000000    0x4006b ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
                                       0x401e9 (size before relaxing)
- .debug_str     0x0000000000040066      0x2f7 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
+ .debug_str     0x000000000004006b      0x2f7 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
                                       0x40324 (size before relaxing)
- .debug_str     0x000000000004035d      0x554 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
+ .debug_str     0x0000000000040362      0x554 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
                                       0x4058e (size before relaxing)
- .debug_str     0x00000000000408b1      0x163 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
+ .debug_str     0x00000000000408b6      0x163 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
                                       0x4018e (size before relaxing)
- .debug_str     0x0000000000040a14      0x66e ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
+ .debug_str     0x0000000000040a19      0x66e ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
                                       0x406e1 (size before relaxing)
- .debug_str     0x0000000000041082      0x194 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
+ .debug_str     0x0000000000041087      0x194 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
                                       0x401b3 (size before relaxing)
- .debug_str     0x0000000000041216     0x4712 ./Src/configConsole.o
-                                       0x841b (size before relaxing)
- .debug_str     0x0000000000045928      0x34f ./Src/main.o
-                                      0x2c562 (size before relaxing)
- .debug_str     0x0000000000045c77       0x9b ./Src/stm32_it.o
-                                      0x243c7 (size before relaxing)
- .debug_str     0x0000000000045d12       0x62 ./Src/system_stm32f0xx.o
+ .debug_str     0x000000000004121b      0x3d2 ./Src/AppMgmt.o
+                                      0x24411 (size before relaxing)
+ .debug_str     0x00000000000415ed       0xcb ./Src/App_Level.o
+                                       0x3cca (size before relaxing)
+ .debug_str     0x00000000000416b8      0x45d ./Src/App_POVDisplay.o
+                                      0x2712c (size before relaxing)
+ .debug_str     0x0000000000041b15       0x38 ./Src/App_Playground.o
+                                       0x2ce2 (size before relaxing)
+ .debug_str     0x0000000000041b4d       0xbe ./Src/main.o
+                                      0x27526 (size before relaxing)
+ .debug_str     0x0000000000041c0b       0x9b ./Src/stm32_it.o
+                                      0x2440d (size before relaxing)
+ .debug_str     0x0000000000041ca6       0x62 ./Src/system_stm32f0xx.o
                                       0x240bb (size before relaxing)
- .debug_str     0x0000000000045d74      0x122 ./Src/src/drvApa102.o
-                                      0x24366 (size before relaxing)
- .debug_str     0x0000000000045e96      0x260 ./Src/src/drvDisplay.o
+ .debug_str     0x0000000000041d08      0x140 ./Src/src/drvApa102.o
+                                      0x246a5 (size before relaxing)
+ .debug_str     0x0000000000041e48      0x209 ./Src/src/drvDisplay.o
                                       0x40a40 (size before relaxing)
- .debug_str     0x00000000000460f6      0x38f ./Src/src/drvMMA8653.o
-                                      0x40d29 (size before relaxing)
- .debug_str     0x0000000000046485      0x16d ./Src/src/drvNvMemory.o
+ .debug_str     0x0000000000042051      0x39e ./Src/src/drvMMA8653.o
+                                      0x40dc9 (size before relaxing)
+ .debug_str     0x00000000000423ef      0x17a ./Src/src/drvNvMemory.o
                                       0x2435c (size before relaxing)
- .debug_str     0x00000000000465f2       0x5d ./Src/src/drvPower.o
-                                      0x27b69 (size before relaxing)
- .debug_str     0x000000000004664f       0x3e ./Src/src/drvProgram.o
-                                      0x28746 (size before relaxing)
- .debug_str     0x000000000004668d       0x4d ./Src/src/drvSwitch.o
-                                      0x2c06c (size before relaxing)
- .debug_str     0x00000000000466da       0x31 ./Startup/startup_stm32f042f6px.o
+ .debug_str     0x0000000000042569       0x66 ./Src/src/drvPower.o
+                                      0x27be5 (size before relaxing)
+ .debug_str     0x00000000000425cf       0x31 ./Startup/startup_stm32f042f6px.o
                                          0x5e (size before relaxing)
- .debug_str     0x000000000004670b     0x22d5 ./USB/src/usbd_core.o
-                                       0x94c0 (size before relaxing)
- .debug_str     0x00000000000489e0    0x4f1ba ./USB/src/usbd_stm32f042f6p6_devfs.o
-                                      0x573be (size before relaxing)
- .debug_str     0x0000000000097b9a      0x919 ./USB/src/winusb_loop.o
-                                      0x5a80c (size before relaxing)
 
 .comment        0x0000000000000000       0x53
  .comment       0x0000000000000000       0x53 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
@@ -4612,7 +4727,10 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .comment       0x0000000000000053       0x54 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
  .comment       0x0000000000000053       0x54 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
  .comment       0x0000000000000053       0x54 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
- .comment       0x0000000000000053       0x54 ./Src/configConsole.o
+ .comment       0x0000000000000053       0x54 ./Src/AppMgmt.o
+ .comment       0x0000000000000053       0x54 ./Src/App_Level.o
+ .comment       0x0000000000000053       0x54 ./Src/App_POVDisplay.o
+ .comment       0x0000000000000053       0x54 ./Src/App_Playground.o
  .comment       0x0000000000000053       0x54 ./Src/main.o
  .comment       0x0000000000000053       0x54 ./Src/stm32_it.o
  .comment       0x0000000000000053       0x54 ./Src/system_stm32f0xx.o
@@ -4621,33 +4739,26 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .comment       0x0000000000000053       0x54 ./Src/src/drvMMA8653.o
  .comment       0x0000000000000053       0x54 ./Src/src/drvNvMemory.o
  .comment       0x0000000000000053       0x54 ./Src/src/drvPower.o
- .comment       0x0000000000000053       0x54 ./Src/src/drvProgram.o
- .comment       0x0000000000000053       0x54 ./Src/src/drvSwitch.o
- .comment       0x0000000000000053       0x54 ./USB/src/usbd_core.o
- .comment       0x0000000000000053       0x54 ./USB/src/usbd_stm32f042f6p6_devfs.o
- .comment       0x0000000000000053       0x54 ./USB/src/winusb_loop.o
 
-.debug_frame    0x0000000000000000     0x1e24
+.debug_frame    0x0000000000000000     0x1770
  .debug_frame   0x0000000000000000      0x10c ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_frame   0x000000000000010c      0x1b0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_frame   0x00000000000002bc      0x550 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
  .debug_frame   0x000000000000080c       0x70 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_misc.o
  .debug_frame   0x000000000000087c      0x524 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_rcc.o
  .debug_frame   0x0000000000000da0      0x10c ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_syscfg.o
- .debug_frame   0x0000000000000eac       0xac ./Src/configConsole.o
- .debug_frame   0x0000000000000f58       0xac ./Src/main.o
- .debug_frame   0x0000000000001004       0xf0 ./Src/stm32_it.o
- .debug_frame   0x00000000000010f4       0x68 ./Src/system_stm32f0xx.o
- .debug_frame   0x000000000000115c       0xcc ./Src/src/drvApa102.o
- .debug_frame   0x0000000000001228       0xc8 ./Src/src/drvDisplay.o
- .debug_frame   0x00000000000012f0      0x18c ./Src/src/drvMMA8653.o
- .debug_frame   0x000000000000147c       0x90 ./Src/src/drvNvMemory.o
- .debug_frame   0x000000000000150c       0x88 ./Src/src/drvPower.o
- .debug_frame   0x0000000000001594       0xbc ./Src/src/drvProgram.o
- .debug_frame   0x0000000000001650       0x54 ./Src/src/drvSwitch.o
- .debug_frame   0x00000000000016a4      0x1f4 ./USB/src/usbd_core.o
- .debug_frame   0x0000000000001898      0x26c ./USB/src/usbd_stm32f042f6p6_devfs.o
- .debug_frame   0x0000000000001b04      0x2ac ./USB/src/winusb_loop.o
- .debug_frame   0x0000000000001db0       0x2c c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
- .debug_frame   0x0000000000001ddc       0x28 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x0000000000001e04       0x20 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .debug_frame   0x0000000000000eac       0x80 ./Src/AppMgmt.o
+ .debug_frame   0x0000000000000f2c       0x4c ./Src/App_Level.o
+ .debug_frame   0x0000000000000f78       0xa4 ./Src/App_POVDisplay.o
+ .debug_frame   0x000000000000101c       0x48 ./Src/App_Playground.o
+ .debug_frame   0x0000000000001064       0xa8 ./Src/main.o
+ .debug_frame   0x000000000000110c       0xf0 ./Src/stm32_it.o
+ .debug_frame   0x00000000000011fc       0x68 ./Src/system_stm32f0xx.o
+ .debug_frame   0x0000000000001264       0xf0 ./Src/src/drvApa102.o
+ .debug_frame   0x0000000000001354       0xc8 ./Src/src/drvDisplay.o
+ .debug_frame   0x000000000000141c      0x1c8 ./Src/src/drvMMA8653.o
+ .debug_frame   0x00000000000015e4       0x90 ./Src/src/drvNvMemory.o
+ .debug_frame   0x0000000000001674       0x88 ./Src/src/drvPower.o
+ .debug_frame   0x00000000000016fc       0x2c c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
+ .debug_frame   0x0000000000001728       0x28 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x0000000000001750       0x20 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)

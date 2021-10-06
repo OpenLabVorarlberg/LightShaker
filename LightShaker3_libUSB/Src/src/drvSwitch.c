@@ -34,10 +34,13 @@ void debounce(volatile uint16_t *port, uint16_t pin) {
 // progselect = 1: Level
 // progselect = 2: Test-pattern
 uint8_t switch_exec(uint8_t progselect) {
-	if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4) && (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) == 0)) {
+	if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4) && (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) == 0))
+	{
 		debounce(GPIOA, GPIO_Pin_4);
-		if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4) && (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) == 0)) {
-			switch(progselect) {
+		if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_4) && (GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1) == 0))
+		{
+			switch(progselect)
+			{
 				case 0: progselect = 1; init_level(); break;
 				case 1: progselect = 2; init_test1(); break;
 				case 2: progselect = 0; init_povdisplay(); break;

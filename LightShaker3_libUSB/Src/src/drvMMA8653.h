@@ -33,6 +33,7 @@ uint8_t mma8653_init();
 //we only use the interrupt for data-ready irq, and only interrupt line 1
 //the sensors embedded functions are not usable for this application
 void mma8653_initIrq();
+void mma6853_deInit();
 
 uint8_t mma8653_setRange(mma8653_Ranges range);
 uint8_t mma8653_setDataRate(mma8653_dataRates dataRate);

@@ -5,6 +5,10 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Src/AppMgmt.c \
+../Src/App_Level.c \
+../Src/App_POVDisplay.c \
+../Src/App_Playground.c \
 ../Src/configConsole.c \
 ../Src/main.c \
 ../Src/stm32_it.c \
@@ -14,6 +18,10 @@ C_SRCS += \
 ../Src/tiny_printf.c 
 
 OBJS += \
+./Src/AppMgmt.o \
+./Src/App_Level.o \
+./Src/App_POVDisplay.o \
+./Src/App_Playground.o \
 ./Src/configConsole.o \
 ./Src/main.o \
 ./Src/stm32_it.o \
@@ -23,6 +31,10 @@ OBJS += \
 ./Src/tiny_printf.o 
 
 C_DEPS += \
+./Src/AppMgmt.d \
+./Src/App_Level.d \
+./Src/App_POVDisplay.d \
+./Src/App_Playground.d \
 ./Src/configConsole.d \
 ./Src/main.d \
 ./Src/stm32_it.d \

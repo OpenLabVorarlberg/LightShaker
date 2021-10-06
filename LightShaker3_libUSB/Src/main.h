@@ -8,6 +8,7 @@
 #include <stddef.h>
 #include "stdint.h"
 #include "stm32f0xx.h"
+#include "stdbool.h"
 
 #ifndef MAIN_H_
 #define MAIN_H_

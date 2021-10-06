@@ -382,3 +382,13 @@ void mma8653_initIrq() {
 	//activate sensor again
 	mma8653_goActive();
 }
+
+//sends sensor into standby, deactivates I2C and the interrupts
+//important especially after using the interrupts
+void mma6853_deInit()
+{
+	mma8653_goStandby();
+	I2C_DeInit(I2C_MMA8653);
+	EXTI_DeInit();
+	NVIC_DisableIRQ(EXTI2_3_IRQn);
+}

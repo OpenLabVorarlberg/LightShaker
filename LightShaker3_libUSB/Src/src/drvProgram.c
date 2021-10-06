@@ -8,7 +8,7 @@
 
 #include "drvProgram.h"
 
-extern uint8_t  timerFlag;
+extern uint8_t  timerFlags;
 
 extern uint8_t led_pos;
 extern int16_t levelResult;
@@ -23,7 +23,6 @@ void init_povdisplay() {
 
 	NvMem_init();
 	apa102_allOff();
-	//TODO: battery-check is still missing
 	displayInit();
 
 	power_hold(10);
@@ -48,7 +47,7 @@ void init_test1() {
 }
 
 void povdisplay() {
-	if(timerFlag){
+	if(timerFlags){
 		/*if(USB_Flags & USB_FLAG_FIRST_CONTACT) {
 			USB_Flags &= ~USB_FLAG_FIRST_CONTACT;
 			USB_VCP_DataTx((uint8_t*)"----LightShaker - POV_Display - Version1.2----\n",0);
@@ -61,15 +60,15 @@ void povdisplay() {
 			consoleExecute();
 		}*/
 		power_exec();
-		timerFlag = 0;
+		timerFlags = 0;
 
 	}
 }
 
 void level() {
-	if(timerFlag) {
+	if(timerFlags) {
 		power_exec();
-		timerFlag = 0;
+		timerFlags = 0;
 		levelResult = mma8653_read8().y;
 		if(levelResult == 0) {
 			apa102_setPattern(0b0000000110000000,2);
@@ -94,9 +93,9 @@ void level() {
 }
 
 void test1() {
-	if(timerFlag) {
+	if(timerFlags) {
 		power_exec();
-		timerFlag = 0;
+		timerFlags = 0;
 		apa102_setPattern(0b1010101010101010,2);
 	}
 }

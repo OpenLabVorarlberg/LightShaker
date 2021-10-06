@@ -25,15 +25,13 @@
 #include "main.h"
 #include "stm32f0xx_rcc.h"
 
-#include "drvNvMemory.h"
-#include "winusb_loop.h"
-#include "drvDisplay.h"
-#include "stdio.h"
-#include "configConsole.h"
+
+//#include "winusb_loop.h"
+//#include "configConsole.h"
 #include "drvPower.h"
-#include "drvProgram.h"
 #include "stm32f0xx_misc.h"
-#include <drvSwitch.h>
+#include "drvApa102.h"
+#include "AppMgmt.h"
 
 /* Private typedef */
 
@@ -48,20 +46,27 @@
 /* Private functions */
 
 /* Global variables */
-uint32_t timer = 0;
-uint8_t  timerFlag = 0;
+uint8_t timer_ms = 10;
+uint8_t timer_10ms = 10;
+volatile uint8_t  timerFlags = 0;
+#define TIMER_FLAG_1MS		(1<<0)
+#define TIMER_FLAG_10MS		(1<<1)
+#define TIMER_FLAG_100MS	(1<<2)
+
 volatile uint32_t delayTimer;
-uint8_t led_pos;
-int16_t levelResult;
-uint8_t progselect = 0;
-uint8_t errorcode = 0;
-uint8_t tempstring[32];
+
+
 
 
 /**
 **===========================================================================
 **
-**  Abstract: SysTick interrupt handler
+**  Abstract: SysTick interrupt handler - triggered every ms
+**	Sets the Timer Flags
+**	TIMER_FLAG_1MS every ms
+**	TIMER_FLAG_10MS every 10ms
+**	TIMER_FLAG_100MS every 100ms
+**	clearing of the flag has to be done in the application code!
 **
 **===========================================================================
 */
@@ -71,36 +76,33 @@ void SysTick_Handler(void)
 	{
 		delayTimer--;
 	}
-	timer++;
+	timer_ms--;
+	timerFlags |= TIMER_FLAG_1MS;
 
-	if  (timer>100)
+	//10ms timebase
+	if(!timer_ms)
 	{
-		timerFlag = 1;
-		timer = 0;
+		timerFlags |= TIMER_FLAG_10MS;
+		timer_ms = 10;
+		timer_10ms--;
+	}
+	//100ms timebase
+	if(!timer_10ms)
+	{
+		timerFlags |= TIMER_FLAG_100MS;
+		timer_10ms = 10;
 	}
 }
 
-
+/**
+ * blocking delay loop
+ * @param ticks: number of ticks (ms) to wait
+ */
 void delay(uint32_t ticks)
 {
 	delayTimer = ticks;
 	while(delayTimer > 0);
 }
-
-/**
- * NOTES POV-Display:
- * When measuring the times for a complete frame
- * (time for the movement from turning point to turning point),
- * the minimal t_frame was about 70ms
- *
- * SPI Clock speed = 6MHz
- * a complete line has 576 bits to transmit
- * t_line_transmit = 96us
- * -> max 16x729 pixel theoretically
- * but the leds are only activated at the end of these 96us needed for transmitting, which would make it a bit complicated
- * -> no more than 16x64 pixels!!
- * for full color rgb, the complete frame already takes 3kB!
- */
 
 int main(void)
 {
@@ -114,49 +116,54 @@ int main(void)
 	NVIC_SetPriority(SysTick_IRQn,0);
 	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
 
-	//init the drivers
 	power_init();
-	apa102_init();
-	mma8653_init();
-
-	globalColor.red=0xFF;
-	globalColor.green=0xFF;
-	globalColor.blue=0xFF;
+	apa102_init();	//this includes a quick led-test
 
 	if(power_UsbPresent()) {
 		//we are attached to a USB-Port!
 		//USB_Init();
-		winusb_init_usbd();
-		usb_device_connect();
-		consoleInit();
+//		winusb_init_usbd();
+//		usb_device_connect();
+//		consoleInit();
 	}
+	//init application (run once)
+	AppMgmt_AppInit();
 
-	apa102_allOff();
+	while(1)
+	{
 
-	//LED-Test
-	for(uint8_t i = 0; i<16; i++) {
-		apa102_setSingle(i,10);
-		delay(20);
-	}
+//		if(power_UsbPresent()){
+//			USB_Handler();
+//		}
 
-	switch(progselect) {
-		case 0: init_povdisplay(); break;
-		case 1: init_level(); break;
-		case 2: init_test1(); break;
-	}
+		//run application (called continously until button is held long enough to switch to another one or power is switched off)
+		if(timerFlags & TIMER_FLAG_1MS)
+		{
+			timerFlags &= ~TIMER_FLAG_1MS;
+			AppMgmt_AppExec();
+		}
+		if(timerFlags & TIMER_FLAG_100MS)
+		{
+			timerFlags &= ~TIMER_FLAG_100MS;
+			power_exec();
 
-	while(1) {
-		switch(progselect) {
-			case 0: povdisplay(); break;
-			case 1: level(); break;
-			case 2: test1(); break;
+			if(power_flags & POWER_FLAG_SW_HOLD)
+			{
+				if(power_buttonHoldTime >= 5)
+				{
+					AppMgmt_CycleApps();
+					power_buttonHoldTime = 0;
+				}
+				//only if the swich is released after holding it for at least 0.5s
+				if(power_flags & POWER_FLAG_SW_RELEASE)
+				{
+					power_flags &= ~POWER_FLAG_SW_HOLD;
+					power_flags &= ~POWER_FLAG_SW_RELEASE;
+					AppMgmt_LoadApp();
+				}
+			}
 		}
 
-		if(power_UsbPresent()){
-			USB_Handler();
-		}
-
-		progselect = switch_exec(progselect);
 	}
 	return 0;
 }

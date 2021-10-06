@@ -16,8 +16,10 @@
 #include "stm32f0xx_gpio.h"
 #include "stm32f0xx_rcc.h"
 
-volatile uint8_t cnt_time;
 volatile uint8_t power_timer;
+
+
+uint8_t power_buttonState;
 
 void power_init() {
 	//enable clock for periphery modules
@@ -37,12 +39,13 @@ void power_init() {
 	GPIO_Init(GPIOA, &GPIO_InitStruct);
 	GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_SET);
 	//PA1
-	//TODO: implement Vbat measurement
 	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IN;
 	GPIO_Init(GPIOA, &GPIO_InitStruct);
-	cnt_time = 0;
-	power_timer = 10; //the system is always on for at least 10 sec
+
+	//TODO: implement Vbat measurement
+	power_timer = 100; //the system is always on for at least 10 sec
+	power_flags = 0;
 }
 
 uint8_t power_UsbPresent() {
@@ -52,27 +55,73 @@ uint8_t power_UsbPresent() {
 /**
  * sets the shutdown-timer to sec seconds
  * after this time, the battery-supply is switched off
+ * max time is 25seconds
  * 0 switches off immediatly
  */
-void power_hold(uint8_t sec) {
-	power_timer = sec;
+void power_hold(uint8_t sec)
+{
+	if(sec > 25)
+	{
+		sec = 25;
+	}
+	power_timer = sec * 10;
 }
 
 /**
- * has to be called every 100ms - needed for the power_hold
+ * has to be called every 100ms - needed for the power_hold and button detection
+ *
  */
-void power_exec() {
-	cnt_time++;
-	if (cnt_time >= 10) {
-		cnt_time = 0;
-
-		if (power_timer) {
-			power_timer--;
+void power_exec()
+{
+//========State-Machine for the Button=============================
+	switch(power_buttonState)
+	{
+	case 0: //released
+		//detect button presses
+		//the button pulls the pin down, so the logic is inverted!
+		if(!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1))
+		{
+			power_buttonState = 1;	//change state to bouncing
 		}
-
-		else {
-			//shut down the battery supply
-			GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_RESET);
+		break;
+	case 1: //bouncing
+		//check if pin is still high
+		if(!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1))
+		{
+			//now the button is surely pressed
+			power_flags |= POWER_FLAG_SW_PRESS;
+			power_buttonHoldTime = 1;
+			power_buttonState = 2;	//change state to pressed / holding
 		}
+		else
+		{
+			power_buttonState = 0; //false alarm -> back to released
+		}
+		break;
+	case 2: //pressed
+		//count the holding-time
+		power_buttonHoldTime++;
+		if(power_buttonHoldTime >= 5)
+		{
+			power_flags |= POWER_FLAG_SW_HOLD;
+		}
+		if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1))
+		{
+			power_flags |= POWER_FLAG_SW_RELEASE;
+			power_buttonState = 0;	//pin is low -> button was just released
+		}
+		break;
+	}
+//=============================================================================
+
+	//count power_hold time and shut down if exceeded
+	if (power_timer)
+	{
+		power_timer--;
+	}
+	else
+	{
+		//shut down the battery supply
+		GPIO_WriteBit(GPIOA, GPIO_Pin_4, Bit_RESET);
 	}
 }
