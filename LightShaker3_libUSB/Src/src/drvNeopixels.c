@@ -1,13 +1,16 @@
-#include "drvApa102.h"
+/**
+ * Driver for a chain of APA102 (Neopixel) adressable RGB-LEDs connected to the SPI
+ */
+
+#include <drvNeopixels.h>
 #include "stm32f0xx.h"
 #include "drvNvMemory.h"
-#include "main.h"
 
 #define LED_CNT		16
 colorVrgb leds[LED_CNT];
 uint8_t spiSendData[12 + 4 * LED_CNT];
 
-void apa102_init() {
+void Neopixels_init() {
 
 	//that's what a bare-metal implementation would look like:
 
@@ -40,23 +43,28 @@ void apa102_init() {
 	//peripheral address
 	DMA1_Channel3->CPAR = (uint32_t) &(SPI1->DR);
 
-	apa102_allOff();
-	globalColor.red = 255;
-	globalColor.green = 255;
-	globalColor.blue = 255;
+	Neopixels_Off();
+	Neopixels_setColor(COLOR_WHITE);
 	globalColor.global = 10;
 
 	//LED-Test
 	for(uint8_t i = 0; i<16; i++) {
-		apa102_setSingle(i,10);
+		Neopixels_Single(i,10);
 		delay(20);
 	}
 }
 
-void apa102_setGlobalColor(uint8_t red, uint8_t green, uint8_t blue) {
+void Neopixels_setColorFullRGB(uint8_t red, uint8_t green, uint8_t blue) {
 	globalColor.red = red;
 	globalColor.green = green;
 	globalColor.blue = blue;
+}
+
+void Neopixels_setColor(uint8_t color_idx)
+{
+	globalColor.blue = (color_idx&1)<<7;
+	globalColor.green = (color_idx&2)<<6;
+	globalColor.red = (color_idx&4)<<5;
 }
 
 void updateStripe() {
@@ -97,7 +105,7 @@ void updateStripe() {
 }
 
 //so far only one global color
-void apa102_setPattern(uint16_t mask, uint8_t global) {
+void Neopixels_setPattern(uint16_t mask, uint8_t global) {
 	//the global-value in the Led-frame is only 5 bit (max.31)!
 	if (global > 0x1F) {
 		global = 0x1F;
@@ -116,31 +124,41 @@ void apa102_setPattern(uint16_t mask, uint8_t global) {
 	updateStripe();
 }
 
-void apa102_setSingle(uint8_t index, uint8_t global) {
-	apa102_setPattern(1 << index, global);
+void Neopixels_Single(uint8_t index, uint8_t global) {
+	Neopixels_setPattern(1 << index, global);
 }
 
-void apa102_Bargraph(uint8_t hight, uint8_t global)
+/**
+ * @param group3: 3 lit pixels are grouped together (every 4th is a gap) to increase readability,
+ * as humans are very good at counting up to 3, but poor at counting more than 3
+ */
+void Neopixels_Bargraph(uint8_t hight, uint8_t global, bool group3)
 {
-	if(!hight)
-	{
-		apa102_allOff();
-		return;
-	}
-	if(hight > 16)
-	{
-		hight = 16;
-	}
 	uint16_t pattern = 0;
-	for(uint8_t i = 0; i < hight; i++)
+	uint8_t leftouts = 0;
+	for(uint8_t ledidx = 0; ledidx < 16; ledidx++)
 	{
-		pattern += 1<<i;
+		if(group3)
+		{
+			if(ledidx % 4 == 3)
+			{
+				//every 4th led shall be left out (never be lit and not be counted)
+				leftouts++;
+				continue;
+			}
+		}
+		if(ledidx-leftouts<hight)
+		{
+			pattern += 1<<ledidx;
+		}
+
 	}
-	apa102_setPattern(pattern, global);
+	Neopixels_setPattern(pattern, global);
 	return;
 }
 
-void apa102_allOff() {
+
+void Neopixels_Off() {
 	for (uint16_t i = 0; i < 16; i++) {
 
 		leds[i].global = 0;

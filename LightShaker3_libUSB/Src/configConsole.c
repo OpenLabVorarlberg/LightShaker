@@ -5,9 +5,9 @@
  *      Author: Christian
  */
 
+#include <drvNeopixels.h>
 #include "string.h"
 #include "stdio.h"
-#include "drvApa102.h"
 #include "drvDisplay.h"
 //#include "drvUSB.h"
 #include "drvNvMemory.h"

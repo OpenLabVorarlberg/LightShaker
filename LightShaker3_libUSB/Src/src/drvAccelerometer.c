@@ -1,5 +1,8 @@
+/**
+ * Driver for the MMA8653 3-axis accelerometer connected to the Controller via I2C
+ */
+#include <drvAccelerometer.h>
 #include "main.h"
-#include "drvMMA8653.h"
 #include "stm32f0xx_gpio.h"
 #include "stm32f0xx_i2c.h"
 #include "stm32f0xx_rcc.h"
@@ -8,8 +11,8 @@
 #include "stm32f0xx_tim.h"
 #include "stm32f0xx_misc.h"
 
-#define I2C_MMA8653		I2C1
-#define ADDR_MMA8653	0x3A
+#define I2C_ACC		I2C1
+#define ADDR_ACC	0x3A
 
 //define MMA8653 registers
 #define REG_STATUS		0x00
@@ -55,45 +58,45 @@ uint8_t I2C_RdReg(uint8_t Reg, uint8_t *Data, uint8_t DCnt) {
 
 	//Wait until I2C isn't busy
 	//TODO: I2C connection breaks sometimes
-	while (I2C_GetFlagStatus(I2C_MMA8653, I2C_FLAG_BUSY) == SET)
+	while (I2C_GetFlagStatus(I2C_ACC, I2C_FLAG_BUSY) == SET)
 		;
 
 	//first communication (try reading the status register)
 	/* Configure slave address, nbytes, reload, end mode and start or stop generation */
-	I2C_TransferHandling(I2C_MMA8653, ADDR_MMA8653, 1, I2C_SoftEnd_Mode,
+	I2C_TransferHandling(I2C_ACC, ADDR_ACC, 1, I2C_SoftEnd_Mode,
 	I2C_Generate_Start_Write);
 	//Ensure the transmit interrupted flag is set
-	while (I2C_GetFlagStatus(I2C_MMA8653, I2C_FLAG_TXIS) == RESET)
+	while (I2C_GetFlagStatus(I2C_ACC, I2C_FLAG_TXIS) == RESET)
 		;
 	//send reg address
-	I2C_SendData(I2C_MMA8653, (uint8_t) Reg);
+	I2C_SendData(I2C_ACC, (uint8_t) Reg);
 	//Wait until transfer is complete!
-	while (I2C_GetFlagStatus(I2C_MMA8653, I2C_FLAG_TC) == RESET)
+	while (I2C_GetFlagStatus(I2C_ACC, I2C_FLAG_TC) == RESET)
 		;
 	//initiate read
-	I2C_TransferHandling(I2C_MMA8653, ADDR_MMA8653, DCnt, I2C_AutoEnd_Mode,
+	I2C_TransferHandling(I2C_ACC, ADDR_ACC, DCnt, I2C_AutoEnd_Mode,
 	I2C_Generate_Start_Read);
 
 	//Read in DCnt pieces of data
 	for (Cnt = 0; Cnt < DCnt; Cnt++) {
 		//Wait until the RX register is full of luscious data!
-		while (I2C_GetFlagStatus(I2C_MMA8653, I2C_FLAG_RXNE) == RESET)
+		while (I2C_GetFlagStatus(I2C_ACC, I2C_FLAG_RXNE) == RESET)
 			;
 		//If we're only reading one byte, place that data direct into the
 		//SingleData variable. If we're reading more than 1 piece of data
 		//store in the array "Data" (a pointer from main)
 		if (DCnt > 1) {
-			Data[Cnt] = I2C_ReceiveData(I2C_MMA8653);
+			Data[Cnt] = I2C_ReceiveData(I2C_ACC);
 		} else
-			SingleData = I2C_ReceiveData(I2C_MMA8653);
+			SingleData = I2C_ReceiveData(I2C_ACC);
 	}
 
 	//Wait for the stop condition to be sent
-	while (I2C_GetFlagStatus(I2C_MMA8653, I2C_FLAG_STOPF) == RESET)
+	while (I2C_GetFlagStatus(I2C_ACC, I2C_FLAG_STOPF) == RESET)
 		;
 
 	//Clear the stop flag for next transfers
-	I2C_ClearFlag(I2C_MMA8653, I2C_FLAG_STOPF);
+	I2C_ClearFlag(I2C_ACC, I2C_FLAG_STOPF);
 
 	//Return a single piece of data if DCnt was
 	//less than 1, otherwise 0 will be returned.
@@ -103,7 +106,7 @@ uint8_t I2C_RdReg(uint8_t Reg, uint8_t *Data, uint8_t DCnt) {
 void I2C_WrReg(uint8_t Reg, uint8_t Val) {
 
 	//Wait until I2C isn't busy
-	while (I2C_GetFlagStatus(I2C_MMA8653, I2C_FLAG_BUSY) == SET)
+	while (I2C_GetFlagStatus(I2C_ACC, I2C_FLAG_BUSY) == SET)
 		;
 
 	//"Handle" a transfer - The STM32F0 series has a shocking
@@ -112,42 +115,42 @@ void I2C_WrReg(uint8_t Reg, uint8_t Val) {
 	//going to write one byte. I'll be completely honest,
 	//the I2C peripheral doesn't make too much sense to me
 	//and a lot of the code is from the Std peripheral library
-	I2C_TransferHandling(I2C_MMA8653, ADDR_MMA8653, 1, I2C_Reload_Mode,
+	I2C_TransferHandling(I2C_ACC, ADDR_ACC, 1, I2C_Reload_Mode,
 	I2C_Generate_Start_Write);
 
 	//Ensure the transmit interrupted flag is set
-	while (I2C_GetFlagStatus(I2C_MMA8653, I2C_FLAG_TXIS) == RESET)
+	while (I2C_GetFlagStatus(I2C_ACC, I2C_FLAG_TXIS) == RESET)
 		;
 
 	//Send the address of the register we wish to write to
-	I2C_SendData(I2C_MMA8653, Reg);
+	I2C_SendData(I2C_ACC, Reg);
 
 	//Ensure that the transfer complete reload flag is
 	//set, essentially a standard TC flag
-	while (I2C_GetFlagStatus(I2C_MMA8653, I2C_FLAG_TCR) == RESET)
+	while (I2C_GetFlagStatus(I2C_ACC, I2C_FLAG_TCR) == RESET)
 		;
 
 	//Now that the HMC5883L knows which register
 	//we want to write to, send the address again
 	//and ensure the I2C peripheral doesn't add
 	//any start or stop conditions
-	I2C_TransferHandling(I2C_MMA8653, ADDR_MMA8653, 1, I2C_AutoEnd_Mode,
+	I2C_TransferHandling(I2C_ACC, ADDR_ACC, 1, I2C_AutoEnd_Mode,
 	I2C_No_StartStop);
 
 	//Again, wait until the transmit interrupted flag is set
-	while (I2C_GetFlagStatus(I2C_MMA8653, I2C_FLAG_TXIS) == RESET)
+	while (I2C_GetFlagStatus(I2C_ACC, I2C_FLAG_TXIS) == RESET)
 		;
 
 	//Send the value you wish you write to the register
-	I2C_SendData(I2C_MMA8653, Val);
+	I2C_SendData(I2C_ACC, Val);
 
 	//Wait for the stop flag to be set indicating
 	//a stop condition has been sent
-	while (I2C_GetFlagStatus(I2C_MMA8653, I2C_FLAG_STOPF) == RESET)
+	while (I2C_GetFlagStatus(I2C_ACC, I2C_FLAG_STOPF) == RESET)
 		;
 
 	//Clear the stop flag for the next potential transfer
-	I2C_ClearFlag(I2C_MMA8653, I2C_FLAG_STOPF);
+	I2C_ClearFlag(I2C_ACC, I2C_FLAG_STOPF);
 }
 
 void I2C_BitHandling(uint8_t reg, uint8_t bitmask, uint8_t set) {
@@ -163,7 +166,7 @@ void I2C_BitHandling(uint8_t reg, uint8_t bitmask, uint8_t set) {
 	I2C_WrReg(reg, tempReg);
 }
 
-uint8_t mma8653_goStandby() {
+uint8_t Accelerometer_goStandby() {
 	if (!isActive) {
 		return 0;
 	}
@@ -177,7 +180,7 @@ uint8_t mma8653_goStandby() {
 	isActive = 0;
 	return 0;
 }
-uint8_t mma8653_goActive() {
+uint8_t Accelerometer_goActive() {
 
 	if (isActive) {
 		return 0;
@@ -194,7 +197,7 @@ uint8_t mma8653_goActive() {
 	return 0;
 }
 
-uint8_t mma8653_init() {
+uint8_t Accelerometer_init() {
 
 	//enable clock for periphery modules
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
@@ -231,9 +234,9 @@ uint8_t mma8653_init() {
 	I2C_InitStruct.I2C_AcknowledgedAddress = I2C_AcknowledgedAddress_7bit;
 	I2C_InitStruct.I2C_Mode = I2C_Mode_I2C;
 	I2C_InitStruct.I2C_Timing = 0x0010020A; //should be 400kHz for the 8Mhz HSI
-	I2C_Init(I2C_MMA8653, &I2C_InitStruct);
+	I2C_Init(I2C_ACC, &I2C_InitStruct);
 
-	I2C_Cmd(I2C_MMA8653, ENABLE);
+	I2C_Cmd(I2C_ACC, ENABLE);
 
 	delay(50);
 
@@ -258,9 +261,9 @@ uint8_t mma8653_init() {
 	return 0;
 }
 
-uint8_t mma8653_setRange(mma8653_Ranges range) {
+uint8_t Accelerometer_setRange(Accelerometer_Ranges range) {
 	//deactivate the sensor
-	if (mma8653_goStandby()) {
+	if (Accelerometer_goStandby()) {
 		return 1;
 	}
 	//clear bits in register to change
@@ -268,15 +271,15 @@ uint8_t mma8653_setRange(mma8653_Ranges range) {
 	//set range
 	I2C_BitHandling(REG_XYZ_DATA_CFG, range, Bit_SET);
 
-	if (mma8653_goActive()) {
+	if (Accelerometer_goActive()) {
 		return 3;
 	}
 	return 0;
 }
 
-uint8_t mma8653_setDataRate(mma8653_dataRates dataRate) {
+uint8_t Accelerometer_setDataRate(Accelerometer_dataRates dataRate) {
 	//deactivate the sensor
-	if (mma8653_goStandby()) {
+	if (Accelerometer_goStandby()) {
 		return 1;
 	}
 	//clear bits in register to change
@@ -284,15 +287,15 @@ uint8_t mma8653_setDataRate(mma8653_dataRates dataRate) {
 	//set range
 	I2C_BitHandling(REG_CTRL_REG_1, dataRate << 3, Bit_SET);
 
-	if (mma8653_goActive()) {
+	if (Accelerometer_goActive()) {
 		return 3;
 	}
 	return 0;
 }
 
-uint8_t mma8653_setDataWidth(uint8_t DataWidth) {
+uint8_t Accelerometer_setDataWidth(uint8_t DataWidth) {
 	//deactivate the sensor
-	if (mma8653_goStandby()) {
+	if (Accelerometer_goStandby()) {
 		return 1;
 	}
 	//clear bits in register to change
@@ -300,11 +303,11 @@ uint8_t mma8653_setDataWidth(uint8_t DataWidth) {
 
 	//decide what to do
 	switch (DataWidth) {
-	case MMA8653_DATAWIDTH_8:
+	case ACC_DATAWIDTH_8:
 		//set F_READ and leave highest data rate
 		I2C_BitHandling(REG_CTRL_REG_1, 1 << 1, Bit_SET);
 		break;
-	case MMA8653_DATAWIDTH_10:
+	case ACC_DATAWIDTH_10:
 		//limit output data rate to 12.5Hz and leave F_READ reset
 		I2C_BitHandling(REG_CTRL_REG_1, (1 << 3 | 1 << 5), Bit_SET);
 		break;
@@ -312,7 +315,7 @@ uint8_t mma8653_setDataWidth(uint8_t DataWidth) {
 		return 2;
 		break;
 	}
-	if (mma8653_goActive()) {
+	if (Accelerometer_goActive()) {
 		return 3;
 	}
 	return 0;
@@ -321,7 +324,7 @@ uint8_t mma8653_setDataWidth(uint8_t DataWidth) {
 //read when in fast (8-bit) mode
 //needs the fast-read mode enabled as well
 //max. sample frequency (because of communication) ~ 7kHz
-acc8_t mma8653_read8() {
+acc8_t Accelerometer_read8() {
 	uint8_t rxBuf[3];
 	acc8_t acc_result;
 
@@ -335,7 +338,7 @@ acc8_t mma8653_read8() {
 }
 
 //read when in full-resolution mode
-acc16_t mma8653_read10() {
+acc16_t Accelerometer_read10() {
 
 	uint8_t rxBuf[6];
 	acc16_t acc_result;
@@ -350,8 +353,8 @@ acc16_t mma8653_read10() {
 }
 
 //TODO: don't forget to implement and register the interrupt handler in startup code
-void mma8653_initIrq() {
-	mma8653_goStandby();
+void Accelerometer_initIrq() {
+	Accelerometer_goStandby();
 
 	//interrupt pins are defined for push/pull low active by default -> leave that
 
@@ -380,15 +383,15 @@ void mma8653_initIrq() {
 	NVIC_Init(&NVIC_InitStruct);
 
 	//activate sensor again
-	mma8653_goActive();
+	Accelerometer_goActive();
 }
 
 //sends sensor into standby, deactivates I2C and the interrupts
 //important especially after using the interrupts
-void mma6853_deInit()
+void Accelerometer_deInit()
 {
-	mma8653_goStandby();
-	I2C_DeInit(I2C_MMA8653);
+	Accelerometer_goStandby();
+	I2C_DeInit(I2C_ACC);
 	EXTI_DeInit();
 	NVIC_DisableIRQ(EXTI2_3_IRQn);
 }

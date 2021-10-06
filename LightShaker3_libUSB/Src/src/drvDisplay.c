@@ -4,12 +4,12 @@
  *  Created on: Aug 30, 2016
  *      Author: Christian
  */
+#include <drvAccelerometer.h>
+#include <drvNeopixels.h>
 #include "main.h"
 #include "drvDisplay.h"
-#include "drvMMA8653.h"
 #include "stm32f0xx_exti.h"
 #include "stm32f0xx_rcc.h"
-#include "drvApa102.h"
 #include "drvNvMemory.h"
 
 volatile int8_t rowStep = 0;
@@ -52,12 +52,12 @@ volatile enum {
 void displayInit() {
 	//set up mma8653 with +-4g-Range, low res and high sampling rate
 	//set up interrupt-driven sensor readout
-	mma8653_setRange(RANGE_8G);
-	mma8653_setDataWidth(MMA8653_DATAWIDTH_8);
-	mma8653_setDataRate(RATE_200Hz);
-	mma8653_initIrq();
+	Accelerometer_setRange(RANGE_8G);
+	Accelerometer_setDataWidth(ACC_DATAWIDTH_8);
+	Accelerometer_setDataRate(RATE_200Hz);
+	Accelerometer_initIrq();
 
-	apa102_allOff();
+	Neopixels_Off();
 
 	//set up timer TIM2 for measuring t_frame
 	//upcounting,12MHz-> prescaler = 4,
@@ -126,7 +126,7 @@ void displayInit() {
 	RowsLogic = RowsVisible + 2 * RowsOverscan;
 
 	//set the color to whatever is defined in NvMem
-	apa102_setGlobalColor(NvMem_read(NVMEM_AD_GLOBAL_RED),
+	Neopixels_setColorFullRGB(NvMem_read(NVMEM_AD_GLOBAL_RED),
 			NvMem_read(NVMEM_AD_GLOBAL_GREEN),
 			NvMem_read(NVMEM_AD_GLOBAL_BLUE));
 
@@ -144,17 +144,17 @@ void displaySendLine() {
 		//if row is in the visible area
 		if (RowNumber >= RowsOverscan
 				&& RowNumber < RowsOverscan + RowsVisible) {
-			apa102_setPattern(NvMem_read(NVMEM_AD_PICTURE_START + RowNumber),
+			Neopixels_setPattern(NvMem_read(NVMEM_AD_PICTURE_START + RowNumber),
 					31);
 		} else {
 			//switch off the display
-			apa102_allOff();
+			Neopixels_Off();
 		}
 		DisplayPosition = DISP_POS_GAP_START;
 	} else //if(DisplayPosition == DISP_POS_GAP_START)
 	{
 		//switch off the display
-		apa102_allOff();
+		Neopixels_Off();
 
 		//next row
 		RowNumber += rowStep;
@@ -173,7 +173,7 @@ void displaySendLine() {
 void displayEndOfLocktime() {
 	//clear the flag and read the data (so the sensor releases the INT line)
 	EXTI->PR |= EXTI_PR_PR2;
-	mma8653_read8();
+	Accelerometer_read8();
 
 	//reenable the EXTI interrupt
 	EXTI->IMR |= EXTI_EMR_MR2;
@@ -210,7 +210,7 @@ void displayFindReturnPoint() {
 	//read the output of the sensor
 	//the low-pass filtering is done by the sensor!
 	//this also lets the sensor release the interrupt line
-	int8_t acc = mma8653_read8().x;
+	int8_t acc = Accelerometer_read8().x;
 
 	//separate value and sign for faster calculations
 	uint8_t accAbs;
@@ -269,7 +269,7 @@ void displayFindReturnPoint() {
 			//prevent TIM3 from triggering a new row by stopping it
 			TIM3->CR1 &= ~TIM_CR1_CEN;
 			//switch off the display
-			apa102_allOff();
+			Neopixels_Off();
 			movementState = STATE_RIGHT_END;
 		}
 		break;
@@ -280,7 +280,7 @@ void displayFindReturnPoint() {
 			//prevent TIM3 from triggering a new row by stopping it
 			TIM3->CR1 &= ~TIM_CR1_CEN;
 			//switch off the display
-			apa102_allOff();
+			Neopixels_Off();
 			movementState = STATE_LEFT_END;
 		}
 		break;
@@ -294,7 +294,7 @@ void displayFindReturnPoint() {
 		//and stop it
 		TIM2->CR1 |= TIM_CR1_CEN;
 		//switch off the display
-		apa102_allOff();
+		Neopixels_Off();
 		//set state
 		movementState = STATE_UNKNOWN;
 	}

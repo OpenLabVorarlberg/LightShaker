@@ -1,7 +1,7 @@
 #include "stdint.h"
 
-#define MMA8653_DATAWIDTH_8		0
-#define MMA8653_DATAWIDTH_10	1
+#define ACC_DATAWIDTH_8		0
+#define ACC_DATAWIDTH_10	1
 
 typedef struct {
 	int16_t x;
@@ -16,7 +16,7 @@ typedef struct {
 
 typedef enum {
 	RANGE_2G = 0, RANGE_4G = 1, RANGE_8G = 2
-} mma8653_Ranges;
+} Accelerometer_Ranges;
 
 typedef enum {						//OS in Highres mode
 	RATE_800Hz = 0,		//Oversampling = 2
@@ -27,18 +27,18 @@ typedef enum {						//OS in Highres mode
 	RATE_12Hz5 = 5,
 	RATE_6Hz25 = 6,
 	RATE_1Hz56 = 7
-} mma8653_dataRates;
+} Accelerometer_dataRates;
 
-uint8_t mma8653_init();
+uint8_t Accelerometer_init();
 //we only use the interrupt for data-ready irq, and only interrupt line 1
 //the sensors embedded functions are not usable for this application
-void mma8653_initIrq();
-void mma6853_deInit();
+void Accelerometer_initIrq();
+void Accelerometer_deInit();
 
-uint8_t mma8653_setRange(mma8653_Ranges range);
-uint8_t mma8653_setDataRate(mma8653_dataRates dataRate);
-uint8_t mma8653_setDataWidth(uint8_t DataWidth);
-acc8_t mma8653_read8();
-acc16_t mma8653_read10();
-void mma8653_IrqHandler();
+uint8_t Accelerometer_setRange(Accelerometer_Ranges range);
+uint8_t Accelerometer_setDataRate(Accelerometer_dataRates dataRate);
+uint8_t Accelerometer_setDataWidth(uint8_t DataWidth);
+acc8_t Accelerometer_read8();
+acc16_t Accelerometer_read10();
+void Accelerometer_IrqHandler();
 

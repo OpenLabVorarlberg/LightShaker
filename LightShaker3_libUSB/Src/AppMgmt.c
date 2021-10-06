@@ -6,9 +6,9 @@
  */
 
 
+#include <drvNeopixels.h>
 #include "AppMgmt.h"
 #include "main.h"
-#include "drvApa102.h"
 #include "App_POVDisplay.h"
 #include "App_Level.h"
 #include "App_Playground.h"
@@ -29,6 +29,7 @@ void AppMgmt_AppInit()
 			Level_Init();
 			break;
 		case 2:
+			PovD_DeInit();
 			Playground_Init();
 			break;
 	}
@@ -58,17 +59,18 @@ void AppMgmt_AppExec()
 
 void AppMgmt_CycleApps()
 {
+	Neopixels_setColor(COLOR_WHITE);
 	app_run = false;
 	app_active++;
 	if(app_active >= APP_COUNT)
 	{
 		app_active = 0;
 	}
-	apa102_Bargraph(app_active+1, 2);
+	Neopixels_Bargraph(app_active+1, 2, true);
 }
 
 void AppMgmt_LoadApp()
 {
-	apa102_allOff();
+	Neopixels_Off();
 	AppMgmt_AppInit();
 }

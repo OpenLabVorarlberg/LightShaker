@@ -6,26 +6,29 @@
  */
 
 
+#include <drvAccelerometer.h>
+#include <drvNeopixels.h>
 #include "App_Level.h"
-#include "drvApa102.h"
-#include "drvMMA8653.h"
+#include "AppMgmt.h"
 
 int16_t levelResult;
 uint8_t led_pos;
 
 void Level_Init()
 {
-	mma8653_init();
-	mma8653_setDataWidth(MMA8653_DATAWIDTH_8);
-	mma8653_setDataRate(RATE_12Hz5);
+	AppMgmt_Timebase = 10;
+	Accelerometer_init();
+	Accelerometer_setDataWidth(ACC_DATAWIDTH_8);
+	Accelerometer_setRange(RANGE_2G);
+	Accelerometer_setDataRate(RATE_12Hz5);
 }
 
 void Level_Exec()
 {
-	levelResult = mma8653_read8().y;
+	levelResult = Accelerometer_read8().y;
 	if(levelResult == 0)
 	{
-		apa102_setPattern(0b0000000110000000,2);
+		Neopixels_setPattern(0b0000000110000000,2);
 		return;
 	}
 	if(levelResult < 0)
@@ -46,6 +49,6 @@ void Level_Exec()
 			led_pos = 15;
 		}
 	}
-	apa102_setSingle(led_pos,2);
+	Neopixels_Single(led_pos,2);
 	return;
 }

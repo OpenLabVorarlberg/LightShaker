@@ -30,7 +30,7 @@
 //#include "configConsole.h"
 #include "drvPower.h"
 #include "stm32f0xx_misc.h"
-#include "drvApa102.h"
+#include <drvNeopixels.h>
 #include "AppMgmt.h"
 
 /* Private typedef */
@@ -52,7 +52,9 @@ volatile uint8_t  timerFlags = 0;
 #define TIMER_FLAG_1MS		(1<<0)
 #define TIMER_FLAG_10MS		(1<<1)
 #define TIMER_FLAG_100MS	(1<<2)
+#define TIMER_FLAG_APP		(1<<3)
 
+volatile uint32_t appTimer = 100;
 volatile uint32_t delayTimer;
 
 
@@ -92,6 +94,16 @@ void SysTick_Handler(void)
 		timerFlags |= TIMER_FLAG_100MS;
 		timer_10ms = 10;
 	}
+	//application timer
+	if(appTimer)
+	{
+		appTimer--;
+	}
+	else
+	{
+		timerFlags |= TIMER_FLAG_APP;
+		appTimer = AppMgmt_Timebase;
+	}
 }
 
 /**
@@ -117,7 +129,7 @@ int main(void)
 	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
 
 	power_init();
-	apa102_init();	//this includes a quick led-test
+	Neopixels_init();	//this includes a quick led-test
 
 	if(power_UsbPresent()) {
 		//we are attached to a USB-Port!
@@ -137,9 +149,9 @@ int main(void)
 //		}
 
 		//run application (called continously until button is held long enough to switch to another one or power is switched off)
-		if(timerFlags & TIMER_FLAG_1MS)
+		if(timerFlags & TIMER_FLAG_APP)
 		{
-			timerFlags &= ~TIMER_FLAG_1MS;
+			timerFlags &= ~TIMER_FLAG_APP;
 			AppMgmt_AppExec();
 		}
 		if(timerFlags & TIMER_FLAG_100MS)

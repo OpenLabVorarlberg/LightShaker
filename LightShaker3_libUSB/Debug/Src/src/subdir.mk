@@ -5,35 +5,29 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/src/drvApa102.c \
+../Src/src/drvAccelerometer.c \
 ../Src/src/drvDisplay.c \
-../Src/src/drvMMA8653.c \
+../Src/src/drvNeopixels.c \
 ../Src/src/drvNvMemory.c \
 ../Src/src/drvPower.c \
-../Src/src/drvProgram.c \
-../Src/src/drvSwitch.c \
 ../Src/src/eeprom.c \
 ../Src/src/utilFifo.c 
 
 OBJS += \
-./Src/src/drvApa102.o \
+./Src/src/drvAccelerometer.o \
 ./Src/src/drvDisplay.o \
-./Src/src/drvMMA8653.o \
+./Src/src/drvNeopixels.o \
 ./Src/src/drvNvMemory.o \
 ./Src/src/drvPower.o \
-./Src/src/drvProgram.o \
-./Src/src/drvSwitch.o \
 ./Src/src/eeprom.o \
 ./Src/src/utilFifo.o 
 
 C_DEPS += \
-./Src/src/drvApa102.d \
+./Src/src/drvAccelerometer.d \
 ./Src/src/drvDisplay.d \
-./Src/src/drvMMA8653.d \
+./Src/src/drvNeopixels.d \
 ./Src/src/drvNvMemory.d \
 ./Src/src/drvPower.d \
-./Src/src/drvProgram.d \
-./Src/src/drvSwitch.d \
 ./Src/src/eeprom.d \
 ./Src/src/utilFifo.d 
 

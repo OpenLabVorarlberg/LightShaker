@@ -7,8 +7,8 @@ Src/main.o: ../Src/main.c ../Src/main.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_rcc.h \
  C:/git/LightShaker/LightShaker3_libUSB/Src/src/drvPower.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_misc.h \
- C:/git/LightShaker/LightShaker3_libUSB/Src/src/drvApa102.h \
- ../Src/AppMgmt.h
+ C:/git/LightShaker/LightShaker3_libUSB/Src/src/drvNeopixels.h \
+ C:/git/LightShaker/LightShaker3_libUSB/Src/main.h ../Src/AppMgmt.h
 
 ../Src/main.h:
 
@@ -28,6 +28,8 @@ C:/git/LightShaker/LightShaker3_libUSB/Src/src/drvPower.h:
 
 C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_misc.h:
 
-C:/git/LightShaker/LightShaker3_libUSB/Src/src/drvApa102.h:
+C:/git/LightShaker/LightShaker3_libUSB/Src/src/drvNeopixels.h:
+
+C:/git/LightShaker/LightShaker3_libUSB/Src/main.h:
 
 ../Src/AppMgmt.h:

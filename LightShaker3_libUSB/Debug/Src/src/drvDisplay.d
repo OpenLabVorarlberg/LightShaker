@@ -1,11 +1,13 @@
 Src/src/drvDisplay.o: ../Src/src/drvDisplay.c \
+ C:/git/LightShaker/LightShaker3_libUSB/Src/src/drvAccelerometer.h \
+ C:/git/LightShaker/LightShaker3_libUSB/Src/src/drvNeopixels.h \
  C:/git/LightShaker/LightShaker3_libUSB/Src/main.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/CMSIS/Device/ST/STM32F0xx/Include/stm32f0xx.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/CMSIS/Include/core_cm0.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/CMSIS/Include/core_cmInstr.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/CMSIS/Include/core_cmFunc.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h \
- ../Src/src/drvDisplay.h ../Src/src/drvMMA8653.h \
+ ../Src/src/drvDisplay.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_exti.h \
  C:/git/LightShaker/LightShaker3_libUSB/Src/stm32f0xx_conf.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_adc.h \
@@ -30,7 +32,11 @@ Src/src/drvDisplay.o: ../Src/src/drvDisplay.c \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_usart.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_wwdg.h \
  C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_misc.h \
- ../Src/src/drvApa102.h ../Src/src/drvNvMemory.h
+ ../Src/src/drvNvMemory.h
+
+C:/git/LightShaker/LightShaker3_libUSB/Src/src/drvAccelerometer.h:
+
+C:/git/LightShaker/LightShaker3_libUSB/Src/src/drvNeopixels.h:
 
 C:/git/LightShaker/LightShaker3_libUSB/Src/main.h:
 
@@ -45,8 +51,6 @@ C:/git/LightShaker/LightShaker3_libUSB/Libraries/CMSIS/Include/core_cmFunc.h:
 C:/git/LightShaker/LightShaker3_libUSB/Libraries/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h:
 
 ../Src/src/drvDisplay.h:
-
-../Src/src/drvMMA8653.h:
 
 C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_exti.h:
 
@@ -95,7 +99,5 @@ C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/
 C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_wwdg.h:
 
 C:/git/LightShaker/LightShaker3_libUSB/Libraries/STM32_F0xx_StdPerip_Driver/inc/stm32f0xx_misc.h:
-
-../Src/src/drvApa102.h:
 
 ../Src/src/drvNvMemory.h:

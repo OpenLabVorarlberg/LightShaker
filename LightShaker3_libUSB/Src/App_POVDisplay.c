@@ -5,13 +5,14 @@
  *      Author: ChrLin00
  */
 
+#include <drvAccelerometer.h>
+#include <drvNeopixels.h>
 #include "App_POVDisplay.h"
 #include "drvNvMemory.h"
-#include "drvApa102.h"
 #include "drvDisplay.h"
 #include "drvPower.h"
-#include "drvMMA8653.h"
 #include "stm32f0xx_rcc.h"
+#include "AppMgmt.h"
 
 /**
  * NOTES POV-Display:
@@ -30,9 +31,10 @@
 
 void PovD_Init()
 {
+	AppMgmt_Timebase = 1;
 	NvMem_init();
-	mma8653_init();
-	apa102_allOff();
+	Accelerometer_init();
+	Neopixels_Off();
 	displayInit();
 
 	power_hold(10);
@@ -57,7 +59,7 @@ void PovD_Exec()
 
 void PovD_DeInit()
 {
-	mma6853_deInit();
+	Accelerometer_deInit();
 	NVIC_DisableIRQ(TIM2_IRQn);
 	NVIC_ClearPendingIRQ(TIM2_IRQn);
 	NVIC_DisableIRQ(TIM3_IRQn);
