@@ -8,6 +8,8 @@
 #ifndef APP_PLAYGROUND_H_
 #define APP_PLAYGROUND_H_
 
+#include "main.h"
+
 void Playground_Init();
 void Playground_Exec();
 

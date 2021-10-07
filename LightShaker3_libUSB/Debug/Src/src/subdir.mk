@@ -11,7 +11,8 @@ C_SRCS += \
 ../Src/src/drvNvMemory.c \
 ../Src/src/drvPower.c \
 ../Src/src/eeprom.c \
-../Src/src/utilFifo.c 
+../Src/src/utilFifo.c \
+../Src/src/utilHsvToRgb.c 
 
 OBJS += \
 ./Src/src/drvAccelerometer.o \
@@ -20,7 +21,8 @@ OBJS += \
 ./Src/src/drvNvMemory.o \
 ./Src/src/drvPower.o \
 ./Src/src/eeprom.o \
-./Src/src/utilFifo.o 
+./Src/src/utilFifo.o \
+./Src/src/utilHsvToRgb.o 
 
 C_DEPS += \
 ./Src/src/drvAccelerometer.d \
@@ -29,7 +31,8 @@ C_DEPS += \
 ./Src/src/drvNvMemory.d \
 ./Src/src/drvPower.d \
 ./Src/src/eeprom.d \
-./Src/src/utilFifo.d 
+./Src/src/utilFifo.d \
+./Src/src/utilHsvToRgb.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

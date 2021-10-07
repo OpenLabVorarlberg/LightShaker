@@ -28,7 +28,7 @@ void Level_Exec()
 	levelResult = Accelerometer_read8().y;
 	if(levelResult == 0)
 	{
-		Neopixels_setPattern(0b0000000110000000,2);
+		Neopixels_setPattern(0b0000000110000000);
 		return;
 	}
 	if(levelResult < 0)
@@ -49,6 +49,6 @@ void Level_Exec()
 			led_pos = 15;
 		}
 	}
-	Neopixels_Single(led_pos,2);
+	Neopixels_Single(led_pos);
 	return;
 }

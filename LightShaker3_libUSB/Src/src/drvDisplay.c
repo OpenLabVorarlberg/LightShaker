@@ -129,6 +129,7 @@ void displayInit() {
 	Neopixels_setColorFullRGB(NvMem_read(NVMEM_AD_GLOBAL_RED),
 			NvMem_read(NVMEM_AD_GLOBAL_GREEN),
 			NvMem_read(NVMEM_AD_GLOBAL_BLUE));
+	Neopixels_setBrightness(31);
 
 }
 
@@ -144,8 +145,7 @@ void displaySendLine() {
 		//if row is in the visible area
 		if (RowNumber >= RowsOverscan
 				&& RowNumber < RowsOverscan + RowsVisible) {
-			Neopixels_setPattern(NvMem_read(NVMEM_AD_PICTURE_START + RowNumber),
-					31);
+			Neopixels_setPattern(NvMem_read(NVMEM_AD_PICTURE_START + RowNumber));
 		} else {
 			//switch off the display
 			Neopixels_Off();

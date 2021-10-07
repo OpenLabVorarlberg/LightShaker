@@ -1,6 +1,6 @@
 core_cm0.h:485:22:NVIC_EnableIRQ	16	static
 drvDisplay.c:52:6:displayInit	16	static
-drvDisplay.c:138:6:displaySendLine	8	static
+drvDisplay.c:139:6:displaySendLine	8	static
 drvDisplay.c:173:6:displayEndOfLocktime	8	static
 drvDisplay.c:185:6:displayFrameStart	16	static
 drvDisplay.c:207:6:displayFindReturnPoint	16	static

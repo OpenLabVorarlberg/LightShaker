@@ -27,10 +27,15 @@ colorVrgb globalColor;
 #define COLOR_YELLOW	6
 #define COLOR_WHITE		7
 
+
+#define HSV_H_MAX		1535
+#define HSV_H_MIN		0
 void Neopixels_init();
 void Neopixels_setColor(uint8_t color_idx);
 void Neopixels_setColorFullRGB(uint8_t red, uint8_t green, uint8_t blue);
-void Neopixels_setPattern(uint16_t mask, uint8_t global);
-void Neopixels_Single(uint8_t index, uint8_t global);
-void Neopixels_Bargraph(uint8_t hight, uint8_t global, bool group3);
+void Neopixels_setColorHSV(uint16_t h, uint8_t s, uint8_t v);
+void Neopixels_setBrightness(uint8_t brightness);
+void Neopixels_setPattern(uint16_t mask);
+void Neopixels_Single(uint8_t index);
+void Neopixels_Bargraph(uint8_t hight, bool group3);
 void Neopixels_Off();

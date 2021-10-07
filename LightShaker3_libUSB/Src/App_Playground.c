@@ -57,7 +57,8 @@ int8_t step = 1;
 void KnightRider(void)
 {
 	Neopixels_setColor(COLOR_RED);
-	Neopixels_Single(pos, 2);
+	Neopixels_setBrightness(2);
+	Neopixels_Single(pos);
 	pos += step;
 	if(pos >= 15)
 	{
@@ -73,7 +74,8 @@ void KnightRider(void)
 void FarbenSpiel(void)
 {
 	Neopixels_setColor(Random(6)+1);
-	Neopixels_Single(pos, 2);
+	Neopixels_setBrightness(2);
+	Neopixels_Single(pos);
 	pos ++;
 	if(pos > 15)
 	{
@@ -119,6 +121,7 @@ void Playground_Init()
 //--------------------------------------------------------------
 
 	Neopixels_setColor(COLOR_RED);
+	Neopixels_setBrightness(2);
 	pos = 0;
 	step = 1;
 }
@@ -134,7 +137,7 @@ void Playground_Init()
 */
 void Playground_Exec()
 {
-	Neopixels_Single(pos, 2);
+	Neopixels_Single(pos);
 	pos += step;
 	if(pos >= 15)
 	{

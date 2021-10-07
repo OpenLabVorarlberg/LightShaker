@@ -6,6 +6,7 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Src/AppMgmt.c \
+../Src/App_ColorPicker.c \
 ../Src/App_Level.c \
 ../Src/App_POVDisplay.c \
 ../Src/App_Playground.c \
@@ -19,6 +20,7 @@ C_SRCS += \
 
 OBJS += \
 ./Src/AppMgmt.o \
+./Src/App_ColorPicker.o \
 ./Src/App_Level.o \
 ./Src/App_POVDisplay.o \
 ./Src/App_Playground.o \
@@ -32,6 +34,7 @@ OBJS += \
 
 C_DEPS += \
 ./Src/AppMgmt.d \
+./Src/App_ColorPicker.d \
 ./Src/App_Level.d \
 ./Src/App_POVDisplay.d \
 ./Src/App_Playground.d \
