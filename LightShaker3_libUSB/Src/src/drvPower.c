@@ -44,7 +44,15 @@ void power_init() {
 	GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 	//TODO: implement Vbat measurement
-	power_timer = 100; //the system is always on for at least 10 sec
+
+	if(power_UsbPresent())
+	{
+		power_timer = 0;	//if connected to USB, the battery supply is switched off
+	}
+	else
+	{
+		power_timer = 100; //the system is always on for at least 10 sec
+	}
 	power_flags = 0;
 }
 
@@ -64,7 +72,10 @@ void power_hold(uint8_t sec)
 	{
 		sec = 25;
 	}
-	power_timer = sec * 10;
+	if(!power_UsbPresent())
+	{
+		power_timer = sec * 10;
+	}
 }
 
 /**
@@ -92,6 +103,8 @@ void power_exec()
 			power_flags |= POWER_FLAG_SW_PRESS;
 			power_buttonHoldTime = 1;
 			power_buttonState = 2;	//change state to pressed / holding
+			//whenever the button is pressed, the lightshaker should stay on for another 10 seconds
+			power_hold(10);
 		}
 		else
 		{

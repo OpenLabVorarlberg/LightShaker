@@ -10,6 +10,7 @@
 #include "drvNeopixels.h"
 #include "drvPower.h"
 #include "AppMgmt.h"
+#include "drvNvMemory.h"
 
 uint16_t h = 0;
 uint8_t s = 128;
@@ -71,4 +72,6 @@ void ColorPicker_Exec()
 	}
 	Neopixels_setColorHSV(h, s, 255);
 	Neopixels_setPattern(0xFFFF);
+
+	if()
 }

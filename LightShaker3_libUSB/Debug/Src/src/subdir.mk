@@ -10,7 +10,6 @@ C_SRCS += \
 ../Src/src/drvNeopixels.c \
 ../Src/src/drvNvMemory.c \
 ../Src/src/drvPower.c \
-../Src/src/eeprom.c \
 ../Src/src/utilFifo.c \
 ../Src/src/utilHsvToRgb.c 
 
@@ -20,7 +19,6 @@ OBJS += \
 ./Src/src/drvNeopixels.o \
 ./Src/src/drvNvMemory.o \
 ./Src/src/drvPower.o \
-./Src/src/eeprom.o \
 ./Src/src/utilFifo.o \
 ./Src/src/utilHsvToRgb.o 
 
@@ -30,7 +28,6 @@ C_DEPS += \
 ./Src/src/drvNeopixels.d \
 ./Src/src/drvNvMemory.d \
 ./Src/src/drvPower.d \
-./Src/src/eeprom.d \
 ./Src/src/utilFifo.d \
 ./Src/src/utilHsvToRgb.d 
 

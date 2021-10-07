@@ -38,7 +38,6 @@
 "./Src/src/drvNeopixels.o"
 "./Src/src/drvNvMemory.o"
 "./Src/src/drvPower.o"
-"./Src/src/eeprom.o"
 "./Src/src/utilFifo.o"
 "./Src/src/utilHsvToRgb.o"
 "./Startup/startup_stm32f042f6px.o"
