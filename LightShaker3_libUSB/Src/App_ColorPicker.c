@@ -23,7 +23,9 @@ void ColorPicker_Init()
 	Accelerometer_setDataRate(RATE_400Hz);
 	Accelerometer_setRange(RANGE_2G);
 	Neopixels_setBrightness(2);
+	NvMem_init();
 	power_hold(20);
+	power_flags &= ~ POWER_FLAG_SW_DOUBLE;
 }
 
 
@@ -47,7 +49,7 @@ void ColorPicker_Exec()
 		h = (h + dh) % HSV_H_MAX;
 	}
 
-	int8_t ds = Accelerometer_read8().y>>4;
+	int8_t ds = (Accelerometer_read8().y>>4)*-1;
 	if(ds < 0)
 	{
 		if(s >= ds*-1)
@@ -73,5 +75,26 @@ void ColorPicker_Exec()
 	Neopixels_setColorHSV(h, s, 255);
 	Neopixels_setPattern(0xFFFF);
 
-	if()
+	//a double-click saves the current color to NvMemory
+	if(power_flags & POWER_FLAG_SW_DOUBLE)
+	{
+		power_flags &= ~POWER_FLAG_SW_DOUBLE;
+		power_hold(2);
+		Neopixels_Off();
+		NvMem_write(NVMEM_AD_GLOBAL_RED, globalColor.red);
+		NvMem_write(NVMEM_AD_GLOBAL_GREEN, globalColor.green);
+		NvMem_write(NVMEM_AD_GLOBAL_BLUE, globalColor.blue);
+		Neopixels_setBrightness(6);
+		if(!NvMem_SaveToFlash())
+		{
+			Neopixels_setColor(COLOR_GREEN);
+		}
+		else
+		{
+			Neopixels_setColor(COLOR_RED);
+		}
+		Neopixels_Single(0);
+		delay(200);
+		Neopixels_Off();
+	}
 }

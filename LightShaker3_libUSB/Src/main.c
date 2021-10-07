@@ -161,18 +161,15 @@ int main(void)
 
 			if(power_flags & POWER_FLAG_SW_HOLD)
 			{
-				if(power_buttonHoldTime >= 5)
-				{
-					AppMgmt_CycleApps();
-					power_buttonHoldTime = 0;
-				}
-				//only if the swich is released after holding it for at least 0.5s
-				if(power_flags & POWER_FLAG_SW_RELEASE)
-				{
-					power_flags &= ~POWER_FLAG_SW_HOLD;
-					power_flags &= ~POWER_FLAG_SW_RELEASE;
-					AppMgmt_LoadApp();
-				}
+				power_flags &= ~POWER_FLAG_SW_HOLD;
+				AppMgmt_CycleApps();
+
+			}
+			//only if the swich is released after holding it for at least 0.6s
+			if(power_flags & POWER_FLAG_SW_REL_HOLD)
+			{
+				power_flags &= ~POWER_FLAG_SW_REL_HOLD;
+				AppMgmt_LoadApp();
 			}
 		}
 

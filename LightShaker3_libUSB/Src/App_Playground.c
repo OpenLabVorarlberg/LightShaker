@@ -103,6 +103,8 @@ void FarbenSpiel(void)
 ** FarbenSpiel(void); demo: Schaltet LEDs in zufälligen Farben ein
 */
 
+uint8_t color = COLOR_RED;
+
 /**
 **===========================================================================
 **

@@ -1,4 +1,4 @@
-drvPower.c:24:6:power_init	16	static
-drvPower.c:59:9:power_UsbPresent	8	static
-drvPower.c:69:6:power_hold	16	static
-drvPower.c:85:6:power_exec	8	static
+drvPower.c:30:6:power_init	16	static
+drvPower.c:65:9:power_UsbPresent	8	static
+drvPower.c:75:6:power_hold	16	static
+drvPower.c:91:6:power_exec	8	static

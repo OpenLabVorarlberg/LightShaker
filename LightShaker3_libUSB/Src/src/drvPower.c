@@ -19,7 +19,13 @@
 volatile uint8_t power_timer;
 
 
+uint8_t power_buttonHoldTime; //in 1/10s
 uint8_t power_buttonState;
+uint8_t doubleClickDetector;
+
+
+
+
 
 void power_init() {
 	//enable clock for periphery modules
@@ -88,6 +94,11 @@ void power_exec()
 	switch(power_buttonState)
 	{
 	case 0: //released
+		//decrease the doubleClickDetector while the button is released -> this limits the pause between the tho clicks
+		if(doubleClickDetector)
+		{
+			doubleClickDetector--;
+		}
 		//detect button presses
 		//the button pulls the pin down, so the logic is inverted!
 		if(!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1))
@@ -114,16 +125,49 @@ void power_exec()
 	case 2: //pressed
 		//count the holding-time
 		power_buttonHoldTime++;
-		if(power_buttonHoldTime >= 5)
+		if(power_buttonHoldTime >= POWER_SW_MINHOLDTIME)
 		{
 			power_flags |= POWER_FLAG_SW_HOLD;
+			power_buttonState = 3; //long hold
+			power_buttonHoldTime = 0;
+			break;
 		}
-		if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1))
+		if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1)) //released before it's a hold
 		{
+			//a click can only count for a double-click if the button is released before it's counted as a 'hold'
+			//if the doubleClickDetector is not 0, we have a valid double-click!
+			if(doubleClickDetector)
+			{
+				power_flags |= POWER_FLAG_SW_DOUBLE;
+				doubleClickDetector = 0;
+			}
+			else
+			{
+				//set the doubleclickDetector to a value indicating the maximum time for the double-click
+				//the detector is now "armed"
+				doubleClickDetector = 6;
+			}
 			power_flags |= POWER_FLAG_SW_RELEASE;
 			power_buttonState = 0;	//pin is low -> button was just released
 		}
 		break;
+	case 3: //long hold
+		//count the holding-time
+		power_buttonHoldTime++;
+		if(power_buttonHoldTime >= POWER_SW_MINHOLDTIME)
+		{
+			power_flags |= POWER_FLAG_SW_HOLD;	//set the flag again
+			power_buttonState = 3; //state is the same
+			power_buttonHoldTime = 0; //but the timer is reset
+			break;
+		}
+		if(GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_1)) //released from a hold
+		{
+			power_flags |= POWER_FLAG_SW_REL_HOLD;
+			power_buttonState = 0;	//pin is low -> button was just released
+		}
+		break;
+
 	}
 //=============================================================================
 
