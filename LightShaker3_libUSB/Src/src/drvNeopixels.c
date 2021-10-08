@@ -54,6 +54,14 @@ void Neopixels_init() {
 		delay(20);
 	}
 }
+
+void Neopixels_setColorAsSaved()
+{
+	globalColor.red = NvMem_read(NVMEM_AD_GLOBAL_RED);
+	globalColor.green = NvMem_read(NVMEM_AD_GLOBAL_GREEN);
+	globalColor.blue = NvMem_read(NVMEM_AD_GLOBAL_BLUE);
+}
+
 /**
  * set the color for all leds according to the HSV-Colorformat
  * @param h: hue (position on a color-circle) 0...1535

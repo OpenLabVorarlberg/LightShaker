@@ -21,9 +21,6 @@
 #include "main.h"
 #include "stdlib.h"
 
-//this sets the period (time between two runs) of the application loop in milli-seconds
-#define LOOP_TIMEBASE	100
-
 /**
 **===========================================================================
 **
@@ -49,6 +46,7 @@ uint8_t Random(uint8_t range)
 {
 	return rand() % (uint16_t)(range+1);
 }
+
 
 
 uint8_t pos = 0;
@@ -115,8 +113,8 @@ uint8_t color = COLOR_RED;
 */
 void Playground_Init()
 {
-//-----------------don't chang this code-block!------------------
-	AppMgmt_Timebase = LOOP_TIMEBASE;
+//-----------------don't change this code-block!------------------
+	AppMgmt_Timebase = 100;
 	Accelerometer_init();
 	Accelerometer_setDataWidth(ACC_DATAWIDTH_8);
 	Accelerometer_setDataRate(RATE_400Hz);

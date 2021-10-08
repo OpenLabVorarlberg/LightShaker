@@ -3250,6 +3250,8 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./Src/src/drvNeopixels.o
  .data          0x0000000000000000        0x0 ./Src/src/drvNeopixels.o
  .bss           0x0000000000000000        0x0 ./Src/src/drvNeopixels.o
+ .text.Neopixels_setColorAsSaved
+                0x0000000000000000       0x38 ./Src/src/drvNeopixels.o
  .debug_macro   0x0000000000000000      0xa7e ./Src/src/drvNeopixels.o
  .debug_macro   0x0000000000000000      0x174 ./Src/src/drvNeopixels.o
  .debug_macro   0x0000000000000000       0x22 ./Src/src/drvNeopixels.o
@@ -4618,7 +4620,7 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
 LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a
 LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a
 
-.debug_info     0x0000000000000000     0x6936
+.debug_info     0x0000000000000000     0x6948
  .debug_info    0x0000000000000000      0x35a ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_info    0x000000000000035a      0x64f ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_info    0x00000000000009a9      0xc77 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
@@ -4635,13 +4637,13 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_info    0x00000000000042c2      0x2da ./Src/system_stm32f0xx.o
  .debug_info    0x000000000000459c      0xb4f ./Src/src/drvAccelerometer.o
  .debug_info    0x00000000000050eb      0x7e6 ./Src/src/drvDisplay.o
- .debug_info    0x00000000000058d1      0x721 ./Src/src/drvNeopixels.o
- .debug_info    0x0000000000005ff2      0x386 ./Src/src/drvNvMemory.o
- .debug_info    0x0000000000006378      0x3d0 ./Src/src/drvPower.o
- .debug_info    0x0000000000006748      0x1cc ./Src/src/utilHsvToRgb.o
- .debug_info    0x0000000000006914       0x22 ./Startup/startup_stm32f042f6px.o
+ .debug_info    0x00000000000058d1      0x733 ./Src/src/drvNeopixels.o
+ .debug_info    0x0000000000006004      0x386 ./Src/src/drvNvMemory.o
+ .debug_info    0x000000000000638a      0x3d0 ./Src/src/drvPower.o
+ .debug_info    0x000000000000675a      0x1cc ./Src/src/utilHsvToRgb.o
+ .debug_info    0x0000000000006926       0x22 ./Startup/startup_stm32f042f6px.o
 
-.debug_abbrev   0x0000000000000000     0x1e50
+.debug_abbrev   0x0000000000000000     0x1e68
  .debug_abbrev  0x0000000000000000      0x1ab ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_abbrev  0x00000000000001ab      0x1c5 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_abbrev  0x0000000000000370      0x1a9 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
@@ -4658,13 +4660,13 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_abbrev  0x00000000000012ea      0x141 ./Src/system_stm32f0xx.o
  .debug_abbrev  0x000000000000142b      0x2d6 ./Src/src/drvAccelerometer.o
  .debug_abbrev  0x0000000000001701      0x1e7 ./Src/src/drvDisplay.o
- .debug_abbrev  0x00000000000018e8      0x1c8 ./Src/src/drvNeopixels.o
- .debug_abbrev  0x0000000000001ab0      0x154 ./Src/src/drvNvMemory.o
- .debug_abbrev  0x0000000000001c04      0x192 ./Src/src/drvPower.o
- .debug_abbrev  0x0000000000001d96       0xa8 ./Src/src/utilHsvToRgb.o
- .debug_abbrev  0x0000000000001e3e       0x12 ./Startup/startup_stm32f042f6px.o
+ .debug_abbrev  0x00000000000018e8      0x1e0 ./Src/src/drvNeopixels.o
+ .debug_abbrev  0x0000000000001ac8      0x154 ./Src/src/drvNvMemory.o
+ .debug_abbrev  0x0000000000001c1c      0x192 ./Src/src/drvPower.o
+ .debug_abbrev  0x0000000000001dae       0xa8 ./Src/src/utilHsvToRgb.o
+ .debug_abbrev  0x0000000000001e56       0x12 ./Startup/startup_stm32f042f6px.o
 
-.debug_aranges  0x0000000000000000      0x7f0
+.debug_aranges  0x0000000000000000      0x7f8
  .debug_aranges
                 0x0000000000000000       0x58 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_aranges
@@ -4698,17 +4700,17 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_aranges
                 0x0000000000000688       0x48 ./Src/src/drvDisplay.o
  .debug_aranges
-                0x00000000000006d0       0x68 ./Src/src/drvNeopixels.o
+                0x00000000000006d0       0x70 ./Src/src/drvNeopixels.o
  .debug_aranges
-                0x0000000000000738       0x38 ./Src/src/drvNvMemory.o
+                0x0000000000000740       0x38 ./Src/src/drvNvMemory.o
  .debug_aranges
-                0x0000000000000770       0x38 ./Src/src/drvPower.o
+                0x0000000000000778       0x38 ./Src/src/drvPower.o
  .debug_aranges
-                0x00000000000007a8       0x20 ./Src/src/utilHsvToRgb.o
+                0x00000000000007b0       0x20 ./Src/src/utilHsvToRgb.o
  .debug_aranges
-                0x00000000000007c8       0x28 ./Startup/startup_stm32f042f6px.o
+                0x00000000000007d0       0x28 ./Startup/startup_stm32f042f6px.o
 
-.debug_ranges   0x0000000000000000      0x6a8
+.debug_ranges   0x0000000000000000      0x6b0
  .debug_ranges  0x0000000000000000       0x48 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_ranges  0x0000000000000048       0x70 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_ranges  0x00000000000000b8      0x158 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
@@ -4725,13 +4727,13 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_ranges  0x0000000000000500       0x20 ./Src/system_stm32f0xx.o
  .debug_ranges  0x0000000000000520       0x78 ./Src/src/drvAccelerometer.o
  .debug_ranges  0x0000000000000598       0x38 ./Src/src/drvDisplay.o
- .debug_ranges  0x00000000000005d0       0x58 ./Src/src/drvNeopixels.o
- .debug_ranges  0x0000000000000628       0x28 ./Src/src/drvNvMemory.o
- .debug_ranges  0x0000000000000650       0x28 ./Src/src/drvPower.o
- .debug_ranges  0x0000000000000678       0x10 ./Src/src/utilHsvToRgb.o
- .debug_ranges  0x0000000000000688       0x20 ./Startup/startup_stm32f042f6px.o
+ .debug_ranges  0x00000000000005d0       0x60 ./Src/src/drvNeopixels.o
+ .debug_ranges  0x0000000000000630       0x28 ./Src/src/drvNvMemory.o
+ .debug_ranges  0x0000000000000658       0x28 ./Src/src/drvPower.o
+ .debug_ranges  0x0000000000000680       0x10 ./Src/src/utilHsvToRgb.o
+ .debug_ranges  0x0000000000000690       0x20 ./Startup/startup_stm32f042f6px.o
 
-.debug_macro    0x0000000000000000     0x2fc4
+.debug_macro    0x0000000000000000     0x2fbe
  .debug_macro   0x0000000000000000      0x18d ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_macro   0x000000000000018d       0xd9 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_macro   0x0000000000000266      0x18d ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
@@ -4755,39 +4757,39 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_macro   0x00000000000019cc       0xe8 ./Src/App_Level.o
  .debug_macro   0x0000000000001ab4      0x10c ./Src/App_POVDisplay.o
  .debug_macro   0x0000000000001bc0       0x1c ./Src/App_POVDisplay.o
- .debug_macro   0x0000000000001bdc      0x1d3 ./Src/App_Playground.o
- .debug_macro   0x0000000000001daf       0x18 ./Src/App_Playground.o
- .debug_macro   0x0000000000001dc7       0x52 ./Src/App_Playground.o
- .debug_macro   0x0000000000001e19       0x3c ./Src/App_Playground.o
- .debug_macro   0x0000000000001e55       0x34 ./Src/App_Playground.o
- .debug_macro   0x0000000000001e89       0x16 ./Src/App_Playground.o
- .debug_macro   0x0000000000001e9f       0x35 ./Src/App_Playground.o
- .debug_macro   0x0000000000001ed4       0x16 ./Src/App_Playground.o
- .debug_macro   0x0000000000001eea       0x43 ./Src/App_Playground.o
- .debug_macro   0x0000000000001f2d       0x34 ./Src/App_Playground.o
- .debug_macro   0x0000000000001f61       0x10 ./Src/App_Playground.o
- .debug_macro   0x0000000000001f71       0x58 ./Src/App_Playground.o
- .debug_macro   0x0000000000001fc9       0x71 ./Src/App_Playground.o
- .debug_macro   0x000000000000203a       0x1c ./Src/App_Playground.o
- .debug_macro   0x0000000000002056      0x12a ./Src/App_Playground.o
- .debug_macro   0x0000000000002180      0x339 ./Src/App_Playground.o
- .debug_macro   0x00000000000024b9       0x16 ./Src/App_Playground.o
- .debug_macro   0x00000000000024cf       0x29 ./Src/App_Playground.o
- .debug_macro   0x00000000000024f8      0x110 ./Src/main.o
- .debug_macro   0x0000000000002608       0xcd ./Src/stm32_it.o
- .debug_macro   0x00000000000026d5       0x9e ./Src/system_stm32f0xx.o
- .debug_macro   0x0000000000002773      0x266 ./Src/src/drvAccelerometer.o
- .debug_macro   0x00000000000029d9      0x1cf ./Src/src/drvDisplay.o
- .debug_macro   0x0000000000002ba8       0xdb ./Src/src/drvNeopixels.o
- .debug_macro   0x0000000000002c83       0x64 ./Src/src/drvNeopixels.o
- .debug_macro   0x0000000000002ce7       0xd4 ./Src/src/drvNvMemory.o
- .debug_macro   0x0000000000002dbb       0x4c ./Src/src/drvNvMemory.o
- .debug_macro   0x0000000000002e07       0xc5 ./Src/src/drvPower.o
- .debug_macro   0x0000000000002ecc       0x28 ./Src/src/drvPower.o
- .debug_macro   0x0000000000002ef4       0x72 ./Src/src/utilHsvToRgb.o
- .debug_macro   0x0000000000002f66       0x5e ./Src/src/utilHsvToRgb.o
+ .debug_macro   0x0000000000001bdc      0x1cd ./Src/App_Playground.o
+ .debug_macro   0x0000000000001da9       0x18 ./Src/App_Playground.o
+ .debug_macro   0x0000000000001dc1       0x52 ./Src/App_Playground.o
+ .debug_macro   0x0000000000001e13       0x3c ./Src/App_Playground.o
+ .debug_macro   0x0000000000001e4f       0x34 ./Src/App_Playground.o
+ .debug_macro   0x0000000000001e83       0x16 ./Src/App_Playground.o
+ .debug_macro   0x0000000000001e99       0x35 ./Src/App_Playground.o
+ .debug_macro   0x0000000000001ece       0x16 ./Src/App_Playground.o
+ .debug_macro   0x0000000000001ee4       0x43 ./Src/App_Playground.o
+ .debug_macro   0x0000000000001f27       0x34 ./Src/App_Playground.o
+ .debug_macro   0x0000000000001f5b       0x10 ./Src/App_Playground.o
+ .debug_macro   0x0000000000001f6b       0x58 ./Src/App_Playground.o
+ .debug_macro   0x0000000000001fc3       0x71 ./Src/App_Playground.o
+ .debug_macro   0x0000000000002034       0x1c ./Src/App_Playground.o
+ .debug_macro   0x0000000000002050      0x12a ./Src/App_Playground.o
+ .debug_macro   0x000000000000217a      0x339 ./Src/App_Playground.o
+ .debug_macro   0x00000000000024b3       0x16 ./Src/App_Playground.o
+ .debug_macro   0x00000000000024c9       0x29 ./Src/App_Playground.o
+ .debug_macro   0x00000000000024f2      0x110 ./Src/main.o
+ .debug_macro   0x0000000000002602       0xcd ./Src/stm32_it.o
+ .debug_macro   0x00000000000026cf       0x9e ./Src/system_stm32f0xx.o
+ .debug_macro   0x000000000000276d      0x266 ./Src/src/drvAccelerometer.o
+ .debug_macro   0x00000000000029d3      0x1cf ./Src/src/drvDisplay.o
+ .debug_macro   0x0000000000002ba2       0xdb ./Src/src/drvNeopixels.o
+ .debug_macro   0x0000000000002c7d       0x64 ./Src/src/drvNeopixels.o
+ .debug_macro   0x0000000000002ce1       0xd4 ./Src/src/drvNvMemory.o
+ .debug_macro   0x0000000000002db5       0x4c ./Src/src/drvNvMemory.o
+ .debug_macro   0x0000000000002e01       0xc5 ./Src/src/drvPower.o
+ .debug_macro   0x0000000000002ec6       0x28 ./Src/src/drvPower.o
+ .debug_macro   0x0000000000002eee       0x72 ./Src/src/utilHsvToRgb.o
+ .debug_macro   0x0000000000002f60       0x5e ./Src/src/utilHsvToRgb.o
 
-.debug_line     0x0000000000000000     0x9b3e
+.debug_line     0x0000000000000000     0x9b65
  .debug_line    0x0000000000000000      0x864 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_line    0x0000000000000864      0x97e ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_line    0x00000000000011e2      0xcf5 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
@@ -4804,13 +4806,13 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_line    0x0000000000006855      0x555 ./Src/system_stm32f0xx.o
  .debug_line    0x0000000000006daa      0xada ./Src/src/drvAccelerometer.o
  .debug_line    0x0000000000007884      0x977 ./Src/src/drvDisplay.o
- .debug_line    0x00000000000081fb      0x836 ./Src/src/drvNeopixels.o
- .debug_line    0x0000000000008a31      0x62f ./Src/src/drvNvMemory.o
- .debug_line    0x0000000000009060      0x617 ./Src/src/drvPower.o
- .debug_line    0x0000000000009677      0x431 ./Src/src/utilHsvToRgb.o
- .debug_line    0x0000000000009aa8       0x96 ./Startup/startup_stm32f042f6px.o
+ .debug_line    0x00000000000081fb      0x85d ./Src/src/drvNeopixels.o
+ .debug_line    0x0000000000008a58      0x62f ./Src/src/drvNvMemory.o
+ .debug_line    0x0000000000009087      0x617 ./Src/src/drvPower.o
+ .debug_line    0x000000000000969e      0x431 ./Src/src/utilHsvToRgb.o
+ .debug_line    0x0000000000009acf       0x96 ./Startup/startup_stm32f042f6px.o
 
-.debug_str      0x0000000000000000    0x45dbc
+.debug_str      0x0000000000000000    0x45dc4
  .debug_str     0x0000000000000000    0x40066 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
                                       0x401e9 (size before relaxing)
  .debug_str     0x0000000000040066      0x2f7 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
@@ -4831,27 +4833,27 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                                       0x24508 (size before relaxing)
  .debug_str     0x00000000000419a9      0x29d ./Src/App_POVDisplay.o
                                       0x2753c (size before relaxing)
- .debug_str     0x0000000000041c46     0x32a3 ./Src/App_Playground.o
-                                      0x278b3 (size before relaxing)
- .debug_str     0x0000000000044ee9       0xd7 ./Src/main.o
+ .debug_str     0x0000000000041c46     0x3291 ./Src/App_Playground.o
+                                      0x278a1 (size before relaxing)
+ .debug_str     0x0000000000044ed7       0xd7 ./Src/main.o
                                       0x27630 (size before relaxing)
- .debug_str     0x0000000000044fc0       0x9b ./Src/stm32_it.o
+ .debug_str     0x0000000000044fae       0x9b ./Src/stm32_it.o
                                       0x2440d (size before relaxing)
- .debug_str     0x000000000004505b       0x62 ./Src/system_stm32f0xx.o
+ .debug_str     0x0000000000045049       0x62 ./Src/system_stm32f0xx.o
                                       0x240bb (size before relaxing)
- .debug_str     0x00000000000450bd      0x3de ./Src/src/drvAccelerometer.o
+ .debug_str     0x00000000000450ab      0x3de ./Src/src/drvAccelerometer.o
                                       0x40e07 (size before relaxing)
- .debug_str     0x000000000004549b      0x20d ./Src/src/drvDisplay.o
+ .debug_str     0x0000000000045489      0x20d ./Src/src/drvDisplay.o
                                       0x40ac2 (size before relaxing)
- .debug_str     0x00000000000456a8      0x49f ./Src/src/drvNeopixels.o
-                                      0x24abc (size before relaxing)
- .debug_str     0x0000000000045b47      0x175 ./Src/src/drvNvMemory.o
+ .debug_str     0x0000000000045696      0x4b9 ./Src/src/drvNeopixels.o
+                                      0x24ad6 (size before relaxing)
+ .debug_str     0x0000000000045b4f      0x175 ./Src/src/drvNvMemory.o
                                       0x2435c (size before relaxing)
- .debug_str     0x0000000000045cbc       0x8f ./Src/src/drvPower.o
+ .debug_str     0x0000000000045cc4       0x8f ./Src/src/drvPower.o
                                       0x27c4a (size before relaxing)
- .debug_str     0x0000000000045d4b       0x40 ./Src/src/utilHsvToRgb.o
+ .debug_str     0x0000000000045d53       0x40 ./Src/src/utilHsvToRgb.o
                                        0x3f33 (size before relaxing)
- .debug_str     0x0000000000045d8b       0x31 ./Startup/startup_stm32f042f6px.o
+ .debug_str     0x0000000000045d93       0x31 ./Startup/startup_stm32f042f6px.o
                                          0x5e (size before relaxing)
 
 .comment        0x0000000000000000       0x53
@@ -4877,7 +4879,7 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .comment       0x0000000000000053       0x54 ./Src/src/drvPower.o
  .comment       0x0000000000000053       0x54 ./Src/src/utilHsvToRgb.o
 
-.debug_frame    0x0000000000000000     0x18e4
+.debug_frame    0x0000000000000000     0x1900
  .debug_frame   0x0000000000000000      0x10c ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_frame   0x000000000000010c      0x1b0 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_frame   0x00000000000002bc      0x550 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
@@ -4894,11 +4896,11 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_frame   0x00000000000012c0       0x68 ./Src/system_stm32f0xx.o
  .debug_frame   0x0000000000001328      0x1c8 ./Src/src/drvAccelerometer.o
  .debug_frame   0x00000000000014f0       0xc8 ./Src/src/drvDisplay.o
- .debug_frame   0x00000000000015b8      0x150 ./Src/src/drvNeopixels.o
- .debug_frame   0x0000000000001708       0x90 ./Src/src/drvNvMemory.o
- .debug_frame   0x0000000000001798       0x88 ./Src/src/drvPower.o
- .debug_frame   0x0000000000001820       0x30 ./Src/src/utilHsvToRgb.o
- .debug_frame   0x0000000000001850       0x2c c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
- .debug_frame   0x000000000000187c       0x28 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
- .debug_frame   0x00000000000018a4       0x20 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
- .debug_frame   0x00000000000018c4       0x20 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
+ .debug_frame   0x00000000000015b8      0x16c ./Src/src/drvNeopixels.o
+ .debug_frame   0x0000000000001724       0x90 ./Src/src/drvNvMemory.o
+ .debug_frame   0x00000000000017b4       0x88 ./Src/src/drvPower.o
+ .debug_frame   0x000000000000183c       0x30 ./Src/src/utilHsvToRgb.o
+ .debug_frame   0x000000000000186c       0x2c c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
+ .debug_frame   0x0000000000001898       0x28 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
+ .debug_frame   0x00000000000018c0       0x20 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a(_udivsi3.o)
+ .debug_frame   0x00000000000018e0       0x20 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a(_divsi3.o)
