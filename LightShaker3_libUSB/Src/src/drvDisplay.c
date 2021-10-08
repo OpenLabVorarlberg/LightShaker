@@ -89,35 +89,35 @@ void displayInit() {
 	//don't activate this timer now, because an overflow would produce a line on the display!
 
 	//if the device is unconfigured (rowsVisible = 0), set a smiley as default picture
-	//TODO: this could be planted into flash directly (to save a bit of memory)
-	if (NvMem_read(NVMEM_AD_ROWS_VISIBLE) > 32
-			|| NvMem_read(NVMEM_AD_ROWS_VISIBLE) == 0) {
-		NvMem_write(NVMEM_AD_ROWS_VISIBLE, 16);
-		NvMem_write(NVMEM_AD_OVERSCAN, 0);
-		NvMem_write(NVMEM_AD_PICTURE_START + 0, 0b0000001111000000);
-		NvMem_write(NVMEM_AD_PICTURE_START + 1, 0b0000110000110000);
-		NvMem_write(NVMEM_AD_PICTURE_START + 2, 0b0001000000001000);
-		NvMem_write(NVMEM_AD_PICTURE_START + 3, 0b0010000000000100);
-		NvMem_write(NVMEM_AD_PICTURE_START + 4, 0b0100010000010010);
-		NvMem_write(NVMEM_AD_PICTURE_START + 5, 0b0100010000010010);
-		NvMem_write(NVMEM_AD_PICTURE_START + 6, 0b1000000000001001);
-		NvMem_write(NVMEM_AD_PICTURE_START + 7, 0b1000000110001001);
-		NvMem_write(NVMEM_AD_PICTURE_START + 8, 0b1000000000001001);
-		NvMem_write(NVMEM_AD_PICTURE_START + 9, 0b1000000000001001);
-		NvMem_write(NVMEM_AD_PICTURE_START + 10, 0b0100010000010010);
-		NvMem_write(NVMEM_AD_PICTURE_START + 11, 0b0100010000010010);
-		NvMem_write(NVMEM_AD_PICTURE_START + 12, 0b0010000000000100);
-		NvMem_write(NVMEM_AD_PICTURE_START + 13, 0b0001000000001000);
-		NvMem_write(NVMEM_AD_PICTURE_START + 14, 0b0000110000110000);
-		NvMem_write(NVMEM_AD_PICTURE_START + 15, 0b0000001111000000);
-	}
-	//if the color has never been configured (or if somebody configured it to 0,0,0) the Lightshaker doesn't do anything visible, so let's change that
-	if (!NvMem_read(NVMEM_AD_GLOBAL_BLUE) && !NvMem_read(NVMEM_AD_GLOBAL_GREEN)
-			&& !NvMem_read(NVMEM_AD_GLOBAL_RED)) {
-		NvMem_write(NVMEM_AD_GLOBAL_BLUE, 255);
-		NvMem_write(NVMEM_AD_GLOBAL_GREEN, 255);
-		NvMem_write(NVMEM_AD_GLOBAL_RED, 255);
-	}
+	//this is not needed anymore! the picture data is planted into the flash directly (drvNvMemory.h)
+//	if (NvMem_read(NVMEM_AD_ROWS_VISIBLE) > 32
+//			|| NvMem_read(NVMEM_AD_ROWS_VISIBLE) == 0) {
+//		NvMem_write(NVMEM_AD_ROWS_VISIBLE, 16);
+//		NvMem_write(NVMEM_AD_OVERSCAN, 0);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 0, 0b0000001111000000);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 1, 0b0000110000110000);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 2, 0b0001000000001000);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 3, 0b0010000000000100);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 4, 0b0100010000010010);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 5, 0b0100010000010010);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 6, 0b1000000000001001);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 7, 0b1000000110001001);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 8, 0b1000000000001001);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 9, 0b1000000000001001);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 10, 0b0100010000010010);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 11, 0b0100010000010010);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 12, 0b0010000000000100);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 13, 0b0001000000001000);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 14, 0b0000110000110000);
+//		NvMem_write(NVMEM_AD_PICTURE_START + 15, 0b0000001111000000);
+//	}
+//	//if the color has never been configured (or if somebody configured it to 0,0,0) the Lightshaker doesn't do anything visible, so let's change that
+//	if (!NvMem_read(NVMEM_AD_GLOBAL_BLUE) && !NvMem_read(NVMEM_AD_GLOBAL_GREEN)
+//			&& !NvMem_read(NVMEM_AD_GLOBAL_RED)) {
+//		NvMem_write(NVMEM_AD_GLOBAL_BLUE, 255);
+//		NvMem_write(NVMEM_AD_GLOBAL_GREEN, 255);
+//		NvMem_write(NVMEM_AD_GLOBAL_RED, 255);
+//	}
 
 	//init the display data
 	RowsOverscan = NvMem_read(NVMEM_AD_OVERSCAN);

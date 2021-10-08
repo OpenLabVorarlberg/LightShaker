@@ -66,7 +66,7 @@ errno               0x4               c:/st/stm32cubeide_1.7.0/stm32cubeide/plug
 DispRowMasks        0x40              ./Src/src/drvDisplay.o
 AppMgmt_Timebase    0x2               ./Src/AppMgmt.o
 power_flags         0x1               ./Src/App_ColorPicker.o
-NvMem_RamBuffer     0x400             ./Src/src/drvNvMemory.o
+NvMem_RamBuffer     0x2a              ./Src/src/drvNvMemory.o
 DisplayPosition     0x1               ./Src/src/drvDisplay.o
 led_pos             0x1               ./Src/App_Level.o
 __lock___env_recursive_mutex
@@ -3964,7 +3964,8 @@ Memory Configuration
 
 Name             Origin             Length             Attributes
 RAM              0x0000000020000000 0x0000000000001800 xrw
-FLASH            0x0000000008000000 0x0000000000008000 xr
+FLASH            0x0000000008000000 0x0000000000007c00 xr
+NVMEM            0x0000000008007c00 0x0000000000000400 xrw
 *default*        0x0000000000000000 0xffffffffffffffff
 
 Linker script and memory map
@@ -4049,7 +4050,7 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x0000000008000000                g_pfnVectors
                 0x00000000080000c0                . = ALIGN (0x4)
 
-.text           0x00000000080000c0     0x2fc8
+.text           0x00000000080000c0     0x2ea8
                 0x00000000080000c0                . = ALIGN (0x4)
  *(.text)
  .text          0x00000000080000c0       0x48 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
@@ -4260,189 +4261,196 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .text.NVIC_EnableIRQ
                 0x0000000008001d68       0x2c ./Src/src/drvDisplay.o
  .text.displayInit
-                0x0000000008001d94      0x264 ./Src/src/drvDisplay.o
+                0x0000000008001d94      0x14c ./Src/src/drvDisplay.o
                 0x0000000008001d94                displayInit
  .text.displaySendLine
-                0x0000000008001ff8       0xd4 ./Src/src/drvDisplay.o
-                0x0000000008001ff8                displaySendLine
+                0x0000000008001ee0       0xd4 ./Src/src/drvDisplay.o
+                0x0000000008001ee0                displaySendLine
  .text.displayEndOfLocktime
-                0x00000000080020cc       0x40 ./Src/src/drvDisplay.o
-                0x00000000080020cc                displayEndOfLocktime
+                0x0000000008001fb4       0x40 ./Src/src/drvDisplay.o
+                0x0000000008001fb4                displayEndOfLocktime
  .text.displayFrameStart
-                0x000000000800210c       0xa0 ./Src/src/drvDisplay.o
-                0x000000000800210c                displayFrameStart
+                0x0000000008001ff4       0xa0 ./Src/src/drvDisplay.o
+                0x0000000008001ff4                displayFrameStart
  .text.displayFindReturnPoint
-                0x00000000080021ac      0x1e4 ./Src/src/drvDisplay.o
-                0x00000000080021ac                displayFindReturnPoint
+                0x0000000008002094      0x1e4 ./Src/src/drvDisplay.o
+                0x0000000008002094                displayFindReturnPoint
  .text.Neopixels_init
-                0x0000000008002390       0xf4 ./Src/src/drvNeopixels.o
-                0x0000000008002390                Neopixels_init
+                0x0000000008002278       0xf4 ./Src/src/drvNeopixels.o
+                0x0000000008002278                Neopixels_init
  .text.Neopixels_setColorHSV
-                0x0000000008002484       0x50 ./Src/src/drvNeopixels.o
-                0x0000000008002484                Neopixels_setColorHSV
+                0x000000000800236c       0x50 ./Src/src/drvNeopixels.o
+                0x000000000800236c                Neopixels_setColorHSV
  .text.Neopixels_setColorFullRGB
-                0x00000000080024d4       0x44 ./Src/src/drvNeopixels.o
-                0x00000000080024d4                Neopixels_setColorFullRGB
+                0x00000000080023bc       0x44 ./Src/src/drvNeopixels.o
+                0x00000000080023bc                Neopixels_setColorFullRGB
  .text.Neopixels_setColor
-                0x0000000008002518       0x48 ./Src/src/drvNeopixels.o
-                0x0000000008002518                Neopixels_setColor
+                0x0000000008002400       0x48 ./Src/src/drvNeopixels.o
+                0x0000000008002400                Neopixels_setColor
  .text.Neopixels_setBrightness
-                0x0000000008002560       0x30 ./Src/src/drvNeopixels.o
-                0x0000000008002560                Neopixels_setBrightness
+                0x0000000008002448       0x30 ./Src/src/drvNeopixels.o
+                0x0000000008002448                Neopixels_setBrightness
  .text.updateStripe
-                0x0000000008002590      0x148 ./Src/src/drvNeopixels.o
-                0x0000000008002590                updateStripe
+                0x0000000008002478      0x148 ./Src/src/drvNeopixels.o
+                0x0000000008002478                updateStripe
  .text.Neopixels_setPattern
-                0x00000000080026d8       0xac ./Src/src/drvNeopixels.o
-                0x00000000080026d8                Neopixels_setPattern
+                0x00000000080025c0       0xac ./Src/src/drvNeopixels.o
+                0x00000000080025c0                Neopixels_setPattern
  .text.Neopixels_Single
-                0x0000000008002784       0x26 ./Src/src/drvNeopixels.o
-                0x0000000008002784                Neopixels_Single
+                0x000000000800266c       0x26 ./Src/src/drvNeopixels.o
+                0x000000000800266c                Neopixels_Single
  .text.Neopixels_Bargraph
-                0x00000000080027aa       0xaa ./Src/src/drvNeopixels.o
-                0x00000000080027aa                Neopixels_Bargraph
+                0x0000000008002692       0xaa ./Src/src/drvNeopixels.o
+                0x0000000008002692                Neopixels_Bargraph
  .text.Neopixels_Off
-                0x0000000008002854       0x6c ./Src/src/drvNeopixels.o
-                0x0000000008002854                Neopixels_Off
+                0x000000000800273c       0x6c ./Src/src/drvNeopixels.o
+                0x000000000800273c                Neopixels_Off
  .text.NvMem_init
-                0x00000000080028c0       0x6c ./Src/src/drvNvMemory.o
-                0x00000000080028c0                NvMem_init
+                0x00000000080027a8       0x64 ./Src/src/drvNvMemory.o
+                0x00000000080027a8                NvMem_init
  .text.NvMem_read
-                0x000000000800292c       0x34 ./Src/src/drvNvMemory.o
-                0x000000000800292c                NvMem_read
+                0x000000000800280c       0x34 ./Src/src/drvNvMemory.o
+                0x000000000800280c                NvMem_read
  .text.NvMem_write
-                0x0000000008002960       0x54 ./Src/src/drvNvMemory.o
-                0x0000000008002960                NvMem_write
+                0x0000000008002840       0x54 ./Src/src/drvNvMemory.o
+                0x0000000008002840                NvMem_write
  .text.NvMem_SaveToFlash
-                0x00000000080029b4      0x170 ./Src/src/drvNvMemory.o
-                0x00000000080029b4                NvMem_SaveToFlash
+                0x0000000008002894      0x170 ./Src/src/drvNvMemory.o
+                0x0000000008002894                NvMem_SaveToFlash
  .text.power_init
-                0x0000000008002b24       0xb0 ./Src/src/drvPower.o
-                0x0000000008002b24                power_init
+                0x0000000008002a04       0xb0 ./Src/src/drvPower.o
+                0x0000000008002a04                power_init
  .text.power_UsbPresent
-                0x0000000008002bd4       0x1c ./Src/src/drvPower.o
-                0x0000000008002bd4                power_UsbPresent
+                0x0000000008002ab4       0x1c ./Src/src/drvPower.o
+                0x0000000008002ab4                power_UsbPresent
  .text.power_hold
-                0x0000000008002bf0       0x40 ./Src/src/drvPower.o
-                0x0000000008002bf0                power_hold
+                0x0000000008002ad0       0x40 ./Src/src/drvPower.o
+                0x0000000008002ad0                power_hold
  .text.power_exec
-                0x0000000008002c30      0x1a8 ./Src/src/drvPower.o
-                0x0000000008002c30                power_exec
+                0x0000000008002b10      0x1a8 ./Src/src/drvPower.o
+                0x0000000008002b10                power_exec
  .text.fast_hsv2rgb_32bit
-                0x0000000008002dd8      0x1b8 ./Src/src/utilHsvToRgb.o
-                0x0000000008002dd8                fast_hsv2rgb_32bit
+                0x0000000008002cb8      0x1b8 ./Src/src/utilHsvToRgb.o
+                0x0000000008002cb8                fast_hsv2rgb_32bit
  .text.Reset_Handler
-                0x0000000008002f90       0x80 ./Startup/startup_stm32f042f6px.o
-                0x0000000008002f90                Reset_Handler
+                0x0000000008002e70       0x80 ./Startup/startup_stm32f042f6px.o
+                0x0000000008002e70                Reset_Handler
  .text.Default_Handler
-                0x0000000008003010        0x2 ./Startup/startup_stm32f042f6px.o
-                0x0000000008003010                TIM1_CC_IRQHandler
-                0x0000000008003010                TSC_IRQHandler
-                0x0000000008003010                I2C1_IRQHandler
-                0x0000000008003010                RCC_CRS_IRQHandler
-                0x0000000008003010                SPI1_IRQHandler
-                0x0000000008003010                ADC1_IRQHandler
-                0x0000000008003010                TIM17_IRQHandler
-                0x0000000008003010                CEC_CAN_IRQHandler
-                0x0000000008003010                RTC_IRQHandler
-                0x0000000008003010                PVD_VDDIO2_IRQHandler
-                0x0000000008003010                TIM16_IRQHandler
-                0x0000000008003010                EXTI4_15_IRQHandler
-                0x0000000008003010                DMA1_Channel1_IRQHandler
-                0x0000000008003010                Default_Handler
-                0x0000000008003010                TIM14_IRQHandler
-                0x0000000008003010                DMA1_Channel4_5_IRQHandler
-                0x0000000008003010                EXTI0_1_IRQHandler
-                0x0000000008003010                SPI2_IRQHandler
-                0x0000000008003010                WWDG_IRQHandler
-                0x0000000008003010                DMA1_Channel2_3_IRQHandler
-                0x0000000008003010                USART2_IRQHandler
-                0x0000000008003010                FLASH_IRQHandler
-                0x0000000008003010                USART1_IRQHandler
-                0x0000000008003010                TIM1_BRK_UP_TRG_COM_IRQHandler
- *fill*         0x0000000008003012        0x2 
+                0x0000000008002ef0        0x2 ./Startup/startup_stm32f042f6px.o
+                0x0000000008002ef0                TIM1_CC_IRQHandler
+                0x0000000008002ef0                TSC_IRQHandler
+                0x0000000008002ef0                I2C1_IRQHandler
+                0x0000000008002ef0                RCC_CRS_IRQHandler
+                0x0000000008002ef0                SPI1_IRQHandler
+                0x0000000008002ef0                ADC1_IRQHandler
+                0x0000000008002ef0                TIM17_IRQHandler
+                0x0000000008002ef0                CEC_CAN_IRQHandler
+                0x0000000008002ef0                RTC_IRQHandler
+                0x0000000008002ef0                PVD_VDDIO2_IRQHandler
+                0x0000000008002ef0                TIM16_IRQHandler
+                0x0000000008002ef0                EXTI4_15_IRQHandler
+                0x0000000008002ef0                DMA1_Channel1_IRQHandler
+                0x0000000008002ef0                Default_Handler
+                0x0000000008002ef0                TIM14_IRQHandler
+                0x0000000008002ef0                DMA1_Channel4_5_IRQHandler
+                0x0000000008002ef0                EXTI0_1_IRQHandler
+                0x0000000008002ef0                SPI2_IRQHandler
+                0x0000000008002ef0                WWDG_IRQHandler
+                0x0000000008002ef0                DMA1_Channel2_3_IRQHandler
+                0x0000000008002ef0                USART2_IRQHandler
+                0x0000000008002ef0                FLASH_IRQHandler
+                0x0000000008002ef0                USART1_IRQHandler
+                0x0000000008002ef0                TIM1_BRK_UP_TRG_COM_IRQHandler
+ *fill*         0x0000000008002ef2        0x2 
  .text.__libc_init_array
-                0x0000000008003014       0x48 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
-                0x0000000008003014                __libc_init_array
- .text.memcpy   0x000000000800305c       0x12 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
-                0x000000000800305c                memcpy
+                0x0000000008002ef4       0x48 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-init.o)
+                0x0000000008002ef4                __libc_init_array
+ .text.memcpy   0x0000000008002f3c       0x12 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libc_nano.a(lib_a-memcpy-stub.o)
+                0x0000000008002f3c                memcpy
  *(.glue_7)
- .glue_7        0x000000000800306e        0x0 linker stubs
+ .glue_7        0x0000000008002f4e        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x000000000800306e        0x0 linker stubs
+ .glue_7t       0x0000000008002f4e        0x0 linker stubs
  *(.eh_frame)
- *fill*         0x000000000800306e        0x2 
- .eh_frame      0x0000000008003070        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+ *fill*         0x0000000008002f4e        0x2 
+ .eh_frame      0x0000000008002f50        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
  *(.init)
- .init          0x0000000008003070        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crti.o
-                0x0000000008003070                _init
- .init          0x0000000008003074        0x8 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtn.o
+ .init          0x0000000008002f50        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crti.o
+                0x0000000008002f50                _init
+ .init          0x0000000008002f54        0x8 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtn.o
  *(.fini)
- .fini          0x000000000800307c        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crti.o
-                0x000000000800307c                _fini
- .fini          0x0000000008003080        0x8 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtn.o
-                0x0000000008003088                . = ALIGN (0x4)
-                0x0000000008003088                _etext = .
+ .fini          0x0000000008002f5c        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crti.o
+                0x0000000008002f5c                _fini
+ .fini          0x0000000008002f60        0x8 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtn.o
+                0x0000000008002f68                . = ALIGN (0x4)
+                0x0000000008002f68                _etext = .
 
-.vfp11_veneer   0x0000000008003088        0x0
- .vfp11_veneer  0x0000000008003088        0x0 linker stubs
+.vfp11_veneer   0x0000000008002f68        0x0
+ .vfp11_veneer  0x0000000008002f68        0x0 linker stubs
 
-.v4_bx          0x0000000008003088        0x0
- .v4_bx         0x0000000008003088        0x0 linker stubs
+.v4_bx          0x0000000008002f68        0x0
+ .v4_bx         0x0000000008002f68        0x0 linker stubs
 
-.iplt           0x0000000008003088        0x0
- .iplt          0x0000000008003088        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+.iplt           0x0000000008002f68        0x0
+ .iplt          0x0000000008002f68        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
 
-.rodata         0x0000000008003088       0x14
-                0x0000000008003088                . = ALIGN (0x4)
+.nvmem          0x0000000008007c00       0x2a
+                0x0000000008007c00                . = ALIGN (0x2)
+ *(.nvmem)
+ .nvmem         0x0000000008007c00       0x2a ./Src/src/drvNvMemory.o
+                0x0000000008007c00                flash_data
+                0x0000000008007c2a                . = ALIGN (0x2)
+
+.rodata         0x0000000008002f68       0x14
+                0x0000000008002f68                . = ALIGN (0x4)
  *(.rodata)
  *(.rodata*)
  .rodata.displayFindReturnPoint
-                0x0000000008003088       0x14 ./Src/src/drvDisplay.o
-                0x000000000800309c                . = ALIGN (0x4)
+                0x0000000008002f68       0x14 ./Src/src/drvDisplay.o
+                0x0000000008002f7c                . = ALIGN (0x4)
 
-.rel.dyn        0x000000000800309c        0x0
- .rel.iplt      0x000000000800309c        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+.rel.dyn        0x0000000008002f7c        0x0
+ .rel.iplt      0x0000000008002f7c        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
 
-.ARM.extab      0x000000000800309c        0x0
-                0x000000000800309c                . = ALIGN (0x4)
+.ARM.extab      0x0000000008002f7c        0x0
+                0x0000000008002f7c                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x000000000800309c                . = ALIGN (0x4)
+                0x0000000008002f7c                . = ALIGN (0x4)
 
-.ARM            0x000000000800309c        0x0
-                0x000000000800309c                . = ALIGN (0x4)
-                0x000000000800309c                __exidx_start = .
+.ARM            0x0000000008002f7c        0x0
+                0x0000000008002f7c                . = ALIGN (0x4)
+                0x0000000008002f7c                __exidx_start = .
  *(.ARM.exidx*)
-                0x000000000800309c                __exidx_end = .
-                0x000000000800309c                . = ALIGN (0x4)
+                0x0000000008002f7c                __exidx_end = .
+                0x0000000008002f7c                . = ALIGN (0x4)
 
-.preinit_array  0x000000000800309c        0x0
-                0x000000000800309c                . = ALIGN (0x4)
-                0x000000000800309c                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008002f7c        0x0
+                0x0000000008002f7c                . = ALIGN (0x4)
+                0x0000000008002f7c                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x000000000800309c                PROVIDE (__preinit_array_end = .)
-                0x000000000800309c                . = ALIGN (0x4)
+                0x0000000008002f7c                PROVIDE (__preinit_array_end = .)
+                0x0000000008002f7c                . = ALIGN (0x4)
 
-.init_array     0x000000000800309c        0x4
-                0x000000000800309c                . = ALIGN (0x4)
-                0x000000000800309c                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008002f7c        0x4
+                0x0000000008002f7c                . = ALIGN (0x4)
+                0x0000000008002f7c                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
- .init_array    0x000000000800309c        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
-                0x00000000080030a0                PROVIDE (__init_array_end = .)
-                0x00000000080030a0                . = ALIGN (0x4)
+ .init_array    0x0000000008002f7c        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+                0x0000000008002f80                PROVIDE (__init_array_end = .)
+                0x0000000008002f80                . = ALIGN (0x4)
 
-.fini_array     0x00000000080030a0        0x4
-                0x00000000080030a0                . = ALIGN (0x4)
+.fini_array     0x0000000008002f80        0x4
+                0x0000000008002f80                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
- .fini_array    0x00000000080030a0        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
+ .fini_array    0x0000000008002f80        0x4 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x00000000080030a4                . = ALIGN (0x4)
-                0x00000000080030a4                _sidata = LOADADDR (.data)
+                0x0000000008002f84                . = ALIGN (0x4)
+                0x0000000008002f84                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000       0x1c load address 0x00000000080030a4
+.data           0x0000000020000000       0x1c load address 0x0000000008002f84
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -4469,11 +4477,11 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                 0x000000002000001c                . = ALIGN (0x4)
                 0x000000002000001c                _edata = .
 
-.igot.plt       0x000000002000001c        0x0 load address 0x00000000080030c0
+.igot.plt       0x000000002000001c        0x0 load address 0x0000000008002fa0
  .igot.plt      0x000000002000001c        0x0 c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp/crtbegin.o
                 0x000000002000001c                . = ALIGN (0x4)
 
-.bss            0x000000002000001c      0x51c load address 0x00000000080030c0
+.bss            0x000000002000001c      0x144 load address 0x0000000008002fa0
                 0x000000002000001c                _sbss = .
                 0x000000002000001c                __bss_start__ = _sbss
  *(.bss)
@@ -4524,29 +4532,29 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  COMMON         0x00000000200000a4       0x8c ./Src/src/drvNeopixels.o
                 0x00000000200000a4                leds
                 0x00000000200000e4                spiSendData
- COMMON         0x0000000020000130      0x401 ./Src/src/drvNvMemory.o
+ COMMON         0x0000000020000130       0x2b ./Src/src/drvNvMemory.o
                 0x0000000020000130                NvMem_RamBuffer
-                0x0000000020000530                NvMem_Writable
- COMMON         0x0000000020000531        0x4 ./Src/src/drvPower.o
-                0x0000000020000531                power_timer
-                0x0000000020000532                power_buttonState
-                0x0000000020000533                doubleClickDetector
-                0x0000000020000534                power_buttonHoldTime
-                0x0000000020000538                . = ALIGN (0x4)
- *fill*         0x0000000020000535        0x3 
-                0x0000000020000538                _ebss = .
-                0x0000000020000538                __bss_end__ = _ebss
+                0x000000002000015a                NvMem_Writable
+ COMMON         0x000000002000015b        0x4 ./Src/src/drvPower.o
+                0x000000002000015b                power_timer
+                0x000000002000015c                power_buttonState
+                0x000000002000015d                doubleClickDetector
+                0x000000002000015e                power_buttonHoldTime
+                0x0000000020000160                . = ALIGN (0x4)
+ *fill*         0x000000002000015f        0x1 
+                0x0000000020000160                _ebss = .
+                0x0000000020000160                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x0000000020000538      0x600 load address 0x00000000080030c0
-                0x0000000020000538                . = ALIGN (0x8)
+                0x0000000020000160      0x600 load address 0x0000000008002fa0
+                0x0000000020000160                . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
-                0x0000000020000538                PROVIDE (_end = .)
-                0x0000000020000738                . = (. + _Min_Heap_Size)
- *fill*         0x0000000020000538      0x200 
-                0x0000000020000b38                . = (. + _Min_Stack_Size)
- *fill*         0x0000000020000738      0x400 
-                0x0000000020000b38                . = ALIGN (0x8)
+                0x0000000020000160                PROVIDE (_end = .)
+                0x0000000020000360                . = (. + _Min_Heap_Size)
+ *fill*         0x0000000020000160      0x200 
+                0x0000000020000760                . = (. + _Min_Stack_Size)
+ *fill*         0x0000000020000360      0x400 
+                0x0000000020000760                . = ALIGN (0x8)
 
 /DISCARD/
  libc.a(*)
@@ -4620,7 +4628,7 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
 LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libm.a
 LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_2.0.0.202105311346/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libgcc.a
 
-.debug_info     0x0000000000000000     0x6948
+.debug_info     0x0000000000000000     0x6959
  .debug_info    0x0000000000000000      0x35a ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_info    0x000000000000035a      0x64f ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_info    0x00000000000009a9      0xc77 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
@@ -4638,10 +4646,10 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_info    0x000000000000459c      0xb4f ./Src/src/drvAccelerometer.o
  .debug_info    0x00000000000050eb      0x7e6 ./Src/src/drvDisplay.o
  .debug_info    0x00000000000058d1      0x733 ./Src/src/drvNeopixels.o
- .debug_info    0x0000000000006004      0x386 ./Src/src/drvNvMemory.o
- .debug_info    0x000000000000638a      0x3d0 ./Src/src/drvPower.o
- .debug_info    0x000000000000675a      0x1cc ./Src/src/utilHsvToRgb.o
- .debug_info    0x0000000000006926       0x22 ./Startup/startup_stm32f042f6px.o
+ .debug_info    0x0000000000006004      0x397 ./Src/src/drvNvMemory.o
+ .debug_info    0x000000000000639b      0x3d0 ./Src/src/drvPower.o
+ .debug_info    0x000000000000676b      0x1cc ./Src/src/utilHsvToRgb.o
+ .debug_info    0x0000000000006937       0x22 ./Startup/startup_stm32f042f6px.o
 
 .debug_abbrev   0x0000000000000000     0x1e68
  .debug_abbrev  0x0000000000000000      0x1ab ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
@@ -4733,7 +4741,7 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_ranges  0x0000000000000680       0x10 ./Src/src/utilHsvToRgb.o
  .debug_ranges  0x0000000000000690       0x20 ./Startup/startup_stm32f042f6px.o
 
-.debug_macro    0x0000000000000000     0x2fbe
+.debug_macro    0x0000000000000000     0x2fc4
  .debug_macro   0x0000000000000000      0x18d ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_macro   0x000000000000018d       0xd9 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_macro   0x0000000000000266      0x18d ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
@@ -4782,14 +4790,14 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_macro   0x00000000000029d3      0x1cf ./Src/src/drvDisplay.o
  .debug_macro   0x0000000000002ba2       0xdb ./Src/src/drvNeopixels.o
  .debug_macro   0x0000000000002c7d       0x64 ./Src/src/drvNeopixels.o
- .debug_macro   0x0000000000002ce1       0xd4 ./Src/src/drvNvMemory.o
- .debug_macro   0x0000000000002db5       0x4c ./Src/src/drvNvMemory.o
- .debug_macro   0x0000000000002e01       0xc5 ./Src/src/drvPower.o
- .debug_macro   0x0000000000002ec6       0x28 ./Src/src/drvPower.o
- .debug_macro   0x0000000000002eee       0x72 ./Src/src/utilHsvToRgb.o
- .debug_macro   0x0000000000002f60       0x5e ./Src/src/utilHsvToRgb.o
+ .debug_macro   0x0000000000002ce1       0xda ./Src/src/drvNvMemory.o
+ .debug_macro   0x0000000000002dbb       0x4c ./Src/src/drvNvMemory.o
+ .debug_macro   0x0000000000002e07       0xc5 ./Src/src/drvPower.o
+ .debug_macro   0x0000000000002ecc       0x28 ./Src/src/drvPower.o
+ .debug_macro   0x0000000000002ef4       0x72 ./Src/src/utilHsvToRgb.o
+ .debug_macro   0x0000000000002f66       0x5e ./Src/src/utilHsvToRgb.o
 
-.debug_line     0x0000000000000000     0x9b65
+.debug_line     0x0000000000000000     0x9b2a
  .debug_line    0x0000000000000000      0x864 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
  .debug_line    0x0000000000000864      0x97e ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
  .debug_line    0x00000000000011e2      0xcf5 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_i2c.o
@@ -4805,14 +4813,14 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_line    0x00000000000062e1      0x574 ./Src/stm32_it.o
  .debug_line    0x0000000000006855      0x555 ./Src/system_stm32f0xx.o
  .debug_line    0x0000000000006daa      0xada ./Src/src/drvAccelerometer.o
- .debug_line    0x0000000000007884      0x977 ./Src/src/drvDisplay.o
- .debug_line    0x00000000000081fb      0x85d ./Src/src/drvNeopixels.o
- .debug_line    0x0000000000008a58      0x62f ./Src/src/drvNvMemory.o
- .debug_line    0x0000000000009087      0x617 ./Src/src/drvPower.o
- .debug_line    0x000000000000969e      0x431 ./Src/src/utilHsvToRgb.o
- .debug_line    0x0000000000009acf       0x96 ./Startup/startup_stm32f042f6px.o
+ .debug_line    0x0000000000007884      0x93a ./Src/src/drvDisplay.o
+ .debug_line    0x00000000000081be      0x85d ./Src/src/drvNeopixels.o
+ .debug_line    0x0000000000008a1b      0x631 ./Src/src/drvNvMemory.o
+ .debug_line    0x000000000000904c      0x617 ./Src/src/drvPower.o
+ .debug_line    0x0000000000009663      0x431 ./Src/src/utilHsvToRgb.o
+ .debug_line    0x0000000000009a94       0x96 ./Startup/startup_stm32f042f6px.o
 
-.debug_str      0x0000000000000000    0x45dc4
+.debug_str      0x0000000000000000    0x45de2
  .debug_str     0x0000000000000000    0x40066 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_exti.o
                                       0x401e9 (size before relaxing)
  .debug_str     0x0000000000040066      0x2f7 ./Libraries/STM32_F0xx_StdPerip_Driver/src/stm32f0xx_gpio.o
@@ -4833,27 +4841,27 @@ LOAD c:/st/stm32cubeide_1.7.0/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
                                       0x24508 (size before relaxing)
  .debug_str     0x00000000000419a9      0x29d ./Src/App_POVDisplay.o
                                       0x2753c (size before relaxing)
- .debug_str     0x0000000000041c46     0x3291 ./Src/App_Playground.o
+ .debug_str     0x0000000000041c46     0x328b ./Src/App_Playground.o
                                       0x278a1 (size before relaxing)
- .debug_str     0x0000000000044ed7       0xd7 ./Src/main.o
+ .debug_str     0x0000000000044ed1       0xd7 ./Src/main.o
                                       0x27630 (size before relaxing)
- .debug_str     0x0000000000044fae       0x9b ./Src/stm32_it.o
+ .debug_str     0x0000000000044fa8       0x9b ./Src/stm32_it.o
                                       0x2440d (size before relaxing)
- .debug_str     0x0000000000045049       0x62 ./Src/system_stm32f0xx.o
+ .debug_str     0x0000000000045043       0x62 ./Src/system_stm32f0xx.o
                                       0x240bb (size before relaxing)
- .debug_str     0x00000000000450ab      0x3de ./Src/src/drvAccelerometer.o
+ .debug_str     0x00000000000450a5      0x3de ./Src/src/drvAccelerometer.o
                                       0x40e07 (size before relaxing)
- .debug_str     0x0000000000045489      0x20d ./Src/src/drvDisplay.o
+ .debug_str     0x0000000000045483      0x20d ./Src/src/drvDisplay.o
                                       0x40ac2 (size before relaxing)
- .debug_str     0x0000000000045696      0x4b9 ./Src/src/drvNeopixels.o
+ .debug_str     0x0000000000045690      0x4b9 ./Src/src/drvNeopixels.o
                                       0x24ad6 (size before relaxing)
- .debug_str     0x0000000000045b4f      0x175 ./Src/src/drvNvMemory.o
-                                      0x2435c (size before relaxing)
- .debug_str     0x0000000000045cc4       0x8f ./Src/src/drvPower.o
+ .debug_str     0x0000000000045b49      0x199 ./Src/src/drvNvMemory.o
+                                      0x24380 (size before relaxing)
+ .debug_str     0x0000000000045ce2       0x8f ./Src/src/drvPower.o
                                       0x27c4a (size before relaxing)
- .debug_str     0x0000000000045d53       0x40 ./Src/src/utilHsvToRgb.o
+ .debug_str     0x0000000000045d71       0x40 ./Src/src/utilHsvToRgb.o
                                        0x3f33 (size before relaxing)
- .debug_str     0x0000000000045d93       0x31 ./Startup/startup_stm32f042f6px.o
+ .debug_str     0x0000000000045db1       0x31 ./Startup/startup_stm32f042f6px.o
                                          0x5e (size before relaxing)
 
 .comment        0x0000000000000000       0x53

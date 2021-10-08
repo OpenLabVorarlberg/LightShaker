@@ -34,10 +34,12 @@ _Min_Heap_Size = 0x200;	/* required amount of heap  */
 _Min_Stack_Size = 0x400;	/* required amount of stack */
 
 /* Memories definition */
+/* last page (1K) of flash used as NV-Memory */
 MEMORY
 {
-  RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 6K
-  FLASH    (rx)    : ORIGIN = 0x8000000,   LENGTH = 32K
+  RAM   (xrw) : ORIGIN = 0x20000000, LENGTH = 6K
+  FLASH (rx)  : ORIGIN = 0x8000000,  LENGTH = 31K
+  NVMEM (rwx) : ORIGIN = 0x8007C00,  LENGTH = 1K
 }
 
 /* Sections */
@@ -68,6 +70,12 @@ SECTIONS
     _etext = .;        /* define a global symbols at end of code */
   } >FLASH
 
+  .nvmem :
+  {
+    . = ALIGN(2);
+      *(.nvmem)
+    . = ALIGN(2);
+  } >NVMEM
   /* Constant data into "FLASH" Rom type memory */
   .rodata :
   {

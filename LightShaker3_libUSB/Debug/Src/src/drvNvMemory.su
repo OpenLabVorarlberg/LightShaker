@@ -1,4 +1,4 @@
-drvNvMemory.c:29:6:NvMem_init	16	static
-drvNvMemory.c:44:10:NvMem_read	16	static
-drvNvMemory.c:57:9:NvMem_write	16	static
-drvNvMemory.c:73:9:NvMem_SaveToFlash	24	static
+drvNvMemory.c:55:6:NvMem_init	16	static
+drvNvMemory.c:71:10:NvMem_read	16	static
+drvNvMemory.c:84:9:NvMem_write	16	static
+drvNvMemory.c:100:9:NvMem_SaveToFlash	24	static
