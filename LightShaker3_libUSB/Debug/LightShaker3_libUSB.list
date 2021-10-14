@@ -37,15 +37,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_ranges 000006b0  00000000  00000000  00030c10  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00002fc4  00000000  00000000  000312c0  2**0
+ 17 .debug_macro  00002fca  00000000  00000000  000312c0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00009b2a  00000000  00000000  00034284  2**0
+ 18 .debug_line   00009b2a  00000000  00000000  0003428a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00045de2  00000000  00000000  0003ddae  2**0
+ 19 .debug_str    00045ded  00000000  00000000  0003ddb4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000053  00000000  00000000  00083b90  2**0
+ 20 .comment      00000053  00000000  00000000  00083ba1  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  00001900  00000000  00000000  00083be4  2**2
+ 21 .debug_frame  00001900  00000000  00000000  00083bf4  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -6790,7 +6790,7 @@ void NvMem_init() {
  80027be:	801a      	strh	r2, [r3, #0]
  80027c0:	e010      	b.n	80027e4 <NvMem_init+0x3c>
 		//NvMem_RamBuffer[ad] = ~READ16(NVMEM_FLASH_BASE+2*ad);
-		NvMem_RamBuffer[ad] = ~flash_data[ad];
+		NvMem_RamBuffer[ad] = ~NvMem_FlashData[ad];
  80027c2:	1dbb      	adds	r3, r7, #6
  80027c4:	881a      	ldrh	r2, [r3, #0]
  80027c6:	4b0e      	ldr	r3, [pc, #56]	; (8002800 <NvMem_init+0x58>)

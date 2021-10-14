@@ -26,6 +26,10 @@
 #define NVMEM_AD_OVERSCAN		4
 #define NVMEM_AD_PICTURE_START	5
 
+#define NVMEM_WORDS_ALLOCATED	21	//really used memory (available is PageCount*Pagesize/2)
+
+
+
 void NvMem_init();
 uint16_t NvMem_read(uint16_t address);
 uint8_t NvMem_write(uint16_t address, uint16_t data);

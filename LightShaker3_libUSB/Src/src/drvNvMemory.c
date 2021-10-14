@@ -17,18 +17,18 @@
 #define NVMEM_FLASH_PAGESIZE	1024
 #define NVMEM_FLASH_BASE		(0x08008000 - NVMEM_PAGE_COUNT*NVMEM_FLASH_PAGESIZE)
 #define NVMEM_AD_TOP			(NVMEM_FLASH_PAGESIZE*NVMEM_PAGE_COUNT/2)-1
-#define NVMEM_WORDS_ALLOCATED	21	//really used memory (available is PageCount*Pagesize/2)
+
 
 #define READ16(address) ((uint16_t)(*(uint16_t*)(address)))
 
-uint16_t flash_data[NVMEM_WORDS_ALLOCATED] __attribute__ ((section (".nvmem")))=
+uint16_t NvMem_FlashData[NVMEM_WORDS_ALLOCATED] __attribute__ ((section (".nvmem")))=
 {
 		~0x00FF,				//NVMEM_AD_GLOBAL_RED
 		~0x00FF,				//NVMEM_AD_GLOBAL_GREEN
 		~0x00FF,				//NVMEM_AD_GLOBAL_BLUE
 		~0x0010,				//NVMEM_AD_ROWS_VISIBLE
 		~0x0000,				//NVMEM_AD_OVERSCAN
-		~0b0000001111000000,	//start of picture (smiley, 16x16 pixel monochrome)
+		~0b0000001111000000,	//start of default picture (smiley, 16x16 pixel monochrome)
 		~0b0000110000110000,
 		~0b0001000000001000,
 		~0b0010000000000100,
@@ -59,7 +59,7 @@ void NvMem_init() {
 
 	for (uint16_t ad = 0; ad < NVMEM_WORDS_ALLOCATED; ad++) {
 		//NvMem_RamBuffer[ad] = ~READ16(NVMEM_FLASH_BASE+2*ad);
-		NvMem_RamBuffer[ad] = ~flash_data[ad];
+		NvMem_RamBuffer[ad] = ~NvMem_FlashData[ad];
 	}
 	NvMem_Writable = true;
 }
