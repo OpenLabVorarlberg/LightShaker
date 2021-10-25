@@ -126,10 +126,10 @@ void displayInit() {
 	RowsLogic = RowsVisible + 2 * RowsOverscan;
 
 	//set the color to whatever is defined in NvMem
-	Neopixels_setColorFullRGB(NvMem_read(NVMEM_AD_GLOBAL_RED),
+	Neopixels_SetColorRGB(NvMem_read(NVMEM_AD_GLOBAL_RED),
 			NvMem_read(NVMEM_AD_GLOBAL_GREEN),
 			NvMem_read(NVMEM_AD_GLOBAL_BLUE));
-	Neopixels_setBrightness(31);
+	Neopixels_SetBrightness(31);
 
 }
 
@@ -145,7 +145,7 @@ void displaySendLine() {
 		//if row is in the visible area
 		if (RowNumber >= RowsOverscan
 				&& RowNumber < RowsOverscan + RowsVisible) {
-			Neopixels_setPattern(NvMem_read(NVMEM_AD_PICTURE_START + RowNumber));
+			Neopixels_Pattern(NvMem_read(NVMEM_AD_PICTURE_START + RowNumber));
 		} else {
 			//switch off the display
 			Neopixels_Off();

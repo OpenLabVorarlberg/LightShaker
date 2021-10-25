@@ -45,13 +45,13 @@ void Neopixels_init() {
 	DMA1_Channel3->CPAR = (uint32_t) &(SPI1->DR);
 
 	Neopixels_Off();
-	Neopixels_setColor(COLOR_WHITE);
+	Neopixels_SetColor(COLOR_WHITE);
 	globalColor.global = 10;
 
 	//LED-Test
 	for(uint8_t i = 0; i<16; i++) {
 		Neopixels_Single(i);
-		delay(20);
+		Delay(20);
 	}
 }
 
@@ -68,30 +68,30 @@ void Neopixels_setColorAsSaved()
  * @param s: saturation (how intense the color is. 0 is grey or white) 0...255
  * @param v: value (the brightness - 0 is black or off in case of leds) 0...255
  */
-void Neopixels_setColorHSV(uint16_t h, uint8_t s, uint8_t v)
+void Neopixels_SetColorHSV(uint16_t h, uint8_t s, uint8_t v)
 {
 	fast_hsv2rgb_32bit(h, s, v, &globalColor.red, &globalColor.green, &globalColor.blue);
 }
-void Neopixels_setColorFullRGB(uint8_t red, uint8_t green, uint8_t blue) {
+void Neopixels_SetColorRGB(uint8_t red, uint8_t green, uint8_t blue) {
 	globalColor.red = red;
 	globalColor.green = green;
 	globalColor.blue = blue;
 }
 
-void Neopixels_setColor(uint8_t color_idx)
+void Neopixels_SetColor(uint8_t color_idx)
 {
 	globalColor.blue = (color_idx&1)<<7;
 	globalColor.green = (color_idx&2)<<6;
 	globalColor.red = (color_idx&4)<<5;
 }
 
-void Neopixels_setBrightness(uint8_t brightness)
+void Neopixels_SetBrightness(uint8_t b)
 {
 	//the global-value in the Led-frame is only 5 bit (max.31)!
-	if (brightness > 0x1F) {
-		brightness = 0x1F;
+	if (b > 0x1F) {
+		b = 0x1F;
 	}
-	globalColor.global = brightness;
+	globalColor.global = b;
 }
 
 void updateStripe() {
@@ -132,7 +132,7 @@ void updateStripe() {
 }
 
 //so far only one global color
-void Neopixels_setPattern(uint16_t mask) {
+void Neopixels_Pattern(uint16_t mask) {
 
 	for (uint16_t i = 0; i < 16; i++) {
 		if (mask & (1 << i)) {	//led shall be active
@@ -148,7 +148,7 @@ void Neopixels_setPattern(uint16_t mask) {
 }
 
 void Neopixels_Single(uint8_t index) {
-	Neopixels_setPattern(1 << index);
+	Neopixels_Pattern(1 << index);
 }
 
 /**
@@ -176,7 +176,7 @@ void Neopixels_Bargraph(uint8_t hight, bool group3)
 		}
 
 	}
-	Neopixels_setPattern(pattern);
+	Neopixels_Pattern(pattern);
 	return;
 }
 

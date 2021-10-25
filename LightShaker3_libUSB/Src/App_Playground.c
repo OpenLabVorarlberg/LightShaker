@@ -38,7 +38,7 @@ void SetTimebase(uint16_t ticks)
 /* pauses all code-execution for <ticks> milli-seconds.
  * Be careful with this, as this really blocks the CPU completely
  */
-extern void delay (uint32_t ticks);
+extern void Delay (uint32_t ticks);
 
 // liefert eine zufällige zahl im Bereich von 0 bis bereich
 // returns a random number between 0 and <range>
@@ -54,8 +54,8 @@ int8_t step = 1;
 // demo: a red light flowing from left to right and back again
 void KnightRider(void)
 {
-	Neopixels_setColor(COLOR_RED);
-	Neopixels_setBrightness(2);
+	Neopixels_SetColor(COLOR_RED);
+	Neopixels_SetBrightness(2);
 	Neopixels_Single(pos);
 	pos += step;
 	if(pos >= 15)
@@ -71,8 +71,8 @@ void KnightRider(void)
 // demo: turns on and off one LED after the other in random colors
 void FarbenSpiel(void)
 {
-	Neopixels_setColor(Random(6)+1);
-	Neopixels_setBrightness(2);
+	Neopixels_SetColor(Random(6)+1);
+	Neopixels_SetBrightness(2);
 	Neopixels_Single(pos);
 	pos ++;
 	if(pos > 15)
@@ -83,22 +83,42 @@ void FarbenSpiel(void)
 
 /** The following helper functions are available to control the LEDs and write own programs
  *
-** Warten(uint32_t ticks) warte die angegeben Zeit bis zum ausführen des nächsten Kommandos
+** Timing
+** ------------------------------
+** Delay(uint32_t ticks) warte die angegebene Zeit bis zum ausführen des nächsten Kommandos
+** SetTimebase(uint16_t ticks) setzt die Zeit in millisekunden, bis die Schleife (Playground_Exec()) wieder aufgerufen wird
 **
-** LedEin(uint8_t ledNummer); schalte die LED mit der angegebenen Nummer ein
+** LEDs (NeoPixels)
+** ------------------------------
+** Neopixels_Single(uint8_t index); 				schalte die LED mit der angegebenen Nummer ein (die unterste hat den index 0)
+** Neopixels_Pattern(uint16_t mask); 				schalte alle LEDs ein, bei denen eine "1" steht. Beispiel: Neopixels_Pattern(0b0101010101010101) schaltet jede zweite LED ein.
+** Neopixels_Bargraph(uint8_t hight, bool group3); 	zeigt ein Streifen aus LEDs mit einstellbarer Höhe (height). Wenn group3 = true, wird jede vierte LED ausgelassen - das macht dem menschlichen Hirn das Zählen viel einfacher
+** Neopixels_Off(); 								schaltet alle LEDs aus
 **
-** LedMusterEin(uint16_t muster); schalte alle LEDs ein, bei denen eine "1" steht. Beispiel: LedMusterEin(0b0101010101010101) schaltet jede zweite LED ein.
+** Neopixels_SetBrightness(uint8_t b);				setzt die helligkeit aller LEDs auf den wert b (b kann nicht größer als 31 sein)
+** Neopixels_SetColorRGB(uint8_t red, uint8_t green, uint8_t blue);
+** 													setzt die Farbe anhand der 3 Werte für die Farbkomponenten Rot, Grün und Blau. Beispiel: Neopixels_SetColorRGB(255, 0, 0) ergiebt ein sattes Rot-.
+** Neopixels_SetColor(uint8_t color_idx)			setzt die Farbe auf eine der 8 vordefinierten Farben:
+** 													COLOR_BLACK (aus)
+** 													COLOR_BLUE
+** 													COLOR_GREEN
+** 													COLOR_CYAN
+** 													COLOR_RED
+** 													COLOR_MAGENTA
+** 													COLOR_YELLOW
+** 													COLOR_WHITE
+** Neopixels_SetColorHSV(uint16_t h, uint8_t s, uint8_t v);
+** 													setzt die Farbe anhand der 3 werte im HSV-Farbraum. Damit kannst du sanfte Farbübergänge machen.
 **
-** RGBFarbeAendern(uint8_t rot, uint8_t gruen, uint8_t blau); Ã¤ndere die Farbe fÃ¼r alle LEDs. Beispiel: RGBFarbeAendern(255,0,0) macht alle LEDs rot.
+** Beschleunigungs-sensor
+** ------------------------------
+** Accelerometer_read8(); 			Gibt die aktuelle Beschleunigung zurück. Das Ergebnis ist als Vektor in die 3 Achsen x, y und z aufgeteilt.
+** 									Beispiel: Accelerometer_read8().x gibt die Beschleunigung in x-richtung als wert von 0 bis 255.
 **
-** FarbeAendern(uint8_t farbe_palette)
-** Farben: 	FARBE_BLAU	FARBE_GRUEN 	FARBE_ZYAN	FARBE_ROT	FARBE_MAGENTA	FARBE_GELB	FARBE_WEISS
+** Sonstiges
+** ------------------------------
 **
-** AktuelleBeschleunigung(); Gibt den aktuellen Wert des Beschleunigungssensor aus
-**
-** KnightRider(void); demo: Das rote Leuchtband von KIT aus Knight Rider
-**
-** FarbenSpiel(void); demo: Schaltet LEDs in zufälligen Farben ein
+** Random(uint8_t range);			Liefert eine zufällige Zahl im Bereich von 0 bis <range>
 */
 
 uint8_t color = COLOR_RED;
@@ -120,8 +140,8 @@ void Playground_Init()
 	Accelerometer_setDataRate(RATE_400Hz);
 //--------------------------------------------------------------
 
-	Neopixels_setColor(COLOR_RED);
-	Neopixels_setBrightness(2);
+	Neopixels_SetColor(COLOR_RED);
+	Neopixels_SetBrightness(2);
 	pos = 0;
 	step = 1;
 }

@@ -172,7 +172,7 @@ uint8_t Accelerometer_goStandby() {
 	}
 	//reset the Active-bit
 	I2C_BitHandling(REG_CTRL_REG_1, 1 << 0, 0);
-	delay(100);
+	Delay(100);
 	//check, if the sensor is inactive
 	if (I2C_RdReg(REG_SYSMOD, rxBuf, 1) != 0) {
 		return 1;
@@ -187,7 +187,7 @@ uint8_t Accelerometer_goActive() {
 	}
 	//set the Active-bit
 	I2C_BitHandling(REG_CTRL_REG_1, 1 << 0, 1);
-	delay(100);
+	Delay(100);
 	//check, if the sensor is active
 	if (I2C_RdReg(REG_SYSMOD, rxBuf, 1) != 1) {
 
@@ -238,7 +238,7 @@ uint8_t Accelerometer_init() {
 
 	I2C_Cmd(I2C_ACC, ENABLE);
 
-	delay(50);
+	Delay(50);
 
 	if (I2C_RdReg(REG_WHO_AM_I, rxBuf, 1) != 0x5A) //read the device ID to verify communication
 			{

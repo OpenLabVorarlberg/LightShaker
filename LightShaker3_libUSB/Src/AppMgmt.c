@@ -68,8 +68,8 @@ void AppMgmt_AppExec()
 
 void AppMgmt_CycleApps()
 {
-	Neopixels_setColor(COLOR_WHITE);
-	Neopixels_setBrightness(2);
+	Neopixels_SetColor(COLOR_WHITE);
+	Neopixels_SetBrightness(2);
 	app_run = false;
 	app_active++;
 	if(app_active >= APP_COUNT)

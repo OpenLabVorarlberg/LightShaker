@@ -13,6 +13,6 @@
 #ifndef MAIN_H_
 #define MAIN_H_
 
-void delay(uint32_t ticks);
+void Delay(uint32_t ticks);
 
 #endif /* MAIN_H_ */

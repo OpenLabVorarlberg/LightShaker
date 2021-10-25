@@ -110,7 +110,7 @@ void SysTick_Handler(void)
  * blocking delay loop
  * @param ticks: number of ticks (ms) to wait
  */
-void delay(uint32_t ticks)
+void Delay(uint32_t ticks)
 {
 	delayTimer = ticks;
 	while(delayTimer > 0);
