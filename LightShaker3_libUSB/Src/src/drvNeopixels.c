@@ -181,10 +181,7 @@ void Neopixels_DisableSingle(uint8_t index) {
  */
 void Neopixels_UpdateSingle(uint8_t index, uint8_t brightness, uint8_t red, uint8_t green, uint8_t blue) {
 	leds[index].global = brightness;
-	leds[index].red = red;
-	leds[index].green = green;
-	leds[index].blue = blue;
-	updateStripe();
+	Neopixels_UpdateSingleColor(index, red, green, blue);
 }
 /**
  * Updates the color of a single LED. LED must be enabled first e.g. via Neopixels_Pattern.
