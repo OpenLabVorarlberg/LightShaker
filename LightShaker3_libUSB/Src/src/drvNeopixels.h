@@ -39,4 +39,5 @@ void Neopixels_SetBrightness(uint8_t brightness);
 void Neopixels_Pattern(uint16_t mask);
 void Neopixels_Single(uint8_t index);
 void Neopixels_Bargraph(uint8_t hight, bool group3);
+void Neopixels_UpdateColor(uint8_t index, uint8_t red, uint8_t green, uint8_t blue);
 void Neopixels_Off();

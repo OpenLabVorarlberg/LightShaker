@@ -151,6 +151,13 @@ void Neopixels_Single(uint8_t index) {
 	Neopixels_Pattern(1 << index);
 }
 
+void Neopixels_UpdateColor(uint8_t index, uint8_t red, uint8_t green, uint8_t blue) {
+	leds[index].red = red;
+	leds[index].green = green;
+	leds[index].blue = blue;
+	updateStripe();
+}
+
 /**
  * @param group3: 3 lit pixels are grouped together (every 4th is a gap) to increase readability,
  * as humans are very good at counting up to 3, but poor at counting more than 3
